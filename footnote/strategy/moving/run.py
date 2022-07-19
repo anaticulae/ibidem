@@ -1,0 +1,200 @@
+# =============================================================================
+# C O P Y R I G H T
+# -----------------------------------------------------------------------------
+# Copyright (c) 2019-2022 by Helmut Konrad Fahrendholz. All rights reserved.
+# This file is property of Helmut Konrad Fahrendholz. Any unauthorized copy,
+# use or distribution is an offensive act against international law and may
+# be prosecuted under federal law. Its content is company confidential.
+# =============================================================================
+"""Moving Footer Extraction Step
+=============================
+
+Requirements:
+    We do not check the header, because it is required, that this header
+    is fixed.
+
+Example:
+
+- master/page_72_noimages_toc.pdf
+- bachelor/page_111_images_toc.pdf
+
+TODO: Think about header
+"""
+
+import iamraw
+import texmex.navigator
+import utila
+
+import footnote.parser.highnote
+import footnote.strategy
+import footnote.strategy.moving.finish
+import footnote.strategy.moving.judge
+import footnote.strategy.moving.separator
+
+
+class MovingFooterStrategy(footnote.strategy.FooterHeaderDetectionStrategy):
+
+    def __init__(
+        self,
+        horizontals: iamraw.PagesWithHorizontalList,
+        sizeandborders: iamraw.PageSizeBorderList,
+        pagetextnavigators: texmex.PageTextNavigators,
+        footnote_strategy: callable = None,
+        invalid_footer: callable = None,
+    ):
+        super().__init__(
+            horizontals,
+            sizeandborders,
+            pagetextnavigators,
+        )
+        self.footnote_strategy = footnote_strategy
+        self.invalid_footer = invalid_footer
+
+    def run(self):
+        horizontals = footnote.strategy.moving.separator.footer_separator(
+            self.horizontals,
+            self.pagesize,
+        )
+        result = []
+        for horizontal in horizontals:
+            pdfpage = horizontal.page
+            sizeborder = utila.select_page(
+                self.sizeandborders,
+                page=pdfpage,
+            )
+            ptn = utila.select_page(
+                self.pagetextnavigators,
+                page=pdfpage,
+            )
+            processed = process_page(
+                horizontals=horizontal.content,
+                sizeandborder=sizeborder,
+                ptn=ptn,
+                footnote_strategy=self.footnote_strategy,
+                invalid_footer=self.invalid_footer,
+            )
+            if processed.footer is None and processed.header is None:
+                continue
+            result.append(processed)
+        return result
+
+    def pagesize(self, pagenumber):
+        selected = utila.select_page(
+            self.sizeandborders,
+            page=pagenumber,
+        )
+        if selected is None:
+            return (595.28, 841.89)
+        return (selected.size.width, selected.size.height)
+
+    def result(self):
+        detected = self.run()
+        utila.verbose('footer before merge:')
+        utila.verbose(detected)
+        utila.verbose()
+        result = footnote.strategy.moving.finish.merge_footer_pages(detected)
+        utila.verbose('footer after merge:')
+        utila.verbose(result)
+        utila.verbose()
+        result = footnote.strategy.moving.judge.last(result)
+        utila.verbose('footer after last:')
+        utila.verbose(result)
+        utila.verbose()
+        return result
+
+    def report(self) -> footnote.strategy.FooterStrategyReport:
+        # TODO: Avoid multiple computation, require  concept.
+        detected = self.result()
+        result = footnote.strategy.moving.judge.report(detected)
+        return result
+
+
+def process_page(
+    horizontals,
+    sizeandborder,
+    ptn,
+    footnote_strategy: callable = None,
+    invalid_footer: callable = None,
+) -> iamraw.PageContentFooterHeader:
+    pagesize = sizeandborder.size
+    # determine start of footer
+    footer = None
+    # check PAGENUMBR RAW? OR INHERIT FROM PTN?
+    bottomed = footnote.strategy.moving.separator.select_footer_line(
+        horizontals,
+        pagewidth=pagesize.width,
+        pageheight=pagesize.height,
+    )
+    if bottomed is not None:
+        footer = extract_footer(
+            bottomed,
+            pageheight=pagesize.height,
+            ptn=ptn,
+            footnote_strategy=footnote_strategy,
+            invalid_footer=invalid_footer,
+        )
+    # this algo does not detect any header
+    header = None
+    result = iamraw.PageContentFooterHeader(
+        header=header,
+        footer=footer,
+        page=ptn.page,
+    )
+    return result
+
+
+def extract_footer(
+    footerstart: float,
+    pageheight: int,
+    ptn,
+    footnote_strategy: callable = None,
+    invalid_footer: callable = None,
+) -> iamraw.MovingFooterInformation:
+    if footnote_strategy is None:
+        footnote_strategy = footnote.parser.highnote.parse
+    begin = utila.roundme(footerstart / pageheight)
+    # in the current parser state, the location of tiny distances between
+    # objects is not interpreted correctly. The distance is often to small.
+    # TODO: HOW TO HANDLE NON DETECTED PAGENUMBER_LOCATION
+    end = pageheight
+    end = utila.roundme(end / pageheight)
+    # TODO: USE TWO_THIRDS Strategy
+    content = ptn.between(
+        begin,
+        end,
+        selector=texmex.navigator.SelectBounding.BOTTOM,
+    )
+    if invalid_footer and invalid_footer(begin, content):
+        utila.debug(f'invalid footer on page {ptn.page}: {content}')
+        return None
+    # splitted by highnotes
+    footnotes = footnote_strategy(
+        content=content,
+        width=ptn.width,
+        pagenumber=ptn.page,
+    )
+    if nonumber(footnotes):
+        return None
+    if not footnotes:
+        # no footnotes parsed, therefore do not return MovingFooterInformation
+        return None
+    footer = iamraw.MovingFooterInformation(
+        begin=begin,
+        end=end,
+        notes=footnotes,
+    )
+    return footer
+
+
+NONUMBER = (-1, '-1')
+
+
+def nonumber(footnotes) -> bool:
+    if not footnotes:
+        return False
+    counted = len([item for item in footnotes if item.number in NONUMBER])
+    if not counted:
+        return False
+    if counted >= 2:
+        return True
+    return False

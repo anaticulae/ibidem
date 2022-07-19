@@ -39,10 +39,17 @@ if __name__ == "__main__":
         version=VERSION,
         zip_safe=False,  # create 'zip'-file if True. Don't do it!
         classifiers=[
-            'Programming Language :: Python :: 3.7',
             'Programming Language :: Python :: 3.8',
+            'Programming Language :: Python :: 3.9',
         ],
         packages=[
             'footnote',
+            'footnote.feature',
+            'footnote.parser',
+            'footnote.strategy',
+            'footnote.strategy.moving',
         ],
+        entry_points={
+            'console_scripts': ['footnote = footnote.cli:main',],
+        },
     )

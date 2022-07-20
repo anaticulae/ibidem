@@ -30,15 +30,10 @@ def rotate_ifrequired(navigators, sizeandborders=None):
         if pagesize is None:
             # empty navigator or only a part of ptn is extracted
             continue
-        pagesize = pagesize.size
-        if iswidepage(pagesize):
+        if ptn.rotated:
             ptn = texmex.rotate_left(ptn)
         result.append(ptn)
     return result
-
-
-def iswidepage(navigator) -> bool:
-    return navigator.width > navigator.height
 
 
 def isrightpage(pdf_pagenumber: int) -> bool:

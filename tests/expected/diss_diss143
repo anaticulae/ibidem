@@ -1,0 +1,57 @@
+0001 Hier wird davon ausgegangen, dass alle am Markt verfügbaren Systeme eine Produktreife besitzen, die Belastungen innerhalb der Auslegungsgrenzen für die geplante Lebensdauer ohne Schäden überstehen.
+0002 In einer einfachen Form besagt dieses Gesetz, dass sich in einem Zufallsexperiment, welches immer wieder unter selben Voraussetzungen durchgeführt wird, die relative Häufigkeit eines Zufallsergebnisses trotz auftretenden Ausreißern in der Regel um die theoretische Wahrscheinlichkeit eines Zufallsergebnisses stabilisiert [27].
+0003 Hier treffen hohe Ströme und die damit einhergehende Erwärmung auf immer kleiner wer- dende Leiterquerschnitte und stetig steigenden Aufwand bezüglich des thermischen Managements.
+0001 Der Widerstand in anderen Stoffgruppen ist durch Unreinheiten, Dotierungen bzw. Kristallfehler bestimmt und somit keine Eigenschaft eines reinen Stoffes.
+0002 Eine Schwebung ist das Ergebnis einer Superposition zweier Schwingungen, deren Frequenzen sich nur wenig voneinander unterscheiden. Sie weist eine zu- und abnehmende Amplitude auf. Ergeben sich Ausgangssignale mit variierender Amplitude und Periodendauern von mehreren Sekunden, so ist die Abstimmung zwischen Eingangssignal und Modulationsquelle (in diesem Fall die mechanische Zykelfrequenz) nicht perfekt.
+0003 Der thermische Ausdehnungskoeffzieint ist ein stoffspezifischer, temperaturabhängiger Materialwert. Die ursächliche Wärmedehnung erfolgt oft nicht gleichmäßig über den Temperaturbereich, so dass der thermische Ausdehungskoeffzieint für einen bestimmten Temperaturbereich oder eine bestimmte Bezugstemperatur angegeben wird.
+0004 Für f τ th < 0,5 gilt ∆T ∼ ∆R ∼ 1. Eine Herleitung dieser Zusammenhänge wird in Kapitel
+0002 .2 ab Seite 26 gezeigt.
+0005 Bei drahtgebundener Übertragung entspricht der Kanal einer elektrisch leitfähigen Verbindung zwischen Sender und Empfänger, also Quelle und Senke. Diese Verbindung genügt den in Kapitel 1.1 dargestellen Zusammenhängen.
+0006 Es ergeben sich für verschiedene Potenzen einer Sinusschwingung auch verschiedene Frequenzen im Ausgangsspektrum z. B. sin2 α = 1 (1 − cos 2α), sin3 α = 1 (3 sin α − sin(3α)),
+-001 sin4 α = 1 (cos(4α) − 4 cos(2α) + 3)).
+0007 Die dargestellten Frequenzanteile können durch Nutzung des Additionstheorems cos(α) cos(β) = 1 cos(α + β) + 1 cos(α − β) einfach berechnet werden.
+0008 Für lineare, zeitinvariante Systeme ist die Übertragungsfunktion definiert als der Quotient aus den zweiseitigen Laplace-Transformierten des Ausgangssignals Y (s) und Eingangssignals X(s): H(s) = Y (s) mit s = jω und j, der imaginären Einheit.
+0009 Ein Sweep bezeichnet ein Wechselsignal konstanter Amplitude, dessen Frequenz periodisch und stetig einen vorgegebenen Bereich durchläuft.
+0011 Kirby stellt in seiner Veröffentlichung heraus, dass die zweite und dritte Harmonische in allen Untersuchungen höhere Harmonische dominieren. Der THI kann als einfacher Parameter in Performancetests von Widerständen genutzt werden. Dieser Gedanke und die Bereitstellung kommerziell verfügbarer Messtechnik begründet die Messung der dritten Harmonischen zur Steigerung der Zuverlässigkeit bei der Widerstandsherstellung.
+0012 In Gleichung 1.12 wird die Gleichheit zwischen oberem und unterem IMR dargestellt. Es gibt Systeme bei denen diese Gleichheit nicht existiert (z. B. asymmetrische IMD [14]).
+0013 C ist in der Gleichung eine Konstante, die u.a. durch die Polynomialdarstellung entsteht und der Faktor der dritten Potenz ist.
+0014 Die Defektstelle hat ein geringes Volumen, so dass die thermische Kapazität sehr schnell umgeladen werden kann durch Stromfluss oder Entwärmung. Da die thermischen Vorgänge mit der doppelten Frequenz des Stromes erfolgen, kann hier t = 1 = T gesetzt werden.
+0015 Ein anderer Weg dies zu zeigen ist der Vergleich von sin2 x = 1 (1 − cos 2x), sin3 x =
+0001 (3 sin x − sin 3x) und sin4 x = 1 (cos 4x − 4 cos 2x + 3). Je nach Therm werden unter- 4
+-001 schiedliche Frequenzen generiert.
+0001 Der elektrische Widerstand ergibt sich für a = 0 zu Rel = 2ρ πd . Für Geometrien, die
+-001 von kreisrunden Kontaktflächen abweichen oder Fremdschichten aufweisen wird in [87] die Formel des Engewiderstandes mit einem empirisch ermittelten Faktor Φemp erweitert zu RS = Φemp · ρ πd .
+0002 Die dargestellten Zeitkonstanten sind größer als in der Praxis an Querschnittseinengungen erwartet werden können und dienen hier der übersichtlichen Darstellung der Zusammenhänge.
+0003 Eine Untersuchung eines günstigen Messfrequenzbereichs wird im nachfolgenden Kapitel
+0002 .3 durchgeführt.
+0004 trigonometrischer Zusammenhang: sin3(x) = 3 sin(x) − 1 sin(3x)
+0005 Wird die Defektbreite a sehr klein, so sinkt auch das Verhältnis der Temperaturdifferenzen stark ab. Für a=1 µm liegt dieses Verhältnis im Bereich von 10−5 (∆Tdef /∆Tok = 1 c2 · 2, 1 ·
+0010 −13). In diesem Fall ist der Einfluss der intakten Leiterbahn im Messsignal vorhanden. Der Grund hierfür ist die gute thermische Anbindung der Defektregion an die restliche Leiterbahn, die wiederum einen vergleichsweise hohen thermischen Widerstand in Richtung Substrat besitzt.
+0001 Diese Stromdichte liegt etwa eine Größenordung unter der Migrationsschwelle in Leitermaterialien. Zudem werden in der Praxis durch nur kurzzeitiges Messen Migrationseffekte unterdrückt [40].
+0002 Die thermische Zeitkonstante ist in dieser Simulation nicht berücksichtigt. Sie liegt bei etwa τth,def =167 ns. Dies erklärt den nicht vorhandenen Abfall der Amplitude der Welligkeit mit fortschreitendem thermischen Einschwingen.
+0003 Bei stochastischen Signalen genügt eine Messung mit geringerer Abtastfrequenz und entsprechend viel längerer Messzeit (Unterabtastung).
+0004 Der reale Wert für freie Konvektion liegt im Bereich von 1 bis 50 W/(m2 K) und hängt unter anderem von der Oberflächenbeschaffenheit und dem Winkel zwischen warmer Oberfläche und aufsteigendem Fluid ab.
+0005 flame retardant (flammenhemmend) (FR4), Die angehängte Nummer steht für eine bestimmte Materialzusammensetzung (Matrix, Verstärkung) und den damit verbundenen elektrischen, thermischen und mechanischen Eigenschaften, siehe [16].
+0006 Grundlage dieser Annahme ist ein Spreizungswinkel von 45◦ und ein sich somit ergebendes gleichschenkliges Dreieck mit der Höhe h1.
+0001 Künstliche Alterung wird im Rahmen dieser Arbeit als beschleunigte Alterung unter Laborbedingungen verstanden. Eine natürliche Alterung tritt bei gewissenhaft ausgelegten Systemen unter Feldbedingungen/Anwendungsbedingungen innerhalb der Spezifikation auf. Die natürliche Alterung ist ein vergleichsweise langsamer Prozess.
+0002 Solange der Werkstoffelektrisch leitfähig ist, hat er auch einen temperaturabhängigen spezifischen elektrischen Widerstand. Je nach Werkstoffvariiert dann nur die Performance des Messverfahrens.
+0003 Prozentangaben sind auf den Gewichtsanteil bezogen.
+0004 Flussmittelrückstände auf den Flip-Chips und chemische Rückstände auf dem Schaltungsträger können dadurch ungehindert verdampfen, ohne den finalen Aufbau zu beeinflussen.
+0005 Interconnect Distortion (Signalverzerrung an elektrischen Verbindungen) (ID)
+0006 IDe steht dabei als Abkürzung für Interconnect Distortion, wobei der angehängte Buchstabe die Anregungsart ausdrückt. In diesem Fall werden die Frequenzen durch ein elektrisches Signal angeregt. In Kapitel 5.3 wird eine Variante mit mechanischer Anregung vorgestellt. Diese trägt dann den Namen IDm.
+0007 Messobjekt (Device Under Test) (DUT)
+0008 z. B. Einschalten von benachbarten Verbrauchern
+0009 Die Empfindlichkeit wird durch die Steigung, also dem ersten Moment der betrachteten Kurve in einem bestimmten Arbeitspunkt beschrieben. Je steiler die Kurve ist, desto höher ist auch die Empfindlichkeit. Kleinere Änderungen im zu messenden Signal können so leichter festgestellt werden.
+0010 Die Weibullverteilung ist eine stetige Wahrscheinlichkeitsverteilung über die Menge der positiven reellen Zahlen, die zur Beschreibung von Lebensdauern von elektronischen Bauteilen herangezogen wird. Die darstellende Verteilungsfunktion der Weibullverteilung lautet Fw(t) = 100% · (1 − e−( t )b ). Darin sind Tc die charakteristische Lebensdauer, bei der
+-001 63,2% der Einheiten ausgefallen sind (für t = Tc gilt G = 100 % · (1 − 1/e) = 63,2 %), t die Lebensdauervariable, b die Steigung der Ausgleichsgeraden (Formparameter) und Fw die Ausfallwahrscheinlichkeit bzw. -häufigkeit (normiert auf 1, in % multipliziert mit 100) [77].
+0011 Die begrenzte Bildrate der Kamera verhindert Messungen bei höheren Frequenzen. Es ist davon auszugehen, dass die Frequenz zu niedrig ist, um ein optimales IDe-Signal bzw. nutzbare Amplituden der Harmonischen zu erzeugen.
+0001 Das diskutierte Messverfahren nutzt für die Modulation des Messsignals das thermische Verhalten der elektrischen Verbindung. Es ist jedoch auch möglich die Modulation durch mechanische Anregung herbeizuführen.
+0002 Komplexe Signale werden grafisch in zweidimensionaler Darstellung mit senkrecht aufeinander stehenden Achsen des Imaginär- und Realteils abgebildet.
+0003 Als Beispiel dient hier ein zylindrischer Draht, da zyklisches Öffnen und Schließen eines sich zunehmend verringernden Querschnitts in Leiterbahnen in der Praxis sehr selten auftritt.
+0004 Der Aluminiumdraht wird mit einem Prozent Silizium legiert, um die Zuverlässigkeit einer Bondverbindung auf Silizium-Chips durch geringere Diffusion zu steigern. Der unterdrückte Effekt wird Spiking genannt.
+0001 Additionstheorem: cos(α)cos(β) = 1 cos(α + β) + 1 cos(α − β)
+0002 Die Zeitkonstante des Filters τ wird so gewählt, dass die Schwankungen des Ausgangssignals durch die Länge des Integrationsintervalls minimiert werden.
+0003 Auch hier wird Gdc(ω) wegen der geringen Bandbreite als konstanter Verstärkungsfaktor angenommen.
+0004 Die Messzeit muss mindestens über eine Periodendauer der Frequenz fr −fs erfolgen, damit der Einfluss der Modulation entfernt werden kann.
+0005 Additionstheorem: sin(α)cos(β) = 1 sin(α + β) + 1 sin(α − β)
+0006 Trigonometrischer Pythagoras: sin2(α) + cos2(α) = 1

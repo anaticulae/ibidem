@@ -7,11 +7,16 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
+import iamraw
 import power
-import utilatest
+import serializeraw
 
-import footnote
+import tests
 
-power.setup(footnote.ROOT)
 
-run, fail = utilatest.create_cli_runner(footnote)
+def footer(source: str, td, mp, pages: str = ':'):
+    cmd = f'-i {power.link(source)}  --pages={pages}'
+    tests.run(cmd, mp=mp)
+    headerpath = iamraw.path.footnote_result(td.tmpdir)
+    loaded = serializeraw.load_headerfooter(headerpath)
+    return loaded

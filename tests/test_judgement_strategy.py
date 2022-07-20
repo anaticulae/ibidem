@@ -1,17 +1,25 @@
 # =============================================================================
 # C O P Y R I G H T
 # -----------------------------------------------------------------------------
-# Copyright (c) 2020-2022 by Helmut Konrad Fahrendholz. All rights reserved.
+# Copyright (c) 2019-2022 by Helmut Konrad Fahrendholz. All rights reserved.
 # This file is property of Helmut Konrad Fahrendholz. Any unauthorized copy,
 # use or distribution is an offensive act against international law and may
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
-import power
-import utilatest
+import pytest
 
-import footnote
+import footnote.feature.result
 
-power.setup(footnote.ROOT)
 
-run, fail = utilatest.create_cli_runner(footnote)
+def test_footer_judge_strategy_empty():
+    empty = [
+        [],
+        [],
+        [],
+    ]
+    result = footnote.feature.result.judge_strategy(empty)
+    assert result == []
+
+    with pytest.raises(AssertionError):
+        footnote.feature.result.judge_strategy(None)

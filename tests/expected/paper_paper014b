@@ -1,0 +1,32 @@
+0001 Of course, there is no formal way of measuring distribution market share, but distrowatch.com is a decent approximation.
+0002 For a complete list of Arch Linux software, consult the offciail list of git repositories at https://git.archlinux.org/
+0003 Because of how daunting installation via commandline can be, there are entire tools dedicated to providing an easier install experience for Arch Linux (Arch Linux Anywhere, Revenge Installer). Distributions based offof Arch Linux such as Antergros and Manjaro also have graphical installers
+0004 Of the top 10, Debian is supported by its corporate partners; Ubuntu is based on Debian and supported by its developing company, Canonical; 3 are based on Ubuntu; 2 are supported by Red Hat; openSUSE is supported by SUSE. Two distributions are not supported by an organization, namely Arch Linux and Manjaro Linux, which is based on Arch Linux.
+0005 https://www.archlinux.org/download/
+0006 PGP, short for “Pretty Good Privacy”, is a trademark of the PGP corporation. Arch Linux, however, uses the open source variant known as OpenPGP. All references to “PGP” throughout this paper will refer to OpenPGP.
+0007 https://wiki.archlinux.org/index.php/Category:Getting\_and\_installing\_Arch
+0008 This number is not set, and the number of “master users” may change at any time
+0009 The current Master Signing Key arrangement can be viewed on the offciail Arch Linux website at https://www.archlinux.org/master-keys
+0010 Do note that, by default, the individual keys are considered authentic if they are signed by 3 marginally trusted keys. For Arch Linux, this simply happens to be the majority of master keys. As the number of master keys grows, the “majority” requirement may no longer hold.
+0011 https://www.archlinux.org/master-keys/
+0012 Information about master key signatures can be found at https://www.archlinux.org/master-keys
+0013 Although this is the final PGP complaint that I will analyze in this paper, there are many more valid PGP complaints found around the web. There are some articles, like the one found at http://secushare.org/PGP, which advocate for never using PGP at all.
+0014 More information is available on the offciail ArchWiki page https://wiki.archlinux.org/index.php/DeveloperWiki: NewMirrors
+0015 The offciail mirrorlist can be viewed at https://www.archlinux.org/mirrorlist/all/
+0016 A popular tool for managing the Arch Linux mirrorlist is Reflector, which can be found at https://wiki.archlinux.org/index.php/reflector
+0017 Package groups have special entries in the package database, but I will not be analyzing them.
+0018 A brief summary of how often Arch Linux checks mirrors for stale data can be seen on the offciail mirror status page, found at https://www.archlinux.org/mirrors/status/
+0019 The AUR homepage is found at https://aur.archlinux.org. The relevant ArchWiki entry for the AUR is found at https://wiki.archlinux.org/index.php/Arch_User_Repository
+0020 The criteria for this promotion is rather strict. Packages must be stable, have good support for Arch Linux systems, and have no legal concerns. Often times, software copyright and licensing issues are the only factors preventing popular packages from being promoted from the AUR to Community.
+0021 Trusted Users have a multitude of duties, which are defined in an offciail bylaws document found at https://aur.archlinux.org/trusted-user/TUbylaws.html. There is also a list of guidelines that they must follow in the wiki at https://wiki.archlinux.org/index.php/AUR_Trusted_User_Guidelines.
+0022 Standard PGP key-retrieval methods involve acquiring the key directly or acquiring the key from a PGP keyserver
+0023 Details about how a PKGBUILD can be arranged can be found in the ArchWiki at https://wiki.archlinux.org/index.php/PKGBUILD
+0024 A demonstration of such a PKGBUILD file can be found at http://brandonio21.com/security/archlinux/demos/aur/malicious-pkgbuild/PKGBUILD
+0025 An example of such a layout can be found at http://brandonio21.com/security/archlinux/demos/aur/malicious-install/PKGBUILD
+0026 This security feature is already implemented in pacaur, a tool to download from the AUR. However, it only asks the user if they would like to manually inspect install scripts and the PKGBUILD file. I claim it would be more useful to present the user with the relevant entries in their entirety
+0027 The ArchWiki page for security can be found at https://wiki.archlinux.org/index.php/Security
+0028 The ArchWiki page for package signing can be found at https://wiki.archlinux.org/index.php/Pacman/Package_ signing
+0029 The installation guide found at https://wiki.archlinux.org/index.php/installation_guide#Select_the_mirrors only mentions the generation of mirrors, but not that they should be trusted.
+0030 An archive of this mailing list can be found at https://lists.archlinux.org/pipermail/arch-security/
+0031 This list is available at https://security.archlinux.org/. It would be an interesting exercise to see if this could be used to extend pacman into a more secure version.
+0032 Progress on mspacman can be followed on its GitHub page at https://github.com/brandonio21/mspacman

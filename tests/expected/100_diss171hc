@@ -1,0 +1,4 @@
+0001 Quenchen bezeichnet dabei die schnelle Beendigung einer Reaktionskette. Verantwortlich sind dabei Effekte wie die Verdünnung, die Abkühlung oder das Entfernung eines der Edukte aus dem Reaktionsgemisch
+0001 Das 99;9%-Perzentil besagt, dass 99;9% aller Werte kleiner oder gleich dem gegebenem Wert sind. Einzelne Ausreißer können so berücksichtigt werden.
+0001 Die Notation a(k + ijk) bezieht sich dabei auf den vorhergesagten Wert a zum Zeitpunkt k + i, basierend auf den Informationen zum Zeitpunkt k. Dabei ist a(k + ijk) nicht zwangsläufig gleichzusetzen mit a(k + i).
+0002 Notation: u(·jk) = [u(k); u(k + 1); · · · ; u(k + Hc)], wobei Hc der Optimierungshorizont ist.

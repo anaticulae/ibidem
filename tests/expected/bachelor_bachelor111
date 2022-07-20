@@ -1,0 +1,41 @@
+0001 Personal Digital Assistant.
+0002 Operating System.
+0003 Eclipse ist eine Gemeinschaft die sich mit Open-Source-Projekten, unter anderem zur Entwicklung einer erweiterbaren Entwicklungsumgebung (IDE), befasst. Die zentrale Komponente ist dabei die Eclipse IDE. [Ecl10]
+0004 Java Standard Edition
+0005 Software Development Kit
+0006 Virtual Machine
+0007 Application Programming Interface
+0008 Graphical User Interface
+0009 Model-View-Controller.
+0010 Wireless Local Area Network
+0011 Wireless Personal Area Network
+0012 Global System for Mobile Communications bzw. früher Groupe Speciale Mobile
+0013 Frequency Division Multiplexing
+0014 Time Division Multiplexing
+0015 General Packet Radio Service
+0016 Enhanced Data Rates for GSM Evolution
+0017 Universal Mobile Telecommunications System
+0018 3rd Generation Partnership Project
+0019 Wideband Code Division Multiple Access
+0020 High Speed Downlink Packet Access
+0021 High Speed Packet Access
+0022 Orthogonal-Frequency-Division-Multiplexing
+0023 Multiple-Input-Multiple-Output
+0024 Industrial, scientific, medical
+0025 KNX ist ein Feldbus-System für die Gebäudeautomation. Es wird im Unterabschnitt 2.3.1 näher erläutert.
+0026 Twisted Pair
+0027 Engeneering Tool Software.
+0028 Digital Addressable Lightning Interface .
+0029 Local Operating Network
+0030 Carrier Sense Multiple Access
+0001 Der Datenpunkttyp ist Teil des KNX-Standards und beschreibt wie die Nutzdaten eines KNX-Telegramms zu interpretieren sind. So wird beispielsweise über den Datenpunkttyp "14.068", der einem KNX-Gerät zugeordnet wird, beschrieben, dass die Nutzdaten als "Common Temperature" zu interpretieren sind [KNX09, S. 13].
+0001 Comma-Seperated Values.
+0002 Extensible Markup Language.
+0003 User Datagram Protocol
+0001 Integrated Development Environment
+0002 Software Development Kit
+0003 Application Programming Interface
+0001 +(NSData * ) downloadDataFromUrl: (NSURL* ) u r l r e t u r n i n g R e s p o n s e : 2
+0003 NSURLRequest * r e q u e s t = [ [ NSURLRequest a l l o c ] initWithURL: u r l ] ;
+0004 Historisch nach „NextSTEP Interface Builder“ benannt.
+0005 Hinter dem Objekt „File’s Owner“ verbirgt sich ein Verweis auf den entsprechenden von UIViewController abgeleiteten ViewController.

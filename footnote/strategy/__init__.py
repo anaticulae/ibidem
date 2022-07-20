@@ -30,7 +30,6 @@ import dataclasses
 import typing
 
 import iamraw
-import iamraw.path
 import serializeraw
 import texmex
 import utila
@@ -96,16 +95,15 @@ def create_strategy(
     strategy: FootnoteDetectionStrategy,
     pages=None,
 ):
-    horizontals = iamraw.path.horizontals(path)
     horizontals = serializeraw.load_horizontals(
-        horizontals,
+        path,
         pages=pages,
         width_min=footnote.config.FOOTER_SEPARATOR_WIDTH_MIN,
     )
-
-    sizeandborders = iamraw.path.sizeandborder(path)
-    sizeandborders = serializeraw.load_pageborders(sizeandborders, pages=pages)
-
+    sizeandborders = serializeraw.load_pageborders(
+        path,
+        pages=pages,
+    )
     navigator = serializeraw.create_pagetextnavigators_frompath(
         path,
         pages=pages,

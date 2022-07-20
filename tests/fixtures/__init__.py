@@ -17,7 +17,7 @@ import utila
 
 @pytest.fixture
 def master72page14():
-    navigators = serializeraw.create_pagetextnavigators_frompath(
+    navigators = serializeraw.ptn_frompath(
         power.link(power.MASTER072_PDF),
         pages=14,
     )
@@ -30,7 +30,7 @@ def master72page14():
 @pytest.fixture
 def master89page7():
     page = 7
-    navigators = serializeraw.create_pagetextnavigators_frompath(
+    navigators = serializeraw.ptn_frompath(
         power.link(power.MASTER089_PDF),
         pages=page,
     )
@@ -43,7 +43,7 @@ def master89page7():
 @pytest.fixture
 def master89page19():
     page = 19
-    navigators = serializeraw.create_pagetextnavigators_frompath(
+    navigators = serializeraw.ptn_frompath(
         power.link(power.MASTER089_PDF),
         pages=page,
     )
@@ -57,7 +57,7 @@ def master89page19():
 @pytest.fixture
 def bachelor111page10():
     page = 10
-    navigators = serializeraw.create_pagetextnavigators_frompath(
+    navigators = serializeraw.ptn_frompath(
         power.link(power.BACHELOR111_PDF),
         pages=page,
     )

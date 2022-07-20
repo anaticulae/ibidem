@@ -34,7 +34,7 @@ def test_footer_footerheader_detectionstategy(
     source = power.link(power.DOCU027_PDF)
     horizontals = serializeraw.load_horizontals(source)
     sizeandborders = serializeraw.load_pageborders(source)
-    ptn = serializeraw.create_pagetextnavigators_frompath(source)
+    ptn = serializeraw.ptn_frompath(source)
     process = strategy(
         horizontals=horizontals,
         sizeandborders=sizeandborders,

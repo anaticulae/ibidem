@@ -104,7 +104,7 @@ def create_strategy(
         path,
         pages=pages,
     )
-    navigator = serializeraw.create_pagetextnavigators_frompath(
+    navigator = serializeraw.ptn_frompath(
         path,
         pages=pages,
     )

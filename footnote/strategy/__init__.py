@@ -6,23 +6,22 @@
 # use or distribution is an offensive act against international law and may
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
-"""The `footer` module extract the header and footer area out of
-pdf-pages.
+"""The `footer` module extract the footnote area out of pdf-pages.
+
 There are four different strategies:
 
-- FixedFooterStrategy
 - MovingStrategy
-- PageNumberStrategy
-- CommonTextStrategy
+- PlainMovingStrategy
 
-The strategy is to run these different strategies and use a
-judgement-unit to decide which result is the best. In some cases the best
-strategy changes from page to page.
+The strategy run these different strategies and use a judgement-unit to
+decide which result is the best. In some cases the best strategy changes
+from page to page.
 
-As a result we have the `HeaderInformation` and `FooterInformation` with
-additional data. As a further the **decider** program judges about
-header and footer and gives advices to the user about failures and
-possible improvements.
+As a result we have `FooterInformation` with additional data.
+
+decider_footnote:
+    As a later step the **decider** program judges about footer and
+    gives advices to the user about failures and possible improvements.
 """
 
 import abc

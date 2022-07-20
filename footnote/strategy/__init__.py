@@ -55,9 +55,13 @@ class FootnoteDetectionStrategy(abc.ABC):
         self.horizontals = horizontals
         self.sizeandborders = sizeandborders
         self.ptns = ptns
-
+        # ease accessing data
+        self.store = utila.SelectPage(
+            ptns=ptns,
+            sizeandborders=sizeandborders,
+            horizontals=horizontals,
+        )
         self.result__ = {}
-
         self.post_init()
 
     def post_init(self):
@@ -90,6 +94,9 @@ class FootnoteDetectionStrategy(abc.ABC):
         if selected is None:
             return (595.28, 841.89)
         return (selected.size.width, selected.size.height)
+
+    def datum(self, pdfpage: int) -> tuple:
+        return self.store.getpage(pdfpage)
 
 
 def create_strategy(

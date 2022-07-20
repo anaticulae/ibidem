@@ -58,14 +58,7 @@ class MovingStrategy(footnote.strategy.FootnoteDetectionStrategy):
         result = []
         for horizontal in horizontals:
             pdfpage = horizontal.page
-            sizeborder = utila.select_page(
-                self.sizeandborders,
-                page=pdfpage,
-            )
-            ptn = utila.select_page(
-                self.ptns,
-                page=pdfpage,
-            )
+            ptn, sizeborder = self.datum(pdfpage)[0:2]
             processed = process_page(
                 horizontals=horizontal.content,
                 sizeandborder=sizeborder,

@@ -38,14 +38,14 @@ class MovingStrategy(footnote.strategy.FootnoteDetectionStrategy):
         self,
         horizontals: iamraw.PagesWithHorizontalList,
         sizeandborders: iamraw.PageSizeBorderList,
-        pagetextnavigators: texmex.PageTextNavigators,
+        ptns: texmex.PageTextNavigators,
         footnote_strategy: callable = None,
         invalid_footer: callable = None,
     ):
         super().__init__(
             horizontals,
             sizeandborders,
-            pagetextnavigators,
+            ptns,
         )
         self.footnote_strategy = footnote_strategy
         self.invalid_footer = invalid_footer
@@ -63,7 +63,7 @@ class MovingStrategy(footnote.strategy.FootnoteDetectionStrategy):
                 page=pdfpage,
             )
             ptn = utila.select_page(
-                self.pagetextnavigators,
+                self.ptns,
                 page=pdfpage,
             )
             processed = process_page(

@@ -26,12 +26,12 @@ class PlainMovingStrategy(footnote.strategy.moving.run.MovingStrategy):
         self,
         horizontals: iamraw.PagesWithHorizontalList,
         sizeandborders: iamraw.PageSizeBorderList,
-        pagetextnavigators: texmex.PageTextNavigators,
+        ptns: texmex.PageTextNavigators,
     ):
         super().__init__(
             horizontals,
             sizeandborders,
-            pagetextnavigators,
+            ptns,
             footnote_strategy=footnote.parser.plain.parse,
             invalid_footer=invalid_footer,
         )

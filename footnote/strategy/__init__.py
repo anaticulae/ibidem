@@ -49,12 +49,12 @@ class FootnoteDetectionStrategy(abc.ABC):
         self,
         horizontals: iamraw.PagesWithHorizontalList,
         sizeandborders: iamraw.PageSizeBorderList,
-        pagetextnavigators: texmex.PageTextNavigators,
+        ptns: texmex.PageTextNavigators,
     ):
         assert isinstance(horizontals, typing.List), str(horizontals)
         self.horizontals = horizontals
         self.sizeandborders = sizeandborders
-        self.pagetextnavigators = pagetextnavigators
+        self.ptns = ptns
 
         self.result__ = {}
 
@@ -106,14 +106,14 @@ def create_strategy(
         path,
         pages=pages,
     )
-    navigator = serializeraw.ptn_frompath(
+    ptn = serializeraw.ptn_frompath(
         path,
         pages=pages,
     )
     result = strategy(
         horizontals=horizontals,
         sizeandborders=sizeandborders,
-        pagetextnavigators=navigator,
+        ptns=ptn,
     )
     return result
 

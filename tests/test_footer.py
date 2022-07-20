@@ -38,7 +38,7 @@ def test_footer_footerheader_detectionstategy(
     process = strategy(
         horizontals=horizontals,
         sizeandborders=sizeandborders,
-        pagetextnavigators=ptn,
+        ptns=ptn,
     )
     result = process.result()
     assert len(result) == expected_results, 'not enough footer and header'

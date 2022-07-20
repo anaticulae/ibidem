@@ -62,7 +62,7 @@ def work(
     result = extract_footerheader(
         horizontals=horizontals,
         sizeandborders=sizeandborders,
-        pagetextnavigators=ptns,
+        ptns=ptns,
     )
     validate(result)
     # dump
@@ -73,7 +73,7 @@ def work(
 def extract_footerheader(
     horizontals: iamraw.PagesWithHorizontalList,
     sizeandborders: iamraw.PageSizeBorderList,
-    pagetextnavigators: texmex.PageTextNavigators,
+    ptns: texmex.PageTextNavigators,
 ) -> iamraw.PageContentFooterHeaders:
     """Extract most common header/footer of the document.
 
@@ -85,7 +85,7 @@ def extract_footerheader(
         runme(
             horizontals=horizontals,
             sizeandborders=sizeandborders,
-            pagetextnavigators=pagetextnavigators,
+            ptns=ptns,
         ).result() for runme in strategies
     ]
     for result, name in zip(results, strategies):

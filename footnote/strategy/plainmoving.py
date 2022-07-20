@@ -91,7 +91,6 @@ FOOTER_COUNT_MIN = configo.HolyTable(
         (1.0, 0),
     ),
     strategy=utila.Strategy.LINEARISE,
-    right_outranges_none=False,
 )
 
 

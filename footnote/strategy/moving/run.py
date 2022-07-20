@@ -144,15 +144,8 @@ def extract_footer(
     if footnote_strategy is None:
         footnote_strategy = footnote.parser.highnote.parse
     begin = utila.roundme(footerstart / pageheight)
-    # in the current parser state, the location of tiny distances between
-    # objects is not interpreted correctly. The distance is often to small.
-    # TODO: HOW TO HANDLE NON DETECTED PAGENUMBER_LOCATION
-    end = pageheight
-    end = utila.roundme(end / pageheight)
-    # TODO: USE TWO_THIRDS Strategy
-    content = ptn.between(
+    content = ptn.after(
         begin,
-        end,
         selector=texmex.navigator.SelectBounding.BOTTOM,
     )
     if invalid_footer and invalid_footer(begin, content):
@@ -169,6 +162,13 @@ def extract_footer(
     if not footnotes:
         # no footnotes parsed, therefore do not return MovingFooterInformation
         return None
+    lastnote_bounding = footnotes[-1].bounding
+    if lastnote_bounding:
+        end = utila.roundme(lastnote_bounding[3] / pageheight)
+        end += 0.02  # a little offset to avoid under estimating
+    else:
+        end = 1.0
+        utila.error(f'missing last note bounding: {footnotes[-1]}')
     footer = iamraw.MovingFooterInformation(
         begin=begin,
         end=end,

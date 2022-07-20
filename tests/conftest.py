@@ -42,9 +42,14 @@ RESOURCES = [
     (power.MASTER112_PDF, '5,6'),
     (power.MASTER116_PDF, '50:117'),
     (power.ORDER009_PDF, '0:10'),
-    genex.todo(power.DISS172_PDF, figureo=True, tablero=True, cleanup=True),
-    genex.todo(power.DOCU007_PDF, tablero=True),
-    genex.todo(power.MASTER063_PDF, figureo=True, cleanup=True),
+    genex.todo(
+        power.DISS172_PDF,
+        figureo=True,
+        tablero=True,
+        rawmaker=genex.CONFIG,
+    ),
+    genex.todo(power.DOCU007_PDF, tablero=True, rawmaker=genex.CONFIG),
+    genex.todo(power.MASTER063_PDF, figureo=True),
     power.BACHELOR028_PDF,
     power.BACHELOR032A_PDF,
     power.BACHELOR032_PDF,
@@ -100,9 +105,14 @@ def pytest_sessionstart(session):  # pylint:disable=W0613
     power.run()
 
 
+RAWMAKER = '--text --fonts --border --line --horizontals ' + genex.CONFIG
+
+
 def extract(resources):
     genex.extract(
         resources,
+        rawmaker=RAWMAKER,
+        oneline=None,
         pagenumber=True,
         cleanup=True,
         worker=WORKER,
@@ -122,5 +132,7 @@ def extract_notitle(resources):
         pages='0:10',
         pagenumber=True,
         cleanup=True,
+        rawmaker=RAWMAKER,
+        oneline=None,
         worker=1,
     )

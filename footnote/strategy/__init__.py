@@ -68,9 +68,11 @@ class FootnoteDetectionStrategy(abc.ABC):
         raise NotImplementedError()
 
     def report(self) -> FootnoteExtractionReport:
-        """Return meta data to determined `result`. The main propose of
-        this report is to have a better view why the algorithm produces
-        this given result."""
+        """Return meta data to determined `result`.
+
+        The main propose of this report is to have a better view why the
+        algorithm produces this given result.
+        """
         raise NotImplementedError()
 
     def pageheight(self, page) -> int:

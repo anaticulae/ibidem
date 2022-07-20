@@ -66,14 +66,10 @@ class Evaluate(utilatest.BaseLiner):
             source=power.link(source),
             workdir=workdir,
             archive=ARCHIVE,
-            loader=self.load_footnotes,
+            loader=serializeraw.load_footnotes,
             convert_source=False,
             index=expected,
         )
-
-    def load_footnotes(self, _):  # pylint:disable=W0613
-        loaded = serializeraw.load_footnotes(self.workdir)
-        return loaded
 
     def raw(self, value) -> str:
         footnotes = utila.flatten_content(value)

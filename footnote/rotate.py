@@ -34,14 +34,3 @@ def rotate_ifrequired(navigators, sizeandborders=None):
             ptn = texmex.rotate_left(ptn)
         result.append(ptn)
     return result
-
-
-def isrightpage(pdf_pagenumber: int) -> bool:
-    """What pdf page is the left side?
-
-    The first page is the right page?
-    """
-    # TODO: REQUIRE SMART ALTERNATIVE
-    if utila.iseven(pdf_pagenumber):
-        return True
-    return False

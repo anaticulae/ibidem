@@ -26,7 +26,26 @@ WORKPLAN = [
         ],
         output=('result',),
     ),
+    utila.create_step(
+        'legacy',
+        inputs=[
+            utila.ResultFile(producer='footnote', name='result_result'),
+        ],
+        output=('legacy',),
+    ),
 ]
+
+
+def rename(path):
+    if not isinstance(path, str):
+        path = [rename(item) for item in path]
+        return path
+    path = utila.rreplace(
+        path,
+        pattern='footnote_legacy_legacy',
+        replace='groupme__footer_footerheader',
+    )
+    return path
 
 
 def main():
@@ -39,6 +58,7 @@ def main():
             multiprocessed=True,
             name=footnote.PROCESS,
             pages=True,
+            rename=rename,
             version=footnote.__version__,
         ),
     )

@@ -97,14 +97,14 @@ def test_footer_master99_page8(td, mp):
 
 @utilatest.nightly
 def test_footer_master155_page107(td, mp):
+    """No footer on page107."""
     extracted = tests.extractor.footer(
         power.MASTER155_PDF,
         td,
         mp,
         pages='0:110',
     )
-    footer = utila.select_page(extracted, 107).footer
-    assert isinstance(footer, iamraw.PagesFooterInformation), type(footer)
+    assert not utila.select_page(extracted, 107)
 
 
 @utilatest.nightly
@@ -115,8 +115,6 @@ def test_footer_master127(td, mp):
         mp,
         pages=':',
     )
-    headers = [item.header for item in extracted if item.header is not None]
-    assert len(headers) == 126  # VALIDATED
     footers = [
         item.footer
         for item in extracted

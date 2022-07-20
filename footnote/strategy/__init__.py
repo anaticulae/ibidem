@@ -11,7 +11,7 @@ pdf-pages.
 There are four different strategies:
 
 - FixedFooterStrategy
-- MovingFooterStrategy
+- MovingStrategy
 - PageNumberStrategy
 - CommonTextStrategy
 
@@ -40,11 +40,11 @@ import footnote.config
 
 
 @dataclasses.dataclass  # pylint:disable=R0903
-class FooterStrategyReport:
+class FootnoteExtractionReport:
     pass
 
 
-class FooterHeaderDetectionStrategy(abc.ABC):
+class FootnoteDetectionStrategy(abc.ABC):
     # TODO: Relative or absolute result dimension?
 
     def __init__(
@@ -68,7 +68,7 @@ class FooterHeaderDetectionStrategy(abc.ABC):
     def result(self) -> iamraw.PageContentFooterHeaders:
         raise NotImplementedError()
 
-    def report(self) -> FooterStrategyReport:
+    def report(self) -> FootnoteExtractionReport:
         """Return meta data to determined `result`. The main propose of
         this report is to have a better view why the algorithm produces
         this given result."""
@@ -92,7 +92,7 @@ class FooterHeaderDetectionStrategy(abc.ABC):
 
 def create_strategy(
     path: str,
-    strategy: FooterHeaderDetectionStrategy,
+    strategy: FootnoteDetectionStrategy,
     pages=None,
 ):
     horizontals = iamraw.path.horizontals(path)
@@ -160,7 +160,7 @@ def strategies():
     import footnote.strategy.plainmoving
     # TODO: Automate collection
     result = [
-        footnote.strategy.moving.run.MovingFooterStrategy,
-        footnote.strategy.plainmoving.PlainMovingFooterStrategy
+        footnote.strategy.moving.run.MovingStrategy,
+        footnote.strategy.plainmoving.PlainMovingStrategy
     ]
     return result

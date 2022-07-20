@@ -32,7 +32,7 @@ import footnote.strategy.moving.judge
 import footnote.strategy.moving.separator
 
 
-class MovingFooterStrategy(footnote.strategy.FooterHeaderDetectionStrategy):
+class MovingStrategy(footnote.strategy.FootnoteDetectionStrategy):
 
     def __init__(
         self,
@@ -102,7 +102,7 @@ class MovingFooterStrategy(footnote.strategy.FooterHeaderDetectionStrategy):
         utila.verbose()
         return result
 
-    def report(self) -> footnote.strategy.FooterStrategyReport:
+    def report(self) -> footnote.strategy.FootnoteExtractionReport:
         # TODO: Avoid multiple computation, require  concept.
         detected = self.result()
         result = footnote.strategy.moving.judge.report(detected)

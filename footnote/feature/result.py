@@ -6,7 +6,7 @@
 # use or distribution is an offensive act against international law and may
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
-"""Footer Header Extraction Step
+"""Footer Extraction Step
 =============================
 
 TODO:
@@ -112,7 +112,7 @@ def judge_strategy(
         - PlainMoving:
 
     Args:
-        results: lists of `footnote.FooterHeaderDetectionStrategy`.result
+        results: lists of `footnote.FootnoteDetectionStrategy`.result
     Returns:
         list of zipped result
     """

@@ -22,7 +22,7 @@ import tests.extractor
 
 # TODO: CHECK 25
 @pytest.mark.parametrize('strategy, expected_results', [
-    (footnote.strategy.moving.run.MovingFooterStrategy, 0),
+    (footnote.strategy.moving.run.MovingStrategy, 0),
 ])
 def test_footer_footerheader_detectionstategy(
     strategy,

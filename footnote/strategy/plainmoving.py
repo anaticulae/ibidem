@@ -20,7 +20,7 @@ import footnote.strategy.moving.judge
 import footnote.strategy.moving.run
 
 
-class PlainMovingFooterStrategy(footnote.strategy.moving.run.MovingFooterStrategy): # yapf:disable
+class PlainMovingStrategy(footnote.strategy.moving.run.MovingStrategy):
 
     def __init__(
         self,
@@ -42,7 +42,7 @@ class PlainMovingFooterStrategy(footnote.strategy.moving.run.MovingFooterStrateg
             detected = []
         return detected
 
-    def report(self) -> footnote.strategy.FooterStrategyReport:
+    def report(self) -> footnote.strategy.FootnoteExtractionReport:
         # TODO: Avoid multiple computation, require  concept.
         detected = self.result()
         report = footnote.strategy.moving.judge.analyze(detected)

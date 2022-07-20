@@ -23,7 +23,7 @@ FOOTNOTE_NUMBER_ERROR_MAX = configo.HV_FLOAT_PLUS(default=0.4)
 
 
 @dataclasses.dataclass
-class MovingFooterResultReport(footnote.strategy.FooterStrategyReport):
+class MovingFooterResultReport(footnote.strategy.FootnoteExtractionReport):
     footer: int = None
     header: int = None
     footer_empty: int = None
@@ -56,7 +56,7 @@ def judge_detection(items):
     """
     reportx = analyze(items)
     # This can happen when using the wrong strategy. If we parse
-    # FixedFooter with MovingFooterStrategy, there are a lot of footer
+    # FixedFooter with MovingStrategy, there are a lot of footer
     # which are threated as MovingFooter with Footnote, but this detection
     # is not correct.
     if reportx.too_many_empty_footer:

@@ -65,7 +65,7 @@ def judge_detection(items):
 
 
 def analyze(results) -> MovingFooterResultReport:
-    footer_count = footnote.strategy.count_footer(results)
+    footer_count = count_footer(results)
     emptyfooter_count = count_empty(results)
     empty_factor = emptyfooter_count / footer_count if footer_count else 0
     too_many_empty_footer = empty_factor >= WRONG_STRATEGY_EMPTY_FOOTER_FACTOR
@@ -78,12 +78,22 @@ def analyze(results) -> MovingFooterResultReport:
     return result
 
 
+def count_footer(items):
+    footer = select_footer(items)
+    result = len(footer)
+    return result
+
+
 def count_empty(items: iamraw.PageContentFooterHeader) -> int:
     """Count `MovingFooterInformation` which contain a empty `notes` list"""
     footers = [item.footer for item in items if item.footer]
     empty_footnotes = [item for item in footers if not item.notes]
     result = len(empty_footnotes)
     return result
+
+
+def select_footer(items):
+    return [item.footer for item in items if item.footer]
 
 
 def footnote_number_error(numbers: list) -> bool:  # pylint:disable=R0911

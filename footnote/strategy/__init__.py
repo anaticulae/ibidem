@@ -155,16 +155,6 @@ def multijudgement(judges):
     return current
 
 
-def select_footer(items):
-    return [item.footer for item in items if item.footer]
-
-
-def count_footer(items):
-    footer = select_footer(items)
-    result = len(footer)
-    return result
-
-
 def strategies():
     import footnote.strategy.moving.run  # pylint:disable=redefined-outer-name
     import footnote.strategy.plainmoving

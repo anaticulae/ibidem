@@ -78,15 +78,6 @@ class MovingStrategy(footnote.strategy.FootnoteDetectionStrategy):
             result.append(processed)
         return result
 
-    def pagesize(self, pagenumber):
-        selected = utila.select_page(
-            self.sizeandborders,
-            page=pagenumber,
-        )
-        if selected is None:
-            return (595.28, 841.89)
-        return (selected.size.width, selected.size.height)
-
     def result(self):
         detected = self.run()
         utila.verbose('footer before merge:')

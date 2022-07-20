@@ -74,20 +74,22 @@ class FootnoteDetectionStrategy(abc.ABC):
         """
         raise NotImplementedError()
 
-    def pageheight(self, page) -> int:
+    def pagesize(self, pagenumber) -> tuple:
         """Determine `pageheight` of current `page` in `pixel`.
 
         Args:
-            page(int): page of pdf document
+            pagenumber(int): page of pdf document
         Returns:
             pageheight if pageheight exists
             None if pageheight not exists
         """
-        selected = utila.select_page(self.sizeandborders, page)
+        selected = utila.select_page(
+            self.sizeandborders,
+            page=pagenumber,
+        )
         if selected is None:
-            return None
-        pageheight = selected.size.height
-        return pageheight
+            return (595.28, 841.89)
+        return (selected.size.width, selected.size.height)
 
 
 def create_strategy(

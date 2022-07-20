@@ -150,7 +150,7 @@ def multijudgement(judges):
     # BIGGER ONE, ITEM OF BIGGER CLUSTER?
 
     def count_item(item):
-        return int(item.footer is not None) + int(item.header is not None)
+        return int(item.footer is not None)
 
     current = judges[0]
     count = count_item(current)

@@ -66,7 +66,7 @@ class MovingStrategy(footnote.strategy.FootnoteDetectionStrategy):
                 footnote_strategy=self.footnote_strategy,
                 invalid_footer=self.invalid_footer,
             )
-            if processed.footer is None and processed.header is None:
+            if processed.footer is None:
                 continue
             result.append(processed)
         return result
@@ -117,10 +117,7 @@ def process_page(
             footnote_strategy=footnote_strategy,
             invalid_footer=invalid_footer,
         )
-    # this algo does not detect any header
-    header = None
     result = iamraw.PageContentFooterHeader(
-        header=header,
         footer=footer,
         page=ptn.page,
     )

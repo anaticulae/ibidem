@@ -2,6 +2,14 @@
 
 Every noteable change is logged here.
 
+## v0.2.0
+
+### Feature
+
+* use data from separate steps (3fbf47953cd4)
+* add separate step (6adc1bdcbcee)
+* move plain strategy to separate step (dc861eb195d1)
+
 ## v0.1.0
 
 ### Feature

@@ -114,7 +114,7 @@ def split_textinfo(content) -> list:
     collected = []
     for item in content:
         for style in item.style.content:
-            if footnote.utils.ishighnote(style, item.text):
+            if ishighnote(style, item.text):
                 if collected:
                     result.append((highnote, union(collected)))
                     collected = []
@@ -276,3 +276,16 @@ def char_bounding(
     x1 = bounding.x0 + char_width * style.end
     result = iamraw.BoundingBox(x0, bounding.y0, x1, bounding.y1)
     return result
+
+
+HIGHNOTE_RISE_MIN = configo.HV_FLOAT_PLUS(default=3.0)
+
+
+def ishighnote(style, text: str) -> bool:
+    highnote_occurs = style.rise >= HIGHNOTE_RISE_MIN
+    if not highnote_occurs:
+        return False
+    text = text[style.start:style.end].strip()
+    if footnote.utils.NUMBER.match(text):
+        return True
+    return False

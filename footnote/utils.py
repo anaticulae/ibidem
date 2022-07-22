@@ -9,12 +9,9 @@
 
 import re
 
-import configo
 import german
 import texmex
 import utila
-
-HIGHNOTE_RISE_MIN = configo.HV_FLOAT_PLUS(default=3.0)
 
 NUMBER = utila.compiles(r'\[?(\d{1,4})\]?')
 
@@ -79,16 +76,6 @@ def search_footnote(text):
     else:
         number, content = int(matched['number']), matched['text']
     return number, content
-
-
-def ishighnote(style, text: str) -> bool:
-    highnote_occurs = style.rise >= HIGHNOTE_RISE_MIN
-    if not highnote_occurs:
-        return False
-    text = text[style.start:style.end].strip()
-    if NUMBER.match(text):
-        return True
-    return False
 
 
 def hyperlink_improve(text: str) -> str:

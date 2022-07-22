@@ -28,7 +28,7 @@ step = lambda x: pytest.param(x, ':', utila.file_name(x), id=utila.file_name(x))
     utilatest.test_resources(tests.conftest.RESOURCES),
 )
 @utilatest.nightly
-def test_validate_footnotes_all(source, td, mp):
+def test_validate_all(source, td, mp):
     Evaluate(
         source=source,
         pages=':',
@@ -43,7 +43,7 @@ def test_validate_footnotes_all(source, td, mp):
     pytest.param(power.DISS480_PDF, '4,5', 'diss480p4p5', id='diss480p4p5'),
 ])
 @utilatest.nightly
-def test_validate_footnotes_selected(source, pages, expected, td, mp):
+def test_validate_selected(source, pages, expected, td, mp):
     Evaluate(
         source=source,
         pages=pages,

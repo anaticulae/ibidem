@@ -153,14 +153,3 @@ def multijudgement(judges):
         current = item
         count = cur_count
     return current
-
-
-def strategies():
-    import footnote.strategy.moving.run  # pylint:disable=redefined-outer-name
-    import footnote.strategy.plainmoving
-    # TODO: Automate collection
-    result = [
-        footnote.strategy.moving.run.MovingStrategy,
-        footnote.strategy.plainmoving.PlainMovingStrategy
-    ]
-    return result

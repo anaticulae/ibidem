@@ -39,11 +39,8 @@ WORKPLAN = [
     utila.create_step(
         'result',
         inputs=[
-            utila.ResultFile(producer='rawmaker', name='text_text'),
-            utila.ResultFile(producer='rawmaker', name='text_positions'),
-            utila.ResultFile(producer='rawmaker', name='fonts_header'),
-            utila.ResultFile(producer='rawmaker', name='fonts_content'),
-            utila.ResultFile('rawmaker', name='horizontals_horizontals'),
+            utila.ResultFile(producer='footnote', name='highnote_highnote'),
+            utila.ResultFile(producer='footnote', name='plain_plain'),
         ],
         output=('result',),
     ),

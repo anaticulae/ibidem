@@ -18,21 +18,12 @@ import typing
 
 import iamraw
 import serializeraw
-import texmex
 import utila
-
-import footnote
-import footnote.config
-import footnote.strategy
-import footnote.utils
 
 
 def work(
-    text: str,
-    textpositions: str,
-    fontheader: str,
-    fontcontent: str,
-    horizontals: str,
+    xhighnote: str,
+    xplain: str,
     pages=None,
 ) -> str:
     """Extract footer and header area out of horizontal lines.
@@ -41,53 +32,23 @@ def work(
         Dumped list with top and bottom border, which separates the
         content from the footer and or header, for every page
     """
-    utila.call('footer')
-    # load
-    horizontals = serializeraw.load_horizontals(
-        horizontals,
-        pages=pages,
-        width_min=footnote.config.FOOTER_SEPARATOR_WIDTH_MIN,
-    )
-    ptns = serializeraw.ptn_fromfile(
-        text,
-        textpositions,
-        fontheader,
-        fontcontent,
+    highnote = serializeraw.load_headerfooter(
+        xhighnote,
         pages=pages,
     )
-    ptns = footnote.utils.rotate_ifrequired(ptns)
-    # work
-    result = extract_footerheader(
-        horizontals=horizontals,
-        ptns=ptns,
+    plain = serializeraw.load_headerfooter(
+        xplain,
+        pages=pages,
     )
+    # select the best one
+    result = judge_strategy((
+        highnote,
+        plain,
+    ))
     validate(result)
     # dump
     dumped = serializeraw.dump_headerfooter(result)
     return dumped
-
-
-def extract_footerheader(
-    horizontals: iamraw.PagesWithHorizontalList,
-    ptns: texmex.PageTextNavigators,
-) -> iamraw.PageContentFooterHeaders:
-    """Extract most common header/footer of the document.
-
-    Returns:
-        The most common header/foooter combination for the document
-    """
-    strategies = footnote.strategy.strategies()
-    results = [
-        runme(
-            horizontals=horizontals,
-            ptns=ptns,
-        ).result() for runme in strategies
-    ]
-    for result, name in zip(results, strategies):
-        utila.verbose('=' * 30 + name.__name__ + '=' * 30)
-        utila.verbose(result)
-    result = judge_strategy(results)
-    return result
 
 
 def judge_strategy(

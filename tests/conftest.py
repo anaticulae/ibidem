@@ -109,7 +109,7 @@ def pytest_sessionstart(session):  # pylint:disable=W0613
     power.run()
 
 
-RAWMAKER = '--text --fonts --border --line --horizontals ' + genex.CONFIG
+RAWMAKER = '--text --line --horizontals ' + genex.CONFIG
 
 
 def extract(resources):

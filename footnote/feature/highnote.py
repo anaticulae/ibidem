@@ -17,8 +17,6 @@ import footnote.utils
 def work(
     text: str,
     textpositions: str,
-    fontheader: str,
-    fontcontent: str,
     horizontals: str,
     pages=None,
 ) -> str:
@@ -31,8 +29,6 @@ def work(
     ptns = serializeraw.ptn_fromfile(
         text,
         textpositions,
-        fontheader,
-        fontcontent,
         pages=pages,
     )
     ptns = footnote.utils.rotate_ifrequired(ptns)

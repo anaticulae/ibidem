@@ -58,10 +58,9 @@ class MovingStrategy(footnote.strategy.FootnoteDetectionStrategy):
         result = []
         for horizontal in horizontals:
             pdfpage = horizontal.page
-            ptn, sizeborder = self.datum(pdfpage)[0:2]
+            ptn = self.datum(pdfpage)[0]
             processed = process_page(
                 horizontals=horizontal.content,
-                sizeandborder=sizeborder,
                 ptn=ptn,
                 footnote_strategy=self.footnote_strategy,
                 invalid_footer=self.invalid_footer,
@@ -95,24 +94,21 @@ class MovingStrategy(footnote.strategy.FootnoteDetectionStrategy):
 
 def process_page(
     horizontals,
-    sizeandborder,
-    ptn,
+    ptn: texmex.NavigatorMixin,
     footnote_strategy: callable = None,
     invalid_footer: callable = None,
 ) -> iamraw.PageContentFooterHeader:
-    pagesize = sizeandborder.size
     # determine start of footer
     footer = None
     # check PAGENUMBR RAW? OR INHERIT FROM PTN?
     bottomed = footnote.strategy.moving.separator.select_footer_line(
         horizontals,
-        pagewidth=pagesize.width,
-        pageheight=pagesize.height,
+        pagewidth=ptn.width,
+        pageheight=ptn.height,
     )
     if bottomed is not None:
         footer = extract_footer(
             bottomed,
-            pageheight=pagesize.height,
             ptn=ptn,
             footnote_strategy=footnote_strategy,
             invalid_footer=invalid_footer,
@@ -126,14 +122,13 @@ def process_page(
 
 def extract_footer(
     footerstart: float,
-    pageheight: int,
-    ptn,
+    ptn: texmex.NavigatorMixin,
     footnote_strategy: callable = None,
     invalid_footer: callable = None,
 ) -> iamraw.MovingFooterInformation:
     if footnote_strategy is None:
         footnote_strategy = footnote.parser.highnote.parse
-    begin = utila.roundme(footerstart / pageheight)
+    begin = utila.roundme(footerstart / ptn.height)
     content = ptn.after(
         begin,
         selector=texmex.navigator.SelectBounding.BOTTOM,
@@ -154,7 +149,7 @@ def extract_footer(
         return None
     lastnote_bounding = footnotes[-1].bounding
     if lastnote_bounding:
-        end = utila.roundme(lastnote_bounding[3] / pageheight)
+        end = utila.roundme(lastnote_bounding[3] / ptn.height)
         end += 0.02  # a little offset to avoid under estimating
     else:
         end = 1.0

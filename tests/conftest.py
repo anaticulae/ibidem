@@ -80,6 +80,7 @@ RESOURCES = [
     power.HC_DISS166,
     power.HC_DISS171,
     power.HC_DISS193,
+    power.HOME007_PDF,
     power.HOME018_PDF,
     power.HOME020_PDF,
     power.HOME021B_PDF,

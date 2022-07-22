@@ -33,11 +33,9 @@ def test_footer_footerheader_detectionstategy(
     TODO: SEE DUPLICATION test_footer_judgement_strategy_quality?"""
     source = power.link(power.DOCU027_PDF)
     horizontals = serializeraw.load_horizontals(source)
-    sizeandborders = serializeraw.load_pageborders(source)
     ptn = serializeraw.ptn_frompath(source)
     process = strategy(
         horizontals=horizontals,
-        sizeandborders=sizeandborders,
         ptns=ptn,
     )
     result = process.result()

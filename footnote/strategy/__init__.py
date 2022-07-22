@@ -48,17 +48,14 @@ class FootnoteDetectionStrategy(abc.ABC):
     def __init__(
         self,
         horizontals: iamraw.PagesWithHorizontalList,
-        sizeandborders: iamraw.PageSizeBorderList,
         ptns: texmex.PageTextNavigators,
     ):
         assert isinstance(horizontals, typing.List), str(horizontals)
         self.horizontals = horizontals
-        self.sizeandborders = sizeandborders
         self.ptns = ptns
         # ease accessing data
         self.store = utila.SelectPage(
             ptns=ptns,
-            sizeandborders=sizeandborders,
             horizontals=horizontals,
         )
         self.result__ = {}
@@ -88,12 +85,12 @@ class FootnoteDetectionStrategy(abc.ABC):
             None if pageheight not exists
         """
         selected = utila.select_page(
-            self.sizeandborders,
+            self.ptns,
             page=pagenumber,
         )
         if selected is None:
             return (595.28, 841.89)
-        return (selected.size.width, selected.size.height)
+        return (selected.width, selected.height)
 
     def datum(self, pdfpage: int) -> tuple:
         return self.store.getpage(pdfpage)
@@ -109,17 +106,12 @@ def create_strategy(
         pages=pages,
         width_min=footnote.config.FOOTER_SEPARATOR_WIDTH_MIN,
     )
-    sizeandborders = serializeraw.load_pageborders(
-        path,
-        pages=pages,
-    )
     ptn = serializeraw.ptn_frompath(
         path,
         pages=pages,
     )
     result = strategy(
         horizontals=horizontals,
-        sizeandborders=sizeandborders,
         ptns=ptn,
     )
     return result

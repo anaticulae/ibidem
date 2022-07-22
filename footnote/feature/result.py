@@ -33,7 +33,6 @@ def work(
     fontheader: str,
     fontcontent: str,
     horizontals: str,
-    sizeandborders: str,
     pages=None,
 ) -> str:
     """Extract footer and header area out of horizontal lines.
@@ -49,7 +48,6 @@ def work(
         pages=pages,
         width_min=footnote.config.FOOTER_SEPARATOR_WIDTH_MIN,
     )
-    sizeandborders = serializeraw.load_pageborders(sizeandborders, pages=pages)
     ptns = serializeraw.ptn_fromfile(
         text,
         textpositions,
@@ -57,11 +55,10 @@ def work(
         fontcontent,
         pages=pages,
     )
-    ptns = footnote.rotate.rotate_ifrequired(ptns, sizeandborders)
+    ptns = footnote.rotate.rotate_ifrequired(ptns)
     # work
     result = extract_footerheader(
         horizontals=horizontals,
-        sizeandborders=sizeandborders,
         ptns=ptns,
     )
     validate(result)
@@ -72,7 +69,6 @@ def work(
 
 def extract_footerheader(
     horizontals: iamraw.PagesWithHorizontalList,
-    sizeandborders: iamraw.PageSizeBorderList,
     ptns: texmex.PageTextNavigators,
 ) -> iamraw.PageContentFooterHeaders:
     """Extract most common header/footer of the document.
@@ -84,7 +80,6 @@ def extract_footerheader(
     results = [
         runme(
             horizontals=horizontals,
-            sizeandborders=sizeandborders,
             ptns=ptns,
         ).result() for runme in strategies
     ]

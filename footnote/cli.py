@@ -22,7 +22,6 @@ WORKPLAN = [
             utila.ResultFile(producer='rawmaker', name='fonts_header'),
             utila.ResultFile(producer='rawmaker', name='fonts_content'),
             utila.ResultFile('rawmaker', name='horizontals_horizontals'),
-            utila.ResultFile(producer='rawmaker', name='border_pages'),
         ],
         output=('result',),
     ),

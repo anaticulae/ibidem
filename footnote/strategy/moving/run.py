@@ -37,14 +37,12 @@ class MovingStrategy(footnote.strategy.FootnoteDetectionStrategy):
     def __init__(
         self,
         horizontals: iamraw.PagesWithHorizontalList,
-        sizeandborders: iamraw.PageSizeBorderList,
         ptns: texmex.PageTextNavigators,
         footnote_strategy: callable = None,
         invalid_footer: callable = None,
     ):
         super().__init__(
             horizontals,
-            sizeandborders,
             ptns,
         )
         self.footnote_strategy = footnote_strategy

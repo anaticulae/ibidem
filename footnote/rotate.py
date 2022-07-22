@@ -7,29 +7,12 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
-import serializeraw
 import texmex
-import utila
 
 
-def rotate_ifrequired(navigators, sizeandborders=None):
-    if not sizeandborders:
-        return navigators
-    if isinstance(sizeandborders, str):
-        if not utila.exists(sizeandborders):
-            utila.error('missing size and borders: pagenumber')
-            return navigators
-        pages = tuple(page.page for page in navigators)
-        sizeandborders = serializeraw.load_pageborders(
-            content=sizeandborders,
-            pages=pages,
-        )
+def rotate_ifrequired(navigators):
     result = []
     for ptn in navigators:
-        pagesize = utila.select_page(sizeandborders, page=ptn.page)
-        if pagesize is None:
-            # empty navigator or only a part of ptn is extracted
-            continue
         if ptn.rotated:
             ptn = texmex.rotate_left(ptn)
         result.append(ptn)

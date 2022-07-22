@@ -34,7 +34,7 @@ def work(
         fontcontent,
         pages=pages,
     )
-    ptns = footnote.rotate.rotate_ifrequired(ptns)
+    ptns = footnote.utils.rotate_ifrequired(ptns)
     strategy = footnote.strategy.plainmoving.PlainMovingStrategy(
         horizontals=horizontals,
         ptns=ptns,

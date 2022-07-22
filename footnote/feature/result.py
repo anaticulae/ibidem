@@ -23,8 +23,8 @@ import utila
 
 import footnote
 import footnote.config
-import footnote.rotate
 import footnote.strategy
+import footnote.utils
 
 
 def work(
@@ -55,7 +55,7 @@ def work(
         fontcontent,
         pages=pages,
     )
-    ptns = footnote.rotate.rotate_ifrequired(ptns)
+    ptns = footnote.utils.rotate_ifrequired(ptns)
     # work
     result = extract_footerheader(
         horizontals=horizontals,

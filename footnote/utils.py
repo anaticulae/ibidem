@@ -11,6 +11,7 @@ import re
 
 import configo
 import german
+import texmex
 import utila
 
 HIGHNOTE_RISE_MIN = configo.HV_FLOAT_PLUS(default=3.0)
@@ -129,4 +130,13 @@ def hyperlink_improve(text: str) -> str:
             continue
         # no link to merge
         result += utila.NEWLINE + item
+    return result
+
+
+def rotate_ifrequired(navigators):
+    result = []
+    for ptn in navigators:
+        if ptn.rotated:
+            ptn = texmex.rotate_left(ptn)
+        result.append(ptn)
     return result

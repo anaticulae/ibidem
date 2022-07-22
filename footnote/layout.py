@@ -18,7 +18,7 @@ import utila
 
 import footnote.utils
 
-VERTICAL_LINE_DIFF_OF_HIGHNOTES = configo.HV_FLOAT_PLUS(default=15.0)
+HIGHNOTE_VERTICAL_LINE_DIFF_MAX = configo.HV_FLOAT_PLUS(default=15.0)
 
 FOOTNOTE_X0_MAX = configo.HolyTable(items=(
     (440, 100),  # TODO: US Letter?
@@ -162,7 +162,7 @@ def merge_online(items) -> list:
             result.append((None, content))
             continue
         diff = math.fabs(highnote.bounding.x0 - mostleft)
-        if diff > VERTICAL_LINE_DIFF_OF_HIGHNOTES:
+        if diff > HIGHNOTE_VERTICAL_LINE_DIFF_MAX:
             # highnote in content
             collected.append(shrink_tostyle(highnote.text, highnote.style))
             collected.extend([

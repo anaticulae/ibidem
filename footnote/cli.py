@@ -15,6 +15,17 @@ DESCRIPTION = 'TODO'
 
 WORKPLAN = [
     utila.create_step(
+        'plain',
+        inputs=[
+            utila.ResultFile(producer='rawmaker', name='text_text'),
+            utila.ResultFile(producer='rawmaker', name='text_positions'),
+            utila.ResultFile(producer='rawmaker', name='fonts_header'),
+            utila.ResultFile(producer='rawmaker', name='fonts_content'),
+            utila.ResultFile('rawmaker', name='horizontals_horizontals'),
+        ],
+        output=('plain',),
+    ),
+    utila.create_step(
         'result',
         inputs=[
             utila.ResultFile(producer='rawmaker', name='text_text'),

@@ -18,7 +18,7 @@ genex==0.32.0
 
 # ensure that test data is generated with the right version of rawmaker
 rawmaker==2.37.7
-cleanup>=0.2.1<1.0.0
+cleanup>=0.2.2<1.0.0
 
 # TODO: MOVE TO DEV_REQ LATER
 pagenumber>=0.2.1<1.0.0

@@ -56,7 +56,7 @@ def rename(path):
         return path
     path = utila.rreplace(
         path,
-        pattern='footnote_legacy_legacy',
+        pattern='footnote__legacy_legacy',
         replace='groupme__footer_footerheader',
     )
     return path

@@ -2,6 +2,17 @@
 
 Every noteable change is logged here.
 
+## v0.2.1
+
+### Fix
+
+* make valid footnote start more strict (4d4c3e29a28a)
+* fix legacy path (189171d8cd62)
+
+### Documentation
+
+* add hint how to select new documents (3fac58c97672)
+
 ## v0.2.0
 
 ### Feature

@@ -39,8 +39,8 @@ NUMBER_TEXT = utila.compiles(
             \d{0,4}(f|p){1,2}\.
         )
         |
-        (   # do not detect 2.1.3 as footnote
-            \.\d{1,2}\.
+        (   # do not detect 2.1; 2.1.3 as footnote
+            \.\d{1,2}\.?
         )
         |
         (   # do not detect date as footnote 18.06.2019)

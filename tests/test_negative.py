@@ -15,7 +15,7 @@ import tests.extractor
 
 
 @utilatest.longrun
-def test_footer_paper18p3(td, mp):
+def test_paper18p3(td, mp):
     """Regression test to avoid parsing formula as footnote."""
     extracted = tests.extractor.footer(
         power.PAPER18_PDF,

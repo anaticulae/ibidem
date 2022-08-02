@@ -12,7 +12,7 @@ import pytest
 import footnote.feature.result
 
 
-def test_footer_judge_strategy_empty():
+def test_judge_strategy_empty():
     empty = [
         [],
         [],

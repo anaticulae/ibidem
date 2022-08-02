@@ -96,7 +96,7 @@ def validate_homework18(result):
     ),
 ])
 @utilatest.longrun
-def test_footer_moving(
+def test_moving(
     source,
     pages,
     expected_footer,
@@ -127,7 +127,7 @@ def test_footer_moving(
         assert extracted_footer[1], utila.log_raw(f'has no footer: {page}')
 
 
-def test_footer_master72pages():
+def test_master72pages():
     source = power.link(power.MASTER072_PDF)
     path = iamraw.path.horizontals(source)
     result = serializeraw.load_horizontals(path)

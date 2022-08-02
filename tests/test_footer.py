@@ -24,13 +24,13 @@ import tests.extractor
 @pytest.mark.parametrize('strategy, expected_results', [
     (footnote.strategy.moving.run.MovingStrategy, 0),
 ])
-def test_footer_footerheader_detectionstategy(
+def test_footerheader_detectionstategy(
     strategy,
     expected_results,
 ):
     """Check that different strategies work proper with given resources
 
-    TODO: SEE DUPLICATION test_footer_judgement_strategy_quality?"""
+    TODO: SEE DUPLICATION test_judgement_strategy_quality?"""
     source = power.link(power.DOCU027_PDF)
     horizontals = serializeraw.load_horizontals(source)
     ptn = serializeraw.ptn_frompath(source)
@@ -43,7 +43,7 @@ def test_footer_footerheader_detectionstategy(
 
 
 @utilatest.longrun
-def test_footer_master72_extract(td, mp):
+def test_master72_extract(td, mp):
     outdir = td.tmpdir
     cmd = f'-i {power.link(power.MASTER072_PDF)}  -o {outdir} --pages=3'
     tests.run(cmd, mp=mp)
@@ -57,7 +57,7 @@ def test_footer_master72_extract(td, mp):
     assert first.startswith('Aus Gründen der besseren Lesbarkeit'), first
 
 
-def test_footer_homework18(td, mp):
+def test_homework18(td, mp):
     extracted = tests.extractor.footer(
         power.HOME018_PDF,
         td,
@@ -69,7 +69,7 @@ def test_footer_homework18(td, mp):
 
 
 @utilatest.longrun
-def test_footer_master110(td, mp):
+def test_master110(td, mp):
     """This document does not contain any footnotes."""
     extracted = tests.extractor.footer(
         power.MASTER110_PDF,
@@ -80,7 +80,7 @@ def test_footer_master110(td, mp):
     assert not extracted
 
 
-def test_footer_master99_page8(td, mp):
+def test_master99p8(td, mp):
     extracted = tests.extractor.footer(
         power.MASTER099_PDF,
         td,
@@ -94,7 +94,7 @@ def test_footer_master99_page8(td, mp):
 
 
 @utilatest.nightly
-def test_footer_master155_page107(td, mp):
+def test_master155p107(td, mp):
     """No footer on page107."""
     extracted = tests.extractor.footer(
         power.MASTER155_PDF,
@@ -106,7 +106,7 @@ def test_footer_master155_page107(td, mp):
 
 
 @utilatest.nightly
-def test_footer_master127(td, mp):
+def test_master127(td, mp):
     extracted = tests.extractor.footer(
         power.MASTER127_PDF,
         td,
@@ -124,7 +124,7 @@ def test_footer_master127(td, mp):
 
 
 @utilatest.longrun
-def test_footer_master075(td, mp):
+def test_master075(td, mp):
     extracted = tests.extractor.footer(
         power.MASTER075_PDF,
         td,

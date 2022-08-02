@@ -20,13 +20,13 @@ import tests.fixtures.footnotes
     pytest.param(tests.fixtures.footnotes.FOOTNOTES,),
     pytest.param(tests.fixtures.footnotes.FOOTNOTES_SECOND,),
 ])
-def test_footer_footenote_parse_notes(example):
+def test_footenote_parse_notes(example):
     raw, expected_footnotes = example[0], example[1]
     parsed = footnote.parser.textraw.parse(raw)
     assert len(parsed) == expected_footnotes
 
 
-def test_footer_footenote_parse_notes_multiline():
+def test_footenote_parse_notes_multiline():
     raw = tests.fixtures.footnotes.FOOTNOTES_SECOND[0]
     parsed = footnote.parser.textraw.parse(raw)
     assert len(parsed) == 23, len(parsed)
@@ -39,7 +39,7 @@ def test_footer_footenote_parse_notes_multiline():
     assert parsed[-1].number == 23
 
 
-def test_footer_master98_page10(td, mp):
+def test_master98_page10(td, mp):
     extracted = tests.extractor.footer(
         power.MASTER098_PDF,
         td,
@@ -54,7 +54,7 @@ def test_footer_master98_page10(td, mp):
     assert firstnote_text.endswith('16)'), firstnote_text
 
 
-def test_footer_bachelor028p2(td, mp):
+def test_bachelor028p2(td, mp):
     """The hyperlinks produces blue horizontal lines.
 
     After fixing rawmaker, these horizontal lines does not occur anymore
@@ -70,7 +70,7 @@ def test_footer_bachelor028p2(td, mp):
     assert len(footnotes) == 6
 
 
-def test_footer_bachelor078p44p45(td, mp):
+def test_bachelor078p44p45(td, mp):
     """Merge single footnote over two pages."""
     extracted = tests.extractor.footer(
         power.BACHELOR078_PDF,

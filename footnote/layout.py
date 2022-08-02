@@ -164,9 +164,15 @@ def merge_online(items) -> list:
         diff = math.fabs(highnote.bounding.x0 - mostleft)
         if diff > HIGHNOTE_VERTICAL_LINE_DIFF_MAX:
             # highnote in content
-            collected.append(shrink_tostyle(highnote.text, highnote.style))
+            collected.append(
+                shrink_tostyle(
+                    highnote.text,
+                    highnote.style,
+                    bounding=highnote.bounding,
+                ))
             collected.extend([
-                shrink_tostyle(content.text, style) for style in content.style
+                shrink_tostyle(content.text, style, bounding=content.bounding)
+                for style in content.style
             ])
         else:
             # new highnotes
@@ -174,7 +180,8 @@ def merge_online(items) -> list:
                 result.append((high, union(collected)))
             high = highnote
             collected = [
-                shrink_tostyle(content.text, style) for style in content.style
+                shrink_tostyle(content.text, style, bounding=content.bounding)
+                for style in content.style
             ]
     notempty = collected or high
     if notempty:
@@ -241,11 +248,13 @@ class TextChunk:
 TextChunks = typing.List[TextChunk]
 
 
-def shrink_tostyle(text: str, style) -> TextChunk:
+def shrink_tostyle(text: str, style, bounding=None) -> TextChunk:
     text = text[style.start:style.end]
     style = style.copy()
     style.start, style.end = 0, len(text)
-    return TextChunk(text, style, None)
+    # TODO: ADD BOUNDING ADJUSTMENT, IN THE CURRENT CASE, WE DO NOT SHRINK
+    # THE BOUNDING
+    return TextChunk(text, style, bounding)
 
 
 def union(chunks: TextChunks) -> texmex.TextInfo:
@@ -258,9 +267,12 @@ def union(chunks: TextChunks) -> texmex.TextInfo:
         section_style = chunk.style.copy()
         section_style.start, section_style.end = start, end
         content.append(section_style)
+    bounding = [item.bounding for item in chunks if item.bounding]
+    bounding = utila.rect_max(bounding) if bounding else None
     result = texmex.TextInfo(
         text=raw,
         style=texmex.TextStyle(content=content),
+        bounding=bounding,
     )
     return result
 

@@ -82,3 +82,17 @@ def test_bachelor078p44p45(td, mp):
     assert len(footnotes) == 1
     merged = footnotes[0].text
     assert merged.endswith('werden.')
+
+
+def test_bachelor078p44_footnote_bounding(td, mp):
+    """Verify bounding produced by highnote strategy."""
+    extracted = tests.extractor.footer(
+        power.BACHELOR078_PDF,
+        td,
+        mp,
+        pages='44',
+    )[0]
+    firstnote = extracted.footer.notes[0].bounding
+    width, height = utila.rect_width(firstnote), utila.rect_height(firstnote)
+    assert width > 350
+    assert height > 40, '4 lines of 10pt text'

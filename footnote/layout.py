@@ -128,11 +128,16 @@ def split_textinfo(content) -> list:
                 style.end = len(highnote.text)
             else:
                 bounding = iamraw.split_x(
-                    item.bounding,
-                    style.start,
-                    len(item.text),
+                    bounding=item.bounding,
+                    part=style.start,
+                    parts=style.end,
+                    width=len(item.text),
                 )
-                collected.append(TextChunk(item.text, style, bounding))
+                collected.append(TextChunk(
+                    item.text,
+                    style,
+                    bounding=bounding,
+                ))
     if highnote or collected:
         # there is always content left at the end
         result.append((highnote, union(collected)))

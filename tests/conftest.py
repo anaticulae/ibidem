@@ -18,7 +18,6 @@ from tests.fixtures import bachelor111page10
 from tests.fixtures import master72page14
 from tests.fixtures import master89page7
 from tests.fixtures import master89page19
-from tests.fixtures import navigator
 
 pytest_plugins = ['pytester', 'xdist']  # pylint: disable=invalid-name
 

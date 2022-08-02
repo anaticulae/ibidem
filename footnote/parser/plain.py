@@ -39,14 +39,15 @@ def parse_group(
     raw = utila.NEWLINE.join([item.text.strip() for item in multiline])
     raw = footnote.utils.hyperlink_improve(raw)
     number, content = footnote.utils.search_footnote(raw)
-    bounding = tuple(multiline[0].bounding)
+    bounding_number = tuple(multiline[0].bounding)
     text = utila.normalize_text(
         content,
         normalize_spaces=True,
         strips=True,
     )
     parsed = iamraw.FootNoteRaw(
-        bounding=bounding,
+        bounding=bounding_number,
+        bounding_number=bounding_number,
         number=number,
         style=None,
         page=pagenumber if pagenumber is not None else -1,

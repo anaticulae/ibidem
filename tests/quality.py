@@ -15,7 +15,6 @@ import utila
 
 
 def quality(path):
-    print(path)
     files = utila.file_list(path, absolute=True)
     for item in files:
         content = utila.file_read(item)

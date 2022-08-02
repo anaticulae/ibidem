@@ -60,13 +60,15 @@ def parse_group(group, width: int, pagenumber: int) -> iamraw.FootNoteRaw:
     if not note.text.strip():
         utila.error(f'could not parse footnote: {number}, no text content')
         return None
-    bounding = tuple(number.bounding) if has_highnote else None
+    bounding = tuple(note.bounding) if note.bounding else None
+    bounding_number = tuple(number.bounding) if has_highnote else None
     text = footnote.utils.hyperlink_improve(note.text)
     text = utila.normalize_text(text, strips=True)
     # TODO: GO MORE BACK TO ORIGIN
     raw = number.text + note.text if has_highnote else note.text
     parsed = iamraw.FootNoteRaw(
         bounding=bounding,
+        bounding_number=bounding_number,
         number=notenumber,
         page=pagenumber if pagenumber is not None else -1,
         raw=raw,

@@ -2,6 +2,19 @@
 
 Every noteable change is logged here.
 
+## v0.2.2
+
+### Feature
+
+* use number bounding (2f9e2ac30595)
+
+### Fix
+
+* adjust highnote splitter (78d549516c94)
+* do not skip bounding computation (bcdea1683494)
+* adjust complete footnote bounding (bec442b29b00)
+* remove unused print (887000ede152)
+
 ## v0.2.1
 
 ### Fix

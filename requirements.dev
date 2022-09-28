@@ -22,3 +22,5 @@ cleanup>=0.6.0<1.0.0
 
 # TODO: MOVE TO DEV_REQ LATER
 pagenumber>=0.2.1<1.0.0
+groupme>=0.36.1<0.37.0
+figureo>=0.17.3<0.18.0

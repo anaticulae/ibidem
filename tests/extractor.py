@@ -10,11 +10,13 @@
 import iamraw
 import power
 import serializeraw
+import utilatest
 
 import tests
 
 
 def footer(source: str, td, mp, pages: str = ':'):
+    utilatest.fixture_requires(source)
     cmd = f'-i {power.link(source)}  --pages={pages}'
     tests.run(cmd, mp=mp)
     headerpath = iamraw.path.footnote_result(td.tmpdir)

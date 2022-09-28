@@ -13,10 +13,12 @@ import pytest
 import serializeraw
 import texmex
 import utila
+import utilatest
 
 
 @pytest.fixture
 def master72page14():
+    utilatest.fixture_requires(power.MASTER072_PDF)
     navigators = serializeraw.ptn_frompath(
         power.link(power.MASTER072_PDF),
         pages=14,
@@ -29,6 +31,7 @@ def master72page14():
 
 @pytest.fixture
 def master89page7():
+    utilatest.fixture_requires(power.MASTER089_PDF)
     page = 7
     navigators = serializeraw.ptn_frompath(
         power.link(power.MASTER089_PDF),
@@ -42,6 +45,7 @@ def master89page7():
 
 @pytest.fixture
 def master89page19():
+    utilatest.fixture_requires(power.MASTER089_PDF)
     page = 19
     navigators = serializeraw.ptn_frompath(
         power.link(power.MASTER089_PDF),
@@ -56,6 +60,7 @@ def master89page19():
 
 @pytest.fixture
 def bachelor111page10():
+    utilatest.fixture_requires(power.BACHELOR111_PDF)
     page = 10
     navigators = serializeraw.ptn_frompath(
         power.link(power.BACHELOR111_PDF),

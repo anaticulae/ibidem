@@ -103,9 +103,12 @@ def test_moving(
     strategy,
     validate,
 ):
-    """Hint: This test is dependend on moving footer strategy. If this
-    test fails, may the footer is not extracted correctly. Look at the
-    holy value in moving.py:extract_footer."""
+    """Hint: This test is dependend on moving footer strategy.
+
+    If this test fails, may the footer is not extracted correctly. Look
+    at the holy value in moving.py:extract_footer.
+    """
+    utilatest.fixture_requires(source)
     source = power.link(source)
     strategy = footnote.strategy.create_strategy(
         path=source,
@@ -127,6 +130,7 @@ def test_moving(
         assert extracted_footer[1], utila.log_raw(f'has no footer: {page}')
 
 
+@utilatest.requires(power.MASTER072_PDF)
 def test_master72pages():
     source = power.link(power.MASTER072_PDF)
     path = iamraw.path.horizontals(source)

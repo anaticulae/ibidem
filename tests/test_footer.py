@@ -24,6 +24,7 @@ import tests.extractor
 @pytest.mark.parametrize('strategy, expected_results', [
     (footnote.strategy.moving.run.MovingStrategy, 0),
 ])
+@utilatest.requires(power.DOCU027_PDF)
 def test_footerheader_detectionstategy(
     strategy,
     expected_results,
@@ -43,16 +44,14 @@ def test_footerheader_detectionstategy(
 
 
 @utilatest.longrun
+@utilatest.requires(power.MASTER072_PDF)
 def test_master72_extract(td, mp):
     outdir = td.tmpdir
     cmd = f'-i {power.link(power.MASTER072_PDF)}  -o {outdir} --pages=3'
     tests.run(cmd, mp=mp)
-
-    headfoot = serializeraw.load_headerfooter(
-        iamraw.path.footnote_result(outdir))
+    headfoot = serializeraw.load_headerfooter(iamraw.path.footnote_result(outdir))  # yapf:disable
     footnotes = headfoot[0].footer.notes
     assert len(footnotes) == 6, str(footnotes)
-
     first = utila.normalize_whitespaces(footnotes[0].text)
     assert first.startswith('Aus Gründen der besseren Lesbarkeit'), first
 

@@ -44,6 +44,7 @@ def test_validate_all(source, td, mp):
 ])
 @utilatest.nightly
 def test_validate_selected(source, pages, expected, td, mp):
+    utilatest.fixture_requires(source)
     Evaluate(
         source=source,
         pages=pages,

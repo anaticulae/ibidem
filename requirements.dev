@@ -7,20 +7,17 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
-utilatest==0.20.1
+utilatest==0.24.0
 
 # reference to test data
-power==2.14.1
+power==2.14.2
 hardcore>=0.7.0<1.0.0
-
 # test data generator
-genex==0.35.1
-
+genex==0.35.5
 # ensure that test data is generated with the right version of rawmaker
-rawmaker==2.39.5
-cleanup>=0.6.0<1.0.0
-
+rawmaker==2.40.0
+cleanup>=0.7.1<1.0.0
 # TODO: MOVE TO DEV_REQ LATER
 pagenumber>=0.2.1<1.0.0
-groupme>=0.36.1<0.37.0
-figureo>=0.17.3<0.18.0
+groupme>=0.37.1<1.0.0
+figureo>=0.18.1<1.0.0

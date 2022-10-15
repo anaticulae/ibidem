@@ -62,7 +62,7 @@ def select_footer_line(
     )
     # determine y-level
     bottomed = max(
-        [item.box.y0 for item in filtered],
+        (item.box.y0 for item in filtered),
         default=None,
     )
     return bottomed

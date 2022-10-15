@@ -27,7 +27,6 @@ decider_footnote:
 import abc
 import collections
 import dataclasses
-import typing
 
 import iamraw
 import serializeraw
@@ -50,7 +49,7 @@ class FootnoteDetectionStrategy(abc.ABC):
         horizontals: iamraw.PagesWithHorizontalList,
         ptns: texmex.PageTextNavigators,
     ):
-        assert isinstance(horizontals, typing.List), str(horizontals)
+        assert isinstance(horizontals, list), str(horizontals)
         self.horizontals = horizontals
         self.ptns = ptns
         # ease accessing data

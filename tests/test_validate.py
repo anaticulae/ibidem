@@ -20,8 +20,6 @@ import tests
 
 ARCHIVE = utila.join(footnote.ROOT, 'tests/expected', exist=True)
 
-step = lambda x: pytest.param(x, ':', utila.file_name(x), id=utila.file_name(x))
-
 
 @pytest.mark.parametrize(
     'source',

@@ -19,7 +19,6 @@ def test_judge_strategy_empty():
         [],
     ]
     result = footnote.feature.result.judge_strategy(empty)
-    assert result == []
-
+    assert result == []  # pylint:disable=use-implicit-booleaness-not-comparison
     with pytest.raises(AssertionError):
         footnote.feature.result.judge_strategy(None)

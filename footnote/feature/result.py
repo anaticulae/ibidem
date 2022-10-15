@@ -14,7 +14,6 @@ TODO:
 """
 
 import collections
-import typing
 
 import iamraw
 import serializeraw
@@ -52,7 +51,7 @@ def work(
 
 
 def judge_strategy(
-    results: typing.List[iamraw.PageContentFooterHeaders],
+    results: list[iamraw.PageContentFooterHeaders],
 ) -> iamraw.PageContentFooterHeaders:
     """Decide which results fits best.
 

@@ -9,7 +9,6 @@
 
 import dataclasses
 import math
-import typing
 
 import configo
 import iamraw
@@ -250,7 +249,7 @@ class TextChunk:
     bounding: iamraw.BoundingBox = None
 
 
-TextChunks = typing.List[TextChunk]
+TextChunks = list[TextChunk]
 
 
 def shrink_tostyle(text: str, style, bounding=None) -> TextChunk:

@@ -5,8 +5,6 @@
 0004 https://github.com/prometheus/node_exporter
 0005 https://github.com/google/cadvisor
 0006 https://prometheus.io
-     In this chapter, we analyze the detection of system anomalies from log data. A plethora of methods exist to address some of the challenges posed by log data and complex systems ( [
-0002 ) Vectorization of the parsed logs (i.e., the templates) is performed Figure
 0001 Parts of this chapter are published in [8, 9, 19, 149].
 0001 Based on our early study on trace anomaly detection using deep learning [18]
 0002 Parts of this chapter are published in [14, 18, 19, 40] and a patent is filed in [183].

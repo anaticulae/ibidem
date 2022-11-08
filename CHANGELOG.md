@@ -2,6 +2,23 @@
 
 Every noteable change is logged here.
 
+## v0.2.3 (2022-11-08)
+
+### Chore
+
+* upgrade pipe library (674633d8704e)
+* upgrade environment (ab7530940bc9)
+* upgrade requirements.txt (ee3f72cf0804)
+* increase baw version (70f2a966c2da)
+* do not run in privileged mode (b2d339822ca9)
+* publish generated data if nightly fails (8df79bc2131f)
+* add separate generate step (edcf17567654)
+* upgrade requirements.txt (b086e6a2f1a1)
+* add missing dev resource (6e933f0b7d70)
+* increase worker count on CI (45e5ac56612d)
+* add Jenkinsfile (d6719ae0ef8f)
+* upgrade requirements.txt (455601af2dec)
+
 ## v0.2.2
 
 ### Feature

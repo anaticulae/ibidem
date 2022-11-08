@@ -44,7 +44,7 @@ def merge_footer_pages(footers):
         )
         #update bounding
         # TODO: UPDATE PAGE BOUNDING OVER TWO PAGES MAKES NO SENCE?
-        # current.footer.notes[-1].bounding = utila.rectangle_max(
+        # current.footer.notes[-1].bounding = utila.rect_max(
         #     [item.bounding for item in current.footer[-1].notes])
         # remove merged notes from after
         after.footer.notes = after.footer.notes[1:]

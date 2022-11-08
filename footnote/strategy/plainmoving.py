@@ -25,7 +25,7 @@ class PlainMovingStrategy(footnote.strategy.moving.run.MovingStrategy):
     def __init__(
         self,
         horizontals: iamraw.PagesWithHorizontalList,
-        ptns: texmex.PageTextNavigators,
+        ptns: texmex.PTNs,
     ):
         super().__init__(
             horizontals,

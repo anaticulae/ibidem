@@ -37,7 +37,7 @@ class MovingStrategy(footnote.strategy.FootnoteDetectionStrategy):
     def __init__(
         self,
         horizontals: iamraw.PagesWithHorizontalList,
-        ptns: texmex.PageTextNavigators,
+        ptns: texmex.PTNs,
         footnote_strategy: callable = None,
         invalid_footer: callable = None,
     ):
@@ -152,7 +152,7 @@ def extract_footer(
     else:
         end = 1.0
         utila.error(f'missing last note bounding: {footnotes[-1]}')
-    footer = iamraw.MovingFooterInformation(
+    footer = iamraw.MovingFooterInfo(
         begin=begin,
         end=end,
         notes=footnotes,

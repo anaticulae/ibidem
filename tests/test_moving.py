@@ -37,7 +37,7 @@ def validate_homework18(result):
 @pytest.mark.parametrize('source, pages, expected_footer, strategy, validate', [
     pytest.param(
         power.MASTER072_PDF,
-        utila.ranged_tuple(20),
+        utila.rtuple(20),
         [(3, 6), (6, 3), (7, 2), (8, 4), (9, 1), (10, 4), (11, 3), (12, 2),
          (13, 6), (14, 7), (15, 8), (16, 10), (17, 8), (18, 7), (19, 8)],
         footnote.strategy.moving.run.MovingStrategy,
@@ -46,7 +46,7 @@ def validate_homework18(result):
     ),
     pytest.param(
         power.BACHELOR111_PDF,
-        utila.ranged_tuple(20),
+        utila.rtuple(20),
         [(9, 2), (10, 3), (11, 2), (12, 1), (13, 1), (15, 2), (16, 1), (17, 8),
          (18, 3), (19, 1)],
         footnote.strategy.moving.run.MovingStrategy,
@@ -55,7 +55,7 @@ def validate_homework18(result):
     ),
     pytest.param(
         power.DOCU027_PDF,
-        utila.ranged_tuple(20),
+        utila.rtuple(20),
         [],
         footnote.strategy.moving.run.MovingStrategy,
         None,
@@ -79,7 +79,7 @@ def validate_homework18(result):
     ),
     pytest.param(
         power.HOME018_PDF,
-        utila.ranged_tuple(6),
+        utila.rtuple(6),
         [(3, 3), (4, 4), (5, 7)],
         footnote.strategy.plainmoving.PlainMovingStrategy,
         validate_homework18,
@@ -87,7 +87,7 @@ def validate_homework18(result):
     ),
     pytest.param(
         power.BACHELOR090_PDF,
-        utila.ranged_tuple(18, 25),
+        utila.rtuple(18, 25),
         [(18, 2), (19, 1), (21, 1), (22, 3), (23, 4)],
         footnote.strategy.moving.run.MovingStrategy,
         validate_bachelor90,

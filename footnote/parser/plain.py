@@ -62,7 +62,7 @@ def parse_group(
 def prepare(content: list, pdfpage: int) -> list:
     neighbors = footnote.layout.connect_neighbors(content)
     collected = [merges(neighbor, pdfpage) for neighbor in neighbors]
-    result = utila.flatten(collected)
+    result = utila.flat(collected)
     return result
 
 

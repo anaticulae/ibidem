@@ -47,7 +47,7 @@ class FootnoteDetectionStrategy(abc.ABC):
     def __init__(
         self,
         horizontals: iamraw.PagesWithHorizontalList,
-        ptns: texmex.PageTextNavigators,
+        ptns: texmex.PTNs,
     ):
         assert isinstance(horizontals, list), str(horizontals)
         self.horizontals = horizontals

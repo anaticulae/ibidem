@@ -63,7 +63,7 @@ def test_homework18(td, mp):
         mp,
         pages='3:17',
     )
-    content = utila.flatten([item.footer.notes for item in extracted])
+    content = utila.flat([item.footer.notes for item in extracted])
     assert len(content) == 94, len(content)
 
 
@@ -118,7 +118,7 @@ def test_master127(td, mp):
         if isinstance(item.footer, iamraw.MovingFooterInformation)
     ]
     assert len(footers) == 73  # VALIDATED
-    footnotes = utila.flatten([item.notes for item in footers])
+    footnotes = utila.flat([item.notes for item in footers])
     assert len(footnotes) == 135  # VALIDATED
 
 

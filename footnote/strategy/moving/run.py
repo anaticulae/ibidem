@@ -130,6 +130,7 @@ def extract_footer(
     content = ptn.after(
         begin,
         selector=texmex.navigator.SelectBounding.BOTTOM,
+        state=footnote.config.VISIBLE,
     )
     if invalid_footer and invalid_footer(begin, content):
         utila.debug(f'invalid footer on page {ptn.page}: {content}')

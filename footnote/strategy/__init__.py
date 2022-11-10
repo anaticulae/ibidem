@@ -108,6 +108,7 @@ def create_strategy(
     ptn = serializeraw.ptn_frompath(
         path,
         pages=pages,
+        state=footnote.config.VISIBLE,
     )
     result = strategy(
         horizontals=horizontals,

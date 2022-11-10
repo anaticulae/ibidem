@@ -8,5 +8,8 @@
 # =============================================================================
 
 import configo
+import texmex
 
 FOOTER_SEPARATOR_WIDTH_MIN = configo.HV_INT_PLUS(default=70)
+
+VISIBLE = texmex.TextState.VISIBLE | texmex.TextState.FOOTNOTE

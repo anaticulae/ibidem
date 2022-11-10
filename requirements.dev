@@ -10,7 +10,7 @@
 utilatest==0.24.1
 
 # reference to test data
-power==2.17.0
+power==2.17.1
 hardcore>=0.8.0<1.0.0
 # test data generator
 genex==0.36.0

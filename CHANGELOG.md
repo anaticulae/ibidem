@@ -2,6 +2,16 @@
 
 Every noteable change is logged here.
 
+## v0.2.5 (2022-11-10)
+
+### Fix
+
+* do not forget hidden footnote (75a14fab10b3)
+
+### Chore
+
+* upgrade requirements.txt (c47da7260490)
+
 ## v0.2.4 (2022-11-10)
 
 ### Fix

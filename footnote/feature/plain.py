@@ -10,6 +10,7 @@
 import serializeraw
 
 import footnote.config
+import footnote.feature
 import footnote.strategy.plainmoving
 
 
@@ -29,6 +30,7 @@ def work(
         text,
         textpositions,
         pages=pages,
+        state=footnote.feature.VISIBLE,
     )
     ptns = footnote.utils.rotate_ifrequired(ptns)
     strategy = footnote.strategy.plainmoving.PlainMovingStrategy(

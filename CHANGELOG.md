@@ -2,6 +2,16 @@
 
 Every noteable change is logged here.
 
+## v0.2.4 (2022-11-10)
+
+### Fix
+
+* load hidden footnote also to enable computation after hiding (bcd4a31c6141)
+
+### Chore
+
+* upgrade requirements.txt (c27cdedf3f01)
+
 ## v0.2.3 (2022-11-08)
 
 ### Chore

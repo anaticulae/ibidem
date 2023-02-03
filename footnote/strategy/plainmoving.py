@@ -11,7 +11,7 @@ import math
 
 import configo
 import iamraw
-import texmex.navigator
+import texmex
 import utila
 
 import footnote.parser.plain

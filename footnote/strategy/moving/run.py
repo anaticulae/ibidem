@@ -22,7 +22,7 @@ TODO: Think about header
 """
 
 import iamraw
-import texmex.navigator
+import texmex
 import utila
 
 import footnote.parser.highnote
@@ -129,7 +129,7 @@ def extract_footer(
     begin = utila.roundme(footerstart / ptn.height)
     content = ptn.after(
         begin,
-        selector=texmex.navigator.SelectBounding.BOTTOM,
+        selector=texmex.SelectBounding.BOTTOM,
         state=footnote.config.VISIBLE,
     )
     if invalid_footer and invalid_footer(begin, content):

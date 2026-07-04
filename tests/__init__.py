@@ -7,11 +7,11 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
-import power
-import utilatest
+import hoverpower
+import utilotest
 
 import footnote
 
-power.setup(footnote.ROOT)
+hoverpower.setup(footnote.ROOT)
 
-run, fail = utilatest.create_cli_runner(footnote)
+run, fail = utilotest.create_cli_runner(footnote)

@@ -7,9 +7,9 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
-import configo
+import configos
 import iamraw
-import utila
+import utilo
 
 
 def merge_footer_pages(footers):
@@ -44,7 +44,7 @@ def merge_footer_pages(footers):
         )
         #update bounding
         # TODO: UPDATE PAGE BOUNDING OVER TWO PAGES MAKES NO SENCE?
-        # current.footer.notes[-1].bounding = utila.rect_max(
+        # current.footer.notes[-1].bounding = utilo.rect_max(
         #     [item.bounding for item in current.footer[-1].notes])
         # remove merged notes from after
         after.footer.notes = after.footer.notes[1:]
@@ -52,7 +52,7 @@ def merge_footer_pages(footers):
     return result
 
 
-LAST_LINE_DIFF_MAX = configo.HV_PERCENT_PLUS(default=85)
+LAST_LINE_DIFF_MAX = configos.HV_PERCENT_PLUS(default=85)
 
 
 def footnote_enough_text_tomerge(lastone) -> bool:
@@ -87,7 +87,7 @@ def remove_single_footnote_without_number(footers):
         if len(notes) == 1:
             firstnote = notes[0]
             if firstnote.number in NO_FOOTENOTE_NUMBER:
-                utila.verbose(f'remove empty footnote: {notes}')
+                utilo.verbose(f'remove empty footnote: {notes}')
                 continue
             result.append(item)
     return result

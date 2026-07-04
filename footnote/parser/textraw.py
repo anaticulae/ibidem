@@ -29,7 +29,7 @@ There are 2 supported types of footnotes:
 """
 
 import iamraw
-import utila
+import utilo
 
 
 def parse(content: str, pagenumber: int = None):
@@ -46,9 +46,9 @@ def parse(content: str, pagenumber: int = None):
 def parse_group(raw: str, pagenumber: int) -> iamraw.FootNoteRaw:
     number, text = raw.split(maxsplit=1)
     if not text.strip():
-        utila.error(f'could not parse footnote: {number}, no text content')
+        utilo.error(f'could not parse footnote: {number}, no text content')
         return None
-    text = utila.normalize_text(text)
+    text = utilo.normalize_text(text)
     footnote = iamraw.FootNoteRaw(
         number=int(number),
         text=text,
@@ -58,7 +58,7 @@ def parse_group(raw: str, pagenumber: int) -> iamraw.FootNoteRaw:
     return footnote
 
 
-FOOTNOTE_NUMBER = utila.compiles(r"""
+FOOTNOTE_NUMBER = utilo.compiles(r"""
     ^
     (
         \d{1,4}|

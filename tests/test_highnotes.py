@@ -10,19 +10,19 @@
 import iamraw
 import pytest
 import texmex
-import utilatest
+import utilotest
 
 import footnote.parser.highnote
 import footnote.parser.textraw
 
 
-@utilatest.longrun
+@utilotest.longrun
 def test_footnote_parse_footer_with_highnotes(master89page7):
     parsed = footnote.parser.highnote.parse(master89page7)
     assert len(parsed) == 1, parsed
 
 
-@utilatest.longrun
+@utilotest.longrun
 def test_footnote_highnotes_oneline_with_intention(bachelor111page10):
     parsed = footnote.parser.highnote.parse(bachelor111page10)
     assert len(parsed) == 3, str(parsed)

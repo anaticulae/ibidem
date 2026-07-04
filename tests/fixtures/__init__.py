@@ -7,23 +7,23 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
+import hoverpower
 import iamraw
-import power
 import pytest
 import serializeraw
 import texmex
-import utila
-import utilatest
+import utilo
+import utilotest
 
 
 @pytest.fixture
 def master72page14():
-    utilatest.fixture_requires(power.MASTER072_PDF)
+    utilotest.fixture_requires(hoverpower.MASTER072_PDF)
     navigators = serializeraw.ptn_frompath(
-        power.link(power.MASTER072_PDF),
+        hoverpower.link(hoverpower.MASTER072_PDF),
         pages=14,
     )
-    nav = utila.select_page(navigators, 14)
+    nav = utilo.select_page(navigators, 14)
     footer = nav.between(0.8, 0.93)
     assert len(footer) == 7, str(footer)
     return footer
@@ -31,13 +31,13 @@ def master72page14():
 
 @pytest.fixture
 def master89page7():
-    utilatest.fixture_requires(power.MASTER089_PDF)
+    utilotest.fixture_requires(hoverpower.MASTER089_PDF)
     page = 7
     navigators = serializeraw.ptn_frompath(
-        power.link(power.MASTER089_PDF),
+        hoverpower.link(hoverpower.MASTER089_PDF),
         pages=page,
     )
-    nav = utila.select_page(navigators, page)
+    nav = utilo.select_page(navigators, page)
     footer = nav.between(0.83, 0.95)
     assert len(footer) == 6, str(footer)
     return footer
@@ -45,13 +45,13 @@ def master89page7():
 
 @pytest.fixture
 def master89page19():
-    utilatest.fixture_requires(power.MASTER089_PDF)
+    utilotest.fixture_requires(hoverpower.MASTER089_PDF)
     page = 19
     navigators = serializeraw.ptn_frompath(
-        power.link(power.MASTER089_PDF),
+        hoverpower.link(hoverpower.MASTER089_PDF),
         pages=page,
     )
-    nav = utila.select_page(navigators, page)
+    nav = utilo.select_page(navigators, page)
     # TODO: REMOVE WITH EXTRACT MOVING FOOTER
     footer = nav.between(0.68, 0.95)
     assert len(footer) == 16, len(footer)
@@ -60,13 +60,13 @@ def master89page19():
 
 @pytest.fixture
 def bachelor111page10():
-    utilatest.fixture_requires(power.BACHELOR111_PDF)
+    utilotest.fixture_requires(hoverpower.BACHELOR111_PDF)
     page = 10
     navigators = serializeraw.ptn_frompath(
-        power.link(power.BACHELOR111_PDF),
+        hoverpower.link(hoverpower.BACHELOR111_PDF),
         pages=page,
     )
-    nav = utila.select_page(navigators, page)
+    nav = utilo.select_page(navigators, page)
     # TODO: REMOVE WITH EXTRACT MOVING FOOTER
     footer = nav.between(0.77, 0.95)
     assert len(footer) == 5, str(footer)

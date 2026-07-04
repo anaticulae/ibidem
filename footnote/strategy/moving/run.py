@@ -23,7 +23,7 @@ TODO: Think about header
 
 import iamraw
 import texmex
-import utila
+import utilo
 
 import footnote.parser.highnote
 import footnote.strategy
@@ -70,17 +70,17 @@ class MovingStrategy(footnote.strategy.FootnoteDetectionStrategy):
 
     def result(self):
         detected = self.run()
-        utila.verbose('footer before merge:')
-        utila.verbose(detected)
-        utila.verbose()
+        utilo.verbose('footer before merge:')
+        utilo.verbose(detected)
+        utilo.verbose()
         result = footnote.strategy.moving.finish.merge_footer_pages(detected)
-        utila.verbose('footer after merge:')
-        utila.verbose(result)
-        utila.verbose()
+        utilo.verbose('footer after merge:')
+        utilo.verbose(result)
+        utilo.verbose()
         result = footnote.strategy.moving.judge.last(result)
-        utila.verbose('footer after last:')
-        utila.verbose(result)
-        utila.verbose()
+        utilo.verbose('footer after last:')
+        utilo.verbose(result)
+        utilo.verbose()
         return result
 
     def report(self) -> footnote.strategy.FootnoteExtractionReport:
@@ -126,14 +126,14 @@ def extract_footer(
 ) -> iamraw.MovingFooterInformation:
     if footnote_strategy is None:
         footnote_strategy = footnote.parser.highnote.parse
-    begin = utila.roundme(footerstart / ptn.height)
+    begin = utilo.roundme(footerstart / ptn.height)
     content = ptn.after(
         begin,
         selector=texmex.SelectBounding.BOTTOM,
         state=footnote.config.VISIBLE,
     )
     if invalid_footer and invalid_footer(begin, content):
-        utila.debug(f'invalid footer on page {ptn.page}: {content}')
+        utilo.debug(f'invalid footer on page {ptn.page}: {content}')
         return None
     # splitted by highnotes
     footnotes = footnote_strategy(
@@ -148,11 +148,11 @@ def extract_footer(
         return None
     lastnote_bounding = footnotes[-1].bounding
     if lastnote_bounding:
-        end = utila.roundme(lastnote_bounding[3] / ptn.height)
+        end = utilo.roundme(lastnote_bounding[3] / ptn.height)
         end += 0.02  # a little offset to avoid under estimating
     else:
         end = 1.0
-        utila.error(f'missing last note bounding: {footnotes[-1]}')
+        utilo.error(f'missing last note bounding: {footnotes[-1]}')
     footer = iamraw.MovingFooterInfo(
         begin=begin,
         end=end,

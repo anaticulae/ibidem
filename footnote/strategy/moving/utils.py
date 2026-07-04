@@ -7,7 +7,7 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
-import utila
+import utilo
 
 
 def isendnote(numbers: list) -> False:
@@ -16,7 +16,7 @@ def isendnote(numbers: list) -> False:
     True
     """
     # TODO: VERY SIMPLE APPROACH
-    small, high = utila.partition(
+    small, high = utilo.partition(
         key=lambda x: x <= 2,
         items=numbers,
     )
@@ -32,7 +32,7 @@ def footnote_numbers_flat(footers: list) -> list:
             if note.number is None:
                 continue
             if not isinstance(note.number, int):
-                utila.log(f'invalid footenumber: {note.number}')
+                utilo.log(f'invalid footenumber: {note.number}')
                 continue
             numbers.append(note.number)
     return numbers

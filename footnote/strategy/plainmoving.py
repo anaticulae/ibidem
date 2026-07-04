@@ -9,10 +9,10 @@
 
 import math
 
-import configo
+import configos
 import iamraw
 import texmex
-import utila
+import utilo
 
 import footnote.parser.plain
 import footnote.strategy
@@ -47,7 +47,7 @@ class PlainMovingStrategy(footnote.strategy.moving.run.MovingStrategy):
         return report
 
 
-STRATEGY_ERROR_MAX = configo.HolyTable(items=[
+STRATEGY_ERROR_MAX = configos.HolyTable(items=[
     (0, 0),
     (5, 1),
     (10, 2),
@@ -79,16 +79,16 @@ def disable_strategy(footers) -> bool:
     return False
 
 
-BOTTOM_BORDER = configo.HV_PERCENT_PLUS(default=60)
+BOTTOM_BORDER = configos.HV_PERCENT_PLUS(default=60)
 
-FOOTER_COUNT_MIN = configo.HolyTable(
+FOOTER_COUNT_MIN = configos.HolyTable(
     items=(
         (BOTTOM_BORDER, 10),
         (0.8, 2),
         (0.9, 1),
         (1.0, 0),
     ),
-    strategy=utila.Strategy.LINEARISE,
+    strategy=utilo.Strategy.LINEARISE,
 )
 
 
@@ -101,6 +101,6 @@ def invalid_footer(begin, content) -> bool:
     mincount = FOOTER_COUNT_MIN(begin)
     mincount = math.floor(mincount)
     if len(content) < mincount:
-        utila.debug(f'invalid footer: {content}')
+        utilo.debug(f'invalid footer: {content}')
         return True
     return False

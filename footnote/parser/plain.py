@@ -7,9 +7,9 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
-import configo
+import configos
 import iamraw
-import utila
+import utilo
 
 import footnote.layout
 import footnote.utils
@@ -36,15 +36,15 @@ def parse_group(
     if x0 >= footnote.layout.FOOTNOTE_X0_MAX(width):
         # potential highnote is located too right
         return None
-    raw = utila.NEWLINE.join([item.text.strip() for item in multiline])
+    raw = utilo.NEWLINE.join([item.text.strip() for item in multiline])
     raw = footnote.utils.hyperlink_improve(raw)
     number, content = footnote.utils.search_footnote(raw)
-    text = utila.normalize_text(
+    text = utilo.normalize_text(
         content,
         normalize_spaces=True,
         strips=True,
     )
-    bounding = utila.rect_max([item.bounding for item in multiline])
+    bounding = utilo.rect_max([item.bounding for item in multiline])
     bounding_number = tuple(multiline[0].bounding)
     parsed = iamraw.FootNoteRaw(
         bounding=bounding,
@@ -62,11 +62,11 @@ def parse_group(
 def prepare(content: list, pdfpage: int) -> list:
     neighbors = footnote.layout.connect_neighbors(content)
     collected = [merges(neighbor, pdfpage) for neighbor in neighbors]
-    result = utila.flat(collected)
+    result = utilo.flat(collected)
     return result
 
 
-MERGE_LINE_MIN = configo.HV_INT_PLUS(default=len('1. Ebd.'))
+MERGE_LINE_MIN = configos.HV_INT_PLUS(default=len('1. Ebd.'))
 
 
 def merges(content, pdfpage: int):
@@ -82,7 +82,7 @@ def merges(content, pdfpage: int):
     return collected
 
 
-FOOTNOTE_NUMBER_MAX = configo.HolyTable(
+FOOTNOTE_NUMBER_MAX = configos.HolyTable(
     items=(
         (0, 40),
         (20, 200),
@@ -92,7 +92,7 @@ FOOTNOTE_NUMBER_MAX = configo.HolyTable(
         (500, 1500),
         (1000, 3000),
     ),
-    strategy=utila.Strategy.LINEARISE,
+    strategy=utilo.Strategy.LINEARISE,
 )
 
 

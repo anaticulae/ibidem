@@ -9,17 +9,17 @@
 
 import dataclasses
 
-import configo
+import configos
 import iamraw
-import utila
+import utilo
 
 import footnote.strategy
 import footnote.strategy.moving.utils
 
 # relation between detected and empty detected footer to reduce miss detection
-WRONG_STRATEGY_EMPTY_FOOTER_FACTOR = configo.HV_PERCENT_PLUS(default=20)
+WRONG_STRATEGY_EMPTY_FOOTER_FACTOR = configos.HV_PERCENT_PLUS(default=20)
 
-FOOTNOTE_NUMBER_ERROR_MAX = configo.HV_FLOAT_PLUS(default=0.4)
+FOOTNOTE_NUMBER_ERROR_MAX = configos.HV_FLOAT_PLUS(default=0.4)
 
 
 @dataclasses.dataclass
@@ -33,8 +33,8 @@ class MovingFooterResultReport(footnote.strategy.FootnoteExtractionReport):
 def last(result) -> list:
     numbers = footnote.strategy.moving.utils.footnote_numbers_flat(result)
     if footnote_number_error(numbers):
-        utila.debug('too many footnote number error, skip result')
-        utila.debug(numbers)
+        utilo.debug('too many footnote number error, skip result')
+        utilo.debug(numbers)
         result = []
     return result
 
@@ -107,19 +107,19 @@ def footnote_number_error(numbers: list) -> bool:  # pylint:disable=R0911
     """
     if len(numbers) < 2:
         return False
-    diffed = utila.diffs(numbers)
+    diffed = utilo.diffs(numbers)
     if not diffed:
         return False
     if len(diffed) == 1 and diffed[0] > 0:
         # [13, -1] for example
         return True
-    fit, error = utila.partition(
+    fit, error = utilo.partition(
         key=lambda x: 1 <= x <= 2,
         items=diffed,
     )
     if not error:
         return False
-    error_rate = utila.rate_sum(error, fit)
+    error_rate = utilo.rate_sum(error, fit)
     if error_rate > FOOTNOTE_NUMBER_ERROR_MAX:
         if footnote.strategy.moving.utils.isendnote(numbers):
             return False

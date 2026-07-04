@@ -7,14 +7,14 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
-import configo
+import configos
 import iamraw
-import utila
+import utilo
 
 import footnote.layout
 import footnote.utils
 
-FOOTNOTE_TEXT_LENGTH_MIN = configo.HV_INT_PLUS(default=len('ebd.'))
+FOOTNOTE_TEXT_LENGTH_MIN = configos.HV_INT_PLUS(default=len('ebd.'))
 
 
 def parse(
@@ -52,18 +52,18 @@ def parse_group(group, width: int, pagenumber: int) -> iamraw.FootNoteRaw:
             # potential highnote is located too right
             return None
     if len(note.text) < FOOTNOTE_TEXT_LENGTH_MIN:
-        utila.debug(f'footnote too short: {note.text}')
+        utilo.debug(f'footnote too short: {note.text}')
         return None
     notenumber = None
     if has_highnote:
         notenumber = footnote.utils.parse_footnote_number(number.text)
     if not note.text.strip():
-        utila.error(f'could not parse footnote: {number}, no text content')
+        utilo.error(f'could not parse footnote: {number}, no text content')
         return None
     bounding = tuple(note.bounding) if note.bounding else None
     bounding_number = tuple(number.bounding) if has_highnote else None
     text = footnote.utils.hyperlink_improve(note.text)
-    text = utila.normalize_text(text, strips=True)
+    text = utilo.normalize_text(text, strips=True)
     # TODO: GO MORE BACK TO ORIGIN
     raw = number.text + note.text if has_highnote else note.text
     parsed = iamraw.FootNoteRaw(
@@ -83,6 +83,6 @@ def parse_group(group, width: int, pagenumber: int) -> iamraw.FootNoteRaw:
 
 def append_newline(lines):
     for line in lines:
-        line.text += utila.NEWLINE
+        line.text += utilo.NEWLINE
         line.style.content[-1].end += 1
     return lines

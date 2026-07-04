@@ -11,19 +11,19 @@
 fully correct and are a candidat for improving.
 """
 
-import utila
+import utilo
 
 
 def quality(path):
-    files = utila.file_list(path, absolute=True)
+    files = utilo.file_list(path, absolute=True)
     for item in files:
-        content = utila.file_read(item)
+        content = utilo.file_read(item)
         parsed = parse_file(content)
         if not parsed:
             continue
         if not error(parsed):
             continue
-        utila.error(item)
+        utilo.error(item)
 
 
 def parse_file(content: str) -> list:
@@ -39,7 +39,7 @@ def error(items):
         items = [int(item) for item in items]
     except ValueError:
         return True
-    grouped = utila.groupby_diff(items)
+    grouped = utilo.groupby_diff(items)
     if not grouped:
         return False
     if grouped[0][0] == -1:
@@ -48,5 +48,5 @@ def error(items):
 
 
 if __name__ == "__main__":
-    ROOT = utila.join(utila.path_parent(__file__), 'expected')
+    ROOT = utilo.join(utilo.path_parent(__file__), 'expected')
     quality(ROOT)

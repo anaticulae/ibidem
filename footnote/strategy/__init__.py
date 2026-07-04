@@ -31,7 +31,7 @@ import dataclasses
 import iamraw
 import serializeraw
 import texmex
-import utila
+import utilo
 
 import footnote.config
 
@@ -53,7 +53,7 @@ class FootnoteDetectionStrategy(abc.ABC):
         self.horizontals = horizontals
         self.ptns = ptns
         # ease accessing data
-        self.store = utila.SelectPage(
+        self.store = utilo.SelectPage(
             ptns=ptns,
             horizontals=horizontals,
         )
@@ -83,7 +83,7 @@ class FootnoteDetectionStrategy(abc.ABC):
             pageheight if pageheight exists
             None if pageheight not exists
         """
-        selected = utila.select_page(
+        selected = utilo.select_page(
             self.ptns,
             page=pagenumber,
         )

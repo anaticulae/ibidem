@@ -7,13 +7,13 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
-import utilatest
+import utilotest
 
 import footnote.layout
 import footnote.parser.highnote
 
 
-@utilatest.longrun
+@utilotest.longrun
 def test_footnote_highnotes_split(master72page14):
     footer = master72page14
     splitted = list(footnote.layout.split_textinfo(footer))
@@ -21,7 +21,7 @@ def test_footnote_highnotes_split(master72page14):
     assert len(splitted) == 7, splitted
 
 
-@utilatest.longrun
+@utilotest.longrun
 def test_footnote_highnotes_split_mixed_in_text(master89page7):
     """Test to extract only starting highnotes.
 
@@ -35,7 +35,7 @@ def test_footnote_highnotes_split_mixed_in_text(master89page7):
     assert len(merged) == 1, merged
 
 
-@utilatest.longrun
+@utilotest.longrun
 def test_footnote_highnotes_split_mixed_in_text_tripple(master89page19):
     """Test to extract only starting highnotes.
 

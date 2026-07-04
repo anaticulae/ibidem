@@ -7,43 +7,43 @@
 # be prosecuted under federal law. Its content is company confidential.
 #==============================================================================
 
-import utila
+import utilo
 
 import footnote
 
 DESCRIPTION = 'TODO'
 
 WORKPLAN = [
-    utila.create_step(
+    utilo.create_step(
         'plain',
         inputs=[
-            utila.ResultFile(producer='rawmaker', name='text_text'),
-            utila.ResultFile(producer='rawmaker', name='text_positions'),
-            utila.ResultFile('rawmaker', name='horizontals_horizontals'),
+            utilo.ResultFile(producer='rawmaker', name='text_text'),
+            utilo.ResultFile(producer='rawmaker', name='text_positions'),
+            utilo.ResultFile('rawmaker', name='horizontals_horizontals'),
         ],
         output=('plain',),
     ),
-    utila.create_step(
+    utilo.create_step(
         'highnote',
         inputs=[
-            utila.ResultFile(producer='rawmaker', name='text_text'),
-            utila.ResultFile(producer='rawmaker', name='text_positions'),
-            utila.ResultFile('rawmaker', name='horizontals_horizontals'),
+            utilo.ResultFile(producer='rawmaker', name='text_text'),
+            utilo.ResultFile(producer='rawmaker', name='text_positions'),
+            utilo.ResultFile('rawmaker', name='horizontals_horizontals'),
         ],
         output=('highnote',),
     ),
-    utila.create_step(
+    utilo.create_step(
         'result',
         inputs=[
-            utila.ResultFile(producer='footnote', name='highnote_highnote'),
-            utila.ResultFile(producer='footnote', name='plain_plain'),
+            utilo.ResultFile(producer='footnote', name='highnote_highnote'),
+            utilo.ResultFile(producer='footnote', name='plain_plain'),
         ],
         output=('result',),
     ),
-    utila.create_step(
+    utilo.create_step(
         'legacy',
         inputs=[
-            utila.ResultFile(producer='footnote', name='result_result'),
+            utilo.ResultFile(producer='footnote', name='result_result'),
         ],
         output=('legacy',),
     ),
@@ -54,7 +54,7 @@ def rename(path):
     if not isinstance(path, str):
         path = [rename(item) for item in path]
         return path
-    path = utila.rreplace(
+    path = utilo.rreplace(
         path,
         pattern='footnote__legacy_legacy',
         replace='groupme__footer_footerheader',
@@ -63,11 +63,11 @@ def rename(path):
 
 
 def main():
-    utila.featurepack(
+    utilo.featurepack(
         workplan=WORKPLAN,
         root=footnote.ROOT,
         featurepackage='footnote.feature',
-        config=utila.FeaturePackConfig(
+        config=utilo.FeaturePackConfig(
             description=DESCRIPTION,
             multiprocessed=True,
             name=footnote.PROCESS,

@@ -9,11 +9,11 @@
 
 import re
 
-import german
+import germania
 import texmex
-import utila
+import utilo
 
-NUMBER = utila.compiles(r'\[?(\d{1,4})\]?')
+NUMBER = utilo.compiles(r'\[?(\d{1,4})\]?')
 
 
 def parse_footnote_number(text: str) -> int:
@@ -23,13 +23,13 @@ def parse_footnote_number(text: str) -> int:
     """
     matched = NUMBER.match(text)
     if not matched:
-        utila.error(f'could not convert to int: {text}')
+        utilo.error(f'could not convert to int: {text}')
         return text
     result = int(matched[1])
     return result
 
 
-NUMBER_TEXT = utila.compiles(
+NUMBER_TEXT = utilo.compiles(
     r"""
     \[?
     (?P<number>\d{1,4})
@@ -99,13 +99,13 @@ def hyperlink_improve(text: str) -> str:
     result = splitted[0]
     for item in splitted[1:]:
         lastitem = result.split()[-1]
-        if not german.links(lastitem):
-            result += utila.NEWLINE + item
+        if not germania.links(lastitem):
+            result += utilo.NEWLINE + item
             continue
         firstitem = item.split()
         if not firstitem:
             # newline
-            result += utila.NEWLINE
+            result += utilo.NEWLINE
             continue
         # select first word
         firstitem = firstitem[0]
@@ -116,7 +116,7 @@ def hyperlink_improve(text: str) -> str:
             result += item
             continue
         # no link to merge
-        result += utila.NEWLINE + item
+        result += utilo.NEWLINE + item
     return result
 
 

@@ -7,16 +7,16 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
-import configo
+import configos
 import iamraw
-import utila
+import utilo
 
 import footnote.layout
 
-FOOTER_SEPARATOR_COUNT_MIN = configo.HV_INT_PLUS(default=10)
+FOOTER_SEPARATOR_COUNT_MIN = configos.HV_INT_PLUS(default=10)
 
 # distance from top to bottom
-BOTTOM_BORDER = configo.HV_PERCENT_PLUS(default=30)
+BOTTOM_BORDER = configos.HV_PERCENT_PLUS(default=30)
 
 
 def footer_separator(horizontals, pagesize: callable) -> list:
@@ -25,7 +25,7 @@ def footer_separator(horizontals, pagesize: callable) -> list:
 
     Use nereast line to document common footnote line.
     """
-    flat = utila.flatten_content(horizontals)
+    flat = utilo.flatten_content(horizontals)
     # TODO: EXTRACT FOOTNOTES WITH DIFFERENT FOOTER LINES AND SELECT THE
     # BEST ONE.
     flat = valid_footer_separators(
@@ -37,8 +37,8 @@ def footer_separator(horizontals, pagesize: callable) -> list:
     if len(flat) < FOOTER_SEPARATOR_COUNT_MIN:
         # dissable mode selector for to few horizontals
         return horizontals
-    x0 = utila.mode(utila.roundme([item.box[0] for item in flat], digits=0))
-    x1 = utila.mode(utila.roundme([item.box[2] for item in flat], digits=0))
+    x0 = utilo.mode(utilo.roundme([item.box[0] for item in flat], digits=0))
+    x1 = utilo.mode(utilo.roundme([item.box[2] for item in flat], digits=0))
     horizontals = [
         iamraw.PageContentHorizontals(
             content=nearest_line(page.content, x0, x1),
@@ -98,8 +98,8 @@ def nearest_line(horizontals, x0, x1) -> list:
         return []
     best = horizontals[0]
     for horizontal in horizontals[1:]:
-        current = utila.norm(best.box[0], best.box[2], x0, x1)
-        new = utila.norm(horizontal.box[0], horizontal.box[2], x0, x1)
+        current = utilo.norm(best.box[0], best.box[2], x0, x1)
+        new = utilo.norm(horizontal.box[0], horizontal.box[2], x0, x1)
         if new > current:
             continue
         best = horizontal

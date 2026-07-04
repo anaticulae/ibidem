@@ -7,9 +7,9 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
-import power
+import hoverpower
 import pytest
-import utila
+import utilo
 
 import footnote.parser.textraw
 import tests.extractor
@@ -41,12 +41,12 @@ def test_footenote_parse_notes_multiline():
 
 def test_master98_page10(td, mp):
     extracted = tests.extractor.footer(
-        power.MASTER098_PDF,
+        hoverpower.MASTER098_PDF,
         td,
         mp,
         pages='10',
     )
-    footer_ = utila.select_page(extracted, 10).footer
+    footer_ = utilo.select_page(extracted, 10).footer
     notes = footer_.notes
     assert len(notes) == 1
     firstnote_text = notes[0].text.strip()
@@ -61,7 +61,7 @@ def test_bachelor028p2(td, mp):
     and footnote detection works fine.
     """
     extracted = tests.extractor.footer(
-        power.BACHELOR028_PDF,
+        hoverpower.BACHELOR028_PDF,
         td,
         mp,
         pages='2',
@@ -73,7 +73,7 @@ def test_bachelor028p2(td, mp):
 def test_bachelor078p44p45(td, mp):
     """Merge single footnote over two pages."""
     extracted = tests.extractor.footer(
-        power.BACHELOR078_PDF,
+        hoverpower.BACHELOR078_PDF,
         td,
         mp,
         pages='44,45',
@@ -87,12 +87,12 @@ def test_bachelor078p44p45(td, mp):
 def test_bachelor078p44_footnote_bounding(td, mp):
     """Verify bounding produced by highnote strategy."""
     extracted = tests.extractor.footer(
-        power.BACHELOR078_PDF,
+        hoverpower.BACHELOR078_PDF,
         td,
         mp,
         pages='44',
     )[0]
     firstnote = extracted.footer.notes[0].bounding
-    width, height = utila.rect_width(firstnote), utila.rect_height(firstnote)
+    width, height = utilo.rect_width(firstnote), utilo.rect_height(firstnote)
     assert width > 350
     assert height > 40, '4 lines of 10pt text'

@@ -9,23 +9,23 @@
 
 import functools
 
-import power
+import hoverpower
 import pytest
 import serializeraw
-import utila
-import utilatest
+import utilo
+import utilotest
 
 import footnote
 import tests
 
-ARCHIVE = utila.join(footnote.ROOT, 'tests/expected', exist=True)
+ARCHIVE = utilo.join(footnote.ROOT, 'tests/expected', exist=True)
 
 
 @pytest.mark.parametrize(
     'source',
-    utilatest.test_resources(tests.conftest.RESOURCES),
+    utilotest.test_resources(tests.conftest.RESOURCES),
 )
-@utilatest.nightly
+@utilotest.nightly
 def test_validate_all(source, td, mp):
     Evaluate(
         source=source,
@@ -37,12 +37,14 @@ def test_validate_all(source, td, mp):
 
 
 @pytest.mark.parametrize('source, pages, expected', [
-    pytest.param(power.DISS143_PDF, '20:26', 'diss143page20', id='diss143p20'),
-    pytest.param(power.DISS480_PDF, '4,5', 'diss480p4p5', id='diss480p4p5'),
+    pytest.param(
+        hoverpower.DISS143_PDF, '20:26', 'diss143page20', id='diss143p20'),
+    pytest.param(hoverpower.DISS480_PDF, '4,5', 'diss480p4p5',
+                 id='diss480p4p5'),
 ])
-@utilatest.nightly
+@utilotest.nightly
 def test_validate_selected(source, pages, expected, td, mp):
-    utilatest.fixture_requires(source)
+    utilotest.fixture_requires(source)
     Evaluate(
         source=source,
         pages=pages,
@@ -52,7 +54,7 @@ def test_validate_selected(source, pages, expected, td, mp):
     ).evaluate()
 
 
-class Evaluate(utilatest.BaseLiner):
+class Evaluate(utilotest.BaseLiner):
 
     def __init__(self, source, pages, expected, workdir, mp):
         super().__init__(
@@ -62,7 +64,7 @@ class Evaluate(utilatest.BaseLiner):
             ),
             step='',
             pages=pages,
-            source=power.link(source),
+            source=hoverpower.link(source),
             workdir=workdir,
             archive=ARCHIVE,
             loader=serializeraw.load_footnotes,
@@ -71,9 +73,9 @@ class Evaluate(utilatest.BaseLiner):
         )
 
     def raw(self, value) -> str:
-        footnotes = utila.flatten_content(value)
+        footnotes = utilo.flatten_content(value)
         footnotes = [rawline(item) for item in footnotes]
-        result = utila.NEWLINE.join(footnotes)
+        result = utilo.NEWLINE.join(footnotes)
         return result
 
 
@@ -81,5 +83,5 @@ def rawline(note) -> str:
     result = '     '
     if note.raw_number is not None:
         result = str(note.number).zfill(4) + ' '
-    result += utila.normalize_text(note.text.strip())
+    result += utilo.normalize_text(note.text.strip())
     return result

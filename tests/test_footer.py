@@ -7,12 +7,12 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
+import hoverpower
 import iamraw.path
-import power
 import pytest
 import serializeraw
-import utila
-import utilatest
+import utilo
+import utilotest
 
 import footnote.feature.result
 import footnote.strategy.moving.run
@@ -24,7 +24,7 @@ import tests.extractor
 @pytest.mark.parametrize('strategy, expected_results', [
     (footnote.strategy.moving.run.MovingStrategy, 0),
 ])
-@utilatest.requires(power.DOCU027_PDF)
+@utilotest.requires(hoverpower.DOCU027_PDF)
 def test_footerheader_detectionstategy(
     strategy,
     expected_results,
@@ -32,7 +32,7 @@ def test_footerheader_detectionstategy(
     """Check that different strategies work proper with given resources
 
     TODO: SEE DUPLICATION test_judgement_strategy_quality?"""
-    source = power.link(power.DOCU027_PDF)
+    source = hoverpower.link(hoverpower.DOCU027_PDF)
     horizontals = serializeraw.load_horizontals(source)
     ptn = serializeraw.ptn_frompath(source)
     process = strategy(
@@ -43,35 +43,35 @@ def test_footerheader_detectionstategy(
     assert len(result) == expected_results, 'not enough footer and header'
 
 
-@utilatest.longrun
-@utilatest.requires(power.MASTER072_PDF)
+@utilotest.longrun
+@utilotest.requires(hoverpower.MASTER072_PDF)
 def test_master72_extract(td, mp):
     outdir = td.tmpdir
-    cmd = f'-i {power.link(power.MASTER072_PDF)}  -o {outdir} --pages=3'
+    cmd = f'-i {hoverpower.link(hoverpower.MASTER072_PDF)}  -o {outdir} --pages=3'
     tests.run(cmd, mp=mp)
     headfoot = serializeraw.load_headerfooter(iamraw.path.footnote_result(outdir))  # yapf:disable
     footnotes = headfoot[0].footer.notes
     assert len(footnotes) == 6, str(footnotes)
-    first = utila.normalize_whitespaces(footnotes[0].text)
+    first = utilo.normalize_whitespaces(footnotes[0].text)
     assert first.startswith('Aus Gründen der besseren Lesbarkeit'), first
 
 
 def test_homework18(td, mp):
     extracted = tests.extractor.footer(
-        power.HOME018_PDF,
+        hoverpower.HOME018_PDF,
         td,
         mp,
         pages='3:17',
     )
-    content = utila.flat([item.footer.notes for item in extracted])
+    content = utilo.flat([item.footer.notes for item in extracted])
     assert len(content) == 94, len(content)
 
 
-@utilatest.longrun
+@utilotest.longrun
 def test_master110(td, mp):
     """This document does not contain any footnotes."""
     extracted = tests.extractor.footer(
-        power.MASTER110_PDF,
+        hoverpower.MASTER110_PDF,
         td,
         mp,
         pages='0:50',
@@ -81,33 +81,33 @@ def test_master110(td, mp):
 
 def test_master99p8(td, mp):
     extracted = tests.extractor.footer(
-        power.MASTER099_PDF,
+        hoverpower.MASTER099_PDF,
         td,
         mp,
         pages='8',
     )
     footer = extracted[0].footer.notes[0].text.strip()
-    footer = utila.normalize_whitespaces(footer)
+    footer = utilo.normalize_whitespaces(footer)
     assert footer.startswith('Näheres')
     assert footer.endswith('nachgelesen werden.')
 
 
-@utilatest.nightly
+@utilotest.nightly
 def test_master155p107(td, mp):
     """No footer on page107."""
     extracted = tests.extractor.footer(
-        power.MASTER155_PDF,
+        hoverpower.MASTER155_PDF,
         td,
         mp,
         pages='0:110',
     )
-    assert not utila.select_page(extracted, 107)
+    assert not utilo.select_page(extracted, 107)
 
 
-@utilatest.nightly
+@utilotest.nightly
 def test_master127(td, mp):
     extracted = tests.extractor.footer(
-        power.MASTER127_PDF,
+        hoverpower.MASTER127_PDF,
         td,
         mp,
         pages=':',
@@ -118,14 +118,14 @@ def test_master127(td, mp):
         if isinstance(item.footer, iamraw.MovingFooterInformation)
     ]
     assert len(footers) == 73  # VALIDATED
-    footnotes = utila.flat([item.notes for item in footers])
+    footnotes = utilo.flat([item.notes for item in footers])
     assert len(footnotes) == 135  # VALIDATED
 
 
-@utilatest.longrun
+@utilotest.longrun
 def test_master075(td, mp):
     extracted = tests.extractor.footer(
-        power.MASTER075_PDF,
+        hoverpower.MASTER075_PDF,
         td,
         mp,
         pages=':',

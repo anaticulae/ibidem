@@ -7,17 +7,17 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
+import hoverpower
 import iamraw
-import power
 import serializeraw
-import utilatest
+import utilotest
 
 import tests
 
 
 def footer(source: str, td, mp, pages: str = ':'):
-    utilatest.fixture_requires(source)
-    cmd = f'-i {power.link(source)}  --pages={pages}'
+    utilotest.fixture_requires(source)
+    cmd = f'-i {hoverpower.link(source)}  --pages={pages}'
     tests.run(cmd, mp=mp)
     headerpath = iamraw.path.footnote_result(td.tmpdir)
     loaded = serializeraw.load_headerfooter(headerpath)

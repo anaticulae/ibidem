@@ -7,9 +7,9 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
-import configo
+import configos
 import texmex
 
-FOOTER_SEPARATOR_WIDTH_MIN = configo.HV_INT_PLUS(default=70)
+FOOTER_SEPARATOR_WIDTH_MIN = configos.HV_INT_PLUS(default=70)
 
 VISIBLE = texmex.TextState.VISIBLE | texmex.TextState.FOOTNOTE

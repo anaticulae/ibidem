@@ -7,12 +7,12 @@
 # be prosecuted under federal law. Its content is company confidential.
 # =============================================================================
 
-import genex
-import power
+import gennex
+import hoverpower
 import resinf
-import utilatest
-from utilatest import mp  # pylint:disable=W0611
-from utilatest import td  # pylint:disable=W0611
+import utilotest
+from utilotest import mp  # pylint:disable=W0611
+from utilotest import td  # pylint:disable=W0611
 
 import footnote
 # pylint:disable=W0611
@@ -26,96 +26,96 @@ pytest_plugins = ['pytester', 'xdist']  # pylint: disable=invalid-name
 PACKAGE = footnote.PROCESS
 
 RESOURCES = [
-    (power.BACHELOR051_PDF, '0:25'),
-    (power.BACHELOR063_PDF, '0:20'),
-    (power.BACHELOR076_PDF, '0:25'),
-    (power.BACHELOR090_PDF, '0:25'),
-    (power.BACHELOR241_PDF, '0:100'),
-    (power.BOOK173_PDF, '0:100'),
-    (power.DISS178_PDF, '0:30'),
-    (power.DISS218_PDF, '0:100'),
-    (power.DISS264_PDF, '0:50'),
-    (power.DISS273_PDF, '30:60'),
-    (power.DISS287_PDF, '0:100'),
-    (power.DISS406_PDF, '0:75,100:150'),
-    (power.MASTER098_PDF, '0:15'),
-    (power.MASTER099_PDF, '0:30'),
-    (power.MASTER112_PDF, '5,6'),
-    (power.MASTER116_PDF, '50:117'),
-    (power.ORDER009_PDF, '0:10'),
+    (hoverpower.BACHELOR051_PDF, '0:25'),
+    (hoverpower.BACHELOR063_PDF, '0:20'),
+    (hoverpower.BACHELOR076_PDF, '0:25'),
+    (hoverpower.BACHELOR090_PDF, '0:25'),
+    (hoverpower.BACHELOR241_PDF, '0:100'),
+    (hoverpower.BOOK173_PDF, '0:100'),
+    (hoverpower.DISS178_PDF, '0:30'),
+    (hoverpower.DISS218_PDF, '0:100'),
+    (hoverpower.DISS264_PDF, '0:50'),
+    (hoverpower.DISS273_PDF, '30:60'),
+    (hoverpower.DISS287_PDF, '0:100'),
+    (hoverpower.DISS406_PDF, '0:75,100:150'),
+    (hoverpower.MASTER098_PDF, '0:15'),
+    (hoverpower.MASTER099_PDF, '0:30'),
+    (hoverpower.MASTER112_PDF, '5,6'),
+    (hoverpower.MASTER116_PDF, '50:117'),
+    (hoverpower.ORDER009_PDF, '0:10'),
     resinf.todo(
-        power.DISS172_PDF,
+        hoverpower.DISS172_PDF,
         figureo=True,
         tablero=True,
-        rawmaker=genex.CONFIG,
+        rawmaker=gennex.CONFIG,
     ),
-    resinf.todo(power.DOCU007_PDF, tablero=True, rawmaker=genex.CONFIG),
-    resinf.todo(power.MASTER063_PDF, figureo=True),
-    power.BACHELOR028_PDF,
-    power.BACHELOR032A_PDF,
-    power.BACHELOR032_PDF,
-    power.BACHELOR037_PDF,
-    power.BACHELOR039_PDF,
-    power.BACHELOR041A_PDF,
-    power.BACHELOR056_PDF,
-    power.BACHELOR077_PDF,
-    power.BACHELOR078_PDF,
-    power.BACHELOR085_PDF,
-    power.BACHELOR086_PDF,
-    power.BACHELOR101_PDF,
-    power.BACHELOR105_PDF,
-    power.BACHELOR111_PDF,
-    power.BACHELOR128_PDF,
-    power.BOOK007_PDF,
-    power.DISS143_PDF,
-    power.DISS144_PDF,
-    power.DISS148_PDF,
-    power.DISS170B_PDF,
-    power.DISS480_PDF,
-    power.DOCU009_PDF,
-    power.DOCU014_PDF,
-    power.DOCU027_PDF,
-    power.HC_BACH106,
-    power.HC_DISS128,
-    power.HC_DISS148,
-    power.HC_DISS166,
-    power.HC_DISS171,
-    power.HC_DISS193,
-    power.HOME007_PDF,
-    power.HOME018_PDF,
-    power.HOME020_PDF,
-    power.HOME021B_PDF,
-    power.HOME022_PDF,
-    power.HOME022B_PDF,
-    power.MASTER049_PDF,
-    power.MASTER072_PDF,
-    power.MASTER075_PDF,
-    power.MASTER089_PDF,
-    power.MASTER091A_PDF,
-    power.MASTER091B_PDF,
-    power.MASTER099C_PDF,
-    power.MASTER110_PDF,
-    power.MASTER127_PDF,
-    power.MASTER155_PDF,
-    power.MASTER193_PDF,
-    power.PAPER14B_PDF,
-    power.PAPER18_PDF,
-    power.TECH019_PDF,
-    power.TECH024_PDF,
+    resinf.todo(hoverpower.DOCU007_PDF, tablero=True, rawmaker=gennex.CONFIG),
+    resinf.todo(hoverpower.MASTER063_PDF, figureo=True),
+    hoverpower.BACHELOR028_PDF,
+    hoverpower.BACHELOR032A_PDF,
+    hoverpower.BACHELOR032_PDF,
+    hoverpower.BACHELOR037_PDF,
+    hoverpower.BACHELOR039_PDF,
+    hoverpower.BACHELOR041A_PDF,
+    hoverpower.BACHELOR056_PDF,
+    hoverpower.BACHELOR077_PDF,
+    hoverpower.BACHELOR078_PDF,
+    hoverpower.BACHELOR085_PDF,
+    hoverpower.BACHELOR086_PDF,
+    hoverpower.BACHELOR101_PDF,
+    hoverpower.BACHELOR105_PDF,
+    hoverpower.BACHELOR111_PDF,
+    hoverpower.BACHELOR128_PDF,
+    hoverpower.BOOK007_PDF,
+    hoverpower.DISS143_PDF,
+    hoverpower.DISS144_PDF,
+    hoverpower.DISS148_PDF,
+    hoverpower.DISS170B_PDF,
+    hoverpower.DISS480_PDF,
+    hoverpower.DOCU009_PDF,
+    hoverpower.DOCU014_PDF,
+    hoverpower.DOCU027_PDF,
+    hoverpower.HC_BACH106,
+    hoverpower.HC_DISS128,
+    hoverpower.HC_DISS148,
+    hoverpower.HC_DISS166,
+    hoverpower.HC_DISS171,
+    hoverpower.HC_DISS193,
+    hoverpower.HOME007_PDF,
+    hoverpower.HOME018_PDF,
+    hoverpower.HOME020_PDF,
+    hoverpower.HOME021B_PDF,
+    hoverpower.HOME022_PDF,
+    hoverpower.HOME022B_PDF,
+    hoverpower.MASTER049_PDF,
+    hoverpower.MASTER072_PDF,
+    hoverpower.MASTER075_PDF,
+    hoverpower.MASTER089_PDF,
+    hoverpower.MASTER091A_PDF,
+    hoverpower.MASTER091B_PDF,
+    hoverpower.MASTER099C_PDF,
+    hoverpower.MASTER110_PDF,
+    hoverpower.MASTER127_PDF,
+    hoverpower.MASTER155_PDF,
+    hoverpower.MASTER193_PDF,
+    hoverpower.PAPER14B_PDF,
+    hoverpower.PAPER18_PDF,
+    hoverpower.TECH019_PDF,
+    hoverpower.TECH024_PDF,
 ]
 
-WORKER = utilatest.worker_count(7, onci=len(RESOURCES))
+WORKER = utilotest.worker_count(7, onci=len(RESOURCES))
 
 
 def pytest_sessionstart(session):  # pylint:disable=W0613
-    power.run()
+    hoverpower.run()
 
 
-RAWMAKER = '--text --line --horizontals ' + genex.CONFIG
+RAWMAKER = '--text --line --horizontals ' + gennex.CONFIG
 
 
 def extract(resources):
-    genex.extract(
+    gennex.extract(
         resources,
         rawmaker=RAWMAKER,
         oneline=None,
@@ -126,12 +126,12 @@ def extract(resources):
 
 
 RESOURCES_NOTITLE = [
-    power.DOCU027_PDF,
+    hoverpower.DOCU027_PDF,
 ]
 
 
 def extract_notitle(resources):
-    genex.extract_removepages(
+    gennex.extract_removepages(
         resources,
         removepages='0',
         folder='notitle',

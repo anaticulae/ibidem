@@ -10,25 +10,25 @@
 import dataclasses
 import math
 
-import configo
+import configos
 import iamraw
 import texmex
-import utila
+import utilo
 
 import footnote.utils
 
-HIGHNOTE_VERTICAL_LINE_DIFF_MAX = configo.HV_FLOAT_PLUS(default=15.0)
+HIGHNOTE_VERTICAL_LINE_DIFF_MAX = configos.HV_FLOAT_PLUS(default=15.0)
 
-FOOTNOTE_X0_MAX = configo.HolyTable(items=(
+FOOTNOTE_X0_MAX = configos.HolyTable(items=(
     (440, 100),  # TODO: US Letter?
     (550, 150),  # DINA4
 ))
-FOOTNOTE_X1_MAX = configo.HolyTable(items=(
+FOOTNOTE_X1_MAX = configos.HolyTable(items=(
     (440, 100 + 200),  # TODO: US Letter?
     (550, 150 + 200),  # DINA4
 ))
 
-FOOTNOTE_RATE_MIN = configo.HV_PERCENT_PLUS(default=50)
+FOOTNOTE_RATE_MIN = configos.HV_PERCENT_PLUS(default=50)
 
 
 def group_footnote_area(content) -> list:
@@ -44,12 +44,12 @@ def group_footnote_area(content) -> list:
         merged = merge_online(splitted)
         result.extend(merged)
     result = merge_after(result)
-    rate = utila.rate_rel(has_highnote, len(connected_neighbors))
+    rate = utilo.rate_rel(has_highnote, len(connected_neighbors))
     if rate < FOOTNOTE_RATE_MIN:
         if len(result) == 1:
             return result
-        utila.debug(f'no highnotes: {rate} detected, skip footnote result')
-        utila.verbose(result)
+        utilo.debug(f'no highnotes: {rate} detected, skip footnote result')
+        utilo.verbose(result)
         return []
     return result
 
@@ -196,7 +196,7 @@ def merge_online(items) -> list:
 
 # increase word diff at the start of the line to merge huge gap between
 # footnote number and footnote text.
-LEFTRIGHT_DIFF_MAX = configo.HolyTable(items=(
+LEFTRIGHT_DIFF_MAX = configos.HolyTable(items=(
     (0, 40),
     (100, 40),
     (120, 40),
@@ -207,33 +207,33 @@ LEFTRIGHT_DIFF_MAX = configo.HolyTable(items=(
     (500, 20),
 ))
 
-SAMEORIGIN_DIFF_MAX = configo.HV_FLOAT_PLUS(default=35.0)
+SAMEORIGIN_DIFF_MAX = configos.HV_FLOAT_PLUS(default=35.0)
 
-SAMELINE_DIFF_MAX = configo.HV_FLOAT_PLUS(default=5.0)
+SAMELINE_DIFF_MAX = configos.HV_FLOAT_PLUS(default=5.0)
 
-UNDERFIRST_DIFF_MAX = configo.HV_FLOAT_PLUS(default=10.0)
+UNDERFIRST_DIFF_MAX = configos.HV_FLOAT_PLUS(default=10.0)
 
 
 def connected(first: tuple, second: tuple) -> bool:
     leftright_diff_max = LEFTRIGHT_DIFF_MAX(first.x0)
     # words are neighbors
-    leftright = utila.near(
+    leftright = utilo.near(
         first.x1,
         second.x0,
         diff=leftright_diff_max,
     )
     # plus indention
-    sameorigin = utila.near(
+    sameorigin = utilo.near(
         first.x0,
         second.x0,
         diff=SAMEORIGIN_DIFF_MAX,
     )
-    sameline = utila.near(
+    sameline = utilo.near(
         first.y0,
         second.y0,
         diff=SAMELINE_DIFF_MAX,
     )
-    underfirst = utila.near(
+    underfirst = utilo.near(
         first.y1,
         second.y0,
         diff=UNDERFIRST_DIFF_MAX,
@@ -272,7 +272,7 @@ def union(chunks: TextChunks) -> texmex.TextInfo:
         section_style.start, section_style.end = start, end
         content.append(section_style)
     bounding = [item.bounding for item in chunks if item.bounding]
-    bounding = utila.rect_max(bounding) if bounding else None
+    bounding = utilo.rect_max(bounding) if bounding else None
     result = texmex.TextInfo(
         text=raw,
         style=texmex.TextStyle(content=content),
@@ -294,7 +294,7 @@ def char_bounding(
     return result
 
 
-HIGHNOTE_RISE_MIN = configo.HV_FLOAT_PLUS(default=3.0)
+HIGHNOTE_RISE_MIN = configos.HV_FLOAT_PLUS(default=3.0)
 
 
 def ishighnote(style, text: str) -> bool:

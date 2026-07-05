@@ -1,95 +1,350 @@
-# Changelog
+# CHANGELOG
 
-Every noteable change is logged here.
 
-## v0.2.6 (2022-12-21)
+## v1.0.0 (2026-07-05)
 
-### Chore
+### Chores
 
-* use quick installer (a19f674eb2a6)
-* upgrade requirements.txt (44014db6d8b1)
-* upgrade pipeline (658fe3aec230)
+- **github**: Add .github
+  ([`774d741`](https://github.com/anaticulae/ibidem/commit/774d741fe5a1070c1cba50647f79b07f9d2c204c))
+
+- **Jenkins**: Upgrade pipeline
+  ([`658fe3a`](https://github.com/anaticulae/ibidem/commit/658fe3aec230d3058e2270a12b587f8b64e38803))
+
+- **Jenkins**: Use improved library
+  ([`fa5c1cf`](https://github.com/anaticulae/ibidem/commit/fa5c1cf6e39bda15c508b322e59296e9be1b1336))
+
+- **make**: Add hoverpower step
+  ([`0c568b3`](https://github.com/anaticulae/ibidem/commit/0c568b390620c21a95e632b63868c61f5a3d1ce4))
+
+- **pyproject**: Add missing download resource
+  ([`933ba4d`](https://github.com/anaticulae/ibidem/commit/933ba4d74b9be15e48e5588b56b78a68a95100ac))
+
+- **pyproject**: Add modern layout
+  ([`0eff3a2`](https://github.com/anaticulae/ibidem/commit/0eff3a2fa114e26ed019af1fd3b70df70a81326b))
+
+- **pyproject**: Release with every commit
+  ([`cf4ca9a`](https://github.com/anaticulae/ibidem/commit/cf4ca9a01931fbb4360b5f3221dcfc4bcf683564))
+
+- **refactor**: Adjust package names
+  ([`e5e13b8`](https://github.com/anaticulae/ibidem/commit/e5e13b85db58677735831b339442febbf93c8e90))
+
+- **requirements**: Add missing
+  ([`7737191`](https://github.com/anaticulae/ibidem/commit/7737191a7b7737e98e2768f19bd35002cbe71ca1))
+
+- **requirements**: Upgrade requirements.txt
+  ([`00541f5`](https://github.com/anaticulae/ibidem/commit/00541f5b35a3761e73f63c3d364fc76fe4b9dbbc))
+
+- **requirements**: Upgrade requirements.txt
+  ([`44014db`](https://github.com/anaticulae/ibidem/commit/44014db6d8b176add72fb72d512760cf390fa509))
+
+- **resources**: Disable missing resource generation
+  ([`826f2d2`](https://github.com/anaticulae/ibidem/commit/826f2d21823ae5c276720aacadc0de13fe8873a7))
+
+- **setup**: Remove outdated data
+  ([`a4ab5ea`](https://github.com/anaticulae/ibidem/commit/a4ab5eaf99aded5c856dec4dd4d33b1f86ca02cc))
+
+- **setup**: Use quick installer
+  ([`a19f674`](https://github.com/anaticulae/ibidem/commit/a19f674eb2a6cfdfce7ff2345c03ddec60c2f475))
+
+### Documentation
+
+- **general**: Adjust file names
+  ([`f7c5f4a`](https://github.com/anaticulae/ibidem/commit/f7c5f4a7e77196cabd808e9e54cadaa285285fef))
+
+### Features
+
+- **project**: Adjust project name
+  ([`c130427`](https://github.com/anaticulae/ibidem/commit/c130427a5b09d4eab5e326b13eaa2cf6c350a501))
+
+### Refactoring
+
+- **imports**: Use public interface
+  ([`0101cf8`](https://github.com/anaticulae/ibidem/commit/0101cf8227e1553c76c49cc5724ddf6442234caf))
+
 
 ## v0.2.5 (2022-11-10)
 
-### Fix
+### Bug Fixes
 
-* do not forget hidden footnote (75a14fab10b3)
+- **moving**: Do not forget hidden footnote
+  ([`75a14fa`](https://github.com/anaticulae/ibidem/commit/75a14fab10b3b898d5d725cc4644a8a4271f69f7))
 
-### Chore
+### Chores
 
-* upgrade requirements.txt (c47da7260490)
+- **requirements**: Upgrade requirements.txt
+  ([`c47da72`](https://github.com/anaticulae/ibidem/commit/c47da72604908a1865d0cb527f10e19ed6837897))
+
+### Refactoring
+
+- **visible**: Move to better position
+  ([`5d5facc`](https://github.com/anaticulae/ibidem/commit/5d5facc225a29efd259f730d3dc3961cae6586fe))
+
 
 ## v0.2.4 (2022-11-10)
 
-### Fix
+### Bug Fixes
 
-* load hidden footnote also to enable computation after hiding (bcd4a31c6141)
+- **ptn**: Load hidden footnote also to enable computation after hiding
+  ([`bcd4a31`](https://github.com/anaticulae/ibidem/commit/bcd4a31c61412ca73141b2cf45dd12e07d7c167c))
 
-### Chore
+### Chores
 
-* upgrade requirements.txt (c27cdedf3f01)
+- **requirements**: Upgrade requirements.txt
+  ([`c27cded`](https://github.com/anaticulae/ibidem/commit/c27cdedf3f013c6511207868d86c9a7e23a1f14e))
+
 
 ## v0.2.3 (2022-11-08)
 
-### Chore
+### Chores
 
-* upgrade pipe library (674633d8704e)
-* upgrade environment (ab7530940bc9)
-* upgrade requirements.txt (ee3f72cf0804)
-* increase baw version (70f2a966c2da)
-* do not run in privileged mode (b2d339822ca9)
-* publish generated data if nightly fails (8df79bc2131f)
-* add separate generate step (edcf17567654)
-* upgrade requirements.txt (b086e6a2f1a1)
-* add missing dev resource (6e933f0b7d70)
-* increase worker count on CI (45e5ac56612d)
-* add Jenkinsfile (d6719ae0ef8f)
-* upgrade requirements.txt (455601af2dec)
+- **ci**: Add Jenkinsfile
+  ([`d6719ae`](https://github.com/anaticulae/ibidem/commit/d6719ae0ef8f53e1579cab9526fd79897557e408))
 
-## v0.2.2
+- **Jenkins**: Add separate generate step
+  ([`edcf175`](https://github.com/anaticulae/ibidem/commit/edcf1756765476c2b88cab09aa3a971ff68738bb))
 
-### Feature
+- **Jenkins**: Do not run in privileged mode
+  ([`b2d3398`](https://github.com/anaticulae/ibidem/commit/b2d339822ca9d95d9e668985ec4d6ec4904f8bc7))
 
-* use number bounding (2f9e2ac30595)
+- **Jenkins**: Increase baw version
+  ([`70f2a96`](https://github.com/anaticulae/ibidem/commit/70f2a966c2da103103fdf302a5a981cf8bc7bb57))
 
-### Fix
+- **Jenkins**: Publish generated data if nightly fails
+  ([`8df79bc`](https://github.com/anaticulae/ibidem/commit/8df79bc2131f875da931954b63217ea6667fec0e))
 
-* adjust highnote splitter (78d549516c94)
-* do not skip bounding computation (bcdea1683494)
-* adjust complete footnote bounding (bec442b29b00)
-* remove unused print (887000ede152)
+- **Jenkins**: Upgrade environment
+  ([`ab75309`](https://github.com/anaticulae/ibidem/commit/ab7530940bc9c64a3f9f4bacf7cc746a623ded07))
 
-## v0.2.1
+- **Jenkins**: Upgrade pipe library
+  ([`674633d`](https://github.com/anaticulae/ibidem/commit/674633d8704e428006e331eb96239a740dbba9d0))
 
-### Fix
+- **requirements**: Add missing dev resource
+  ([`6e933f0`](https://github.com/anaticulae/ibidem/commit/6e933f0b7d70f7fde5049b37698912060755fe14))
 
-* make valid footnote start more strict (4d4c3e29a28a)
-* fix legacy path (189171d8cd62)
+- **requirements**: Upgrade requirements.txt
+  ([`ee3f72c`](https://github.com/anaticulae/ibidem/commit/ee3f72cf08046675fefbb94f967f4a01dbdd9fd3))
+
+- **requirements**: Upgrade requirements.txt
+  ([`b086e6a`](https://github.com/anaticulae/ibidem/commit/b086e6a2f1a18e76e6774ce030972e4f0b9747fa))
+
+- **requirements**: Upgrade requirements.txt
+  ([`455601a`](https://github.com/anaticulae/ibidem/commit/455601af2decb886a41d1e4f96b118d8811b7f4f))
+
+- **resources**: Increase worker count on CI
+  ([`45e5ac5`](https://github.com/anaticulae/ibidem/commit/45e5ac56612de9f4b363fc63e963ce50aa884e67))
+
+### Code Style
+
+- **changelog**: Adjust for automation tool
+  ([`8ddbac0`](https://github.com/anaticulae/ibidem/commit/8ddbac01b9ce85a86b7b2258ca95c81ef6e5cd4e))
+
+### Refactoring
+
+- **footnote**: Solve linter warnings
+  ([`7f1811f`](https://github.com/anaticulae/ibidem/commit/7f1811fca563f22403392d57988baa92c66cdefc))
+
+- **replace**: Automated replacement
+  ([`f471f64`](https://github.com/anaticulae/ibidem/commit/f471f644db7d62c39d192e73223a1936a1b9befc))
+
+### Testing
+
+- **adjust**: After upgrading software
+  ([`a98748b`](https://github.com/anaticulae/ibidem/commit/a98748b2d78f761815897ca6dc6f5a0203c3d048))
+
+- **skip**: Skip test if resource is not generated
+  ([`fed27eb`](https://github.com/anaticulae/ibidem/commit/fed27ebcfdbfba6286cb92d27d8da95d5dbbd789))
+
+- **skip**: Skip tests if resource is not generated
+  ([`3a6d37e`](https://github.com/anaticulae/ibidem/commit/3a6d37e3e7c6b9c8edea8ce7589b20e0c09ec803))
+
+
+## v0.2.2 (2022-08-02)
+
+### Bug Fixes
+
+- **layout**: Adjust highnote splitter
+  ([`78d5495`](https://github.com/anaticulae/ibidem/commit/78d549516c947cd937e3cb216bb4b26d1b2be275))
+
+- **layout**: Do not skip bounding computation
+  ([`bcdea16`](https://github.com/anaticulae/ibidem/commit/bcdea16834949c3a4df68841bf77f965d59ec8f5))
+
+- **plain**: Adjust complete footnote bounding
+  ([`bec442b`](https://github.com/anaticulae/ibidem/commit/bec442b29b004f5cdddbfd1419a7624112bc35ad))
+
+- **quality**: Remove unused print
+  ([`887000e`](https://github.com/anaticulae/ibidem/commit/887000ede1523bc6ffd8ebd3923bd1d87fb8bc25))
+
+### Chores
+
+- **requirements**: Upgrade requirements.txt
+  ([`148a423`](https://github.com/anaticulae/ibidem/commit/148a42373253c906f7d8199611e8fb4a62d12f3f))
+
+### Features
+
+- **plain**: Use number bounding
+  ([`2f9e2ac`](https://github.com/anaticulae/ibidem/commit/2f9e2ac305953d8e553d0b08b03a7b53daec1875))
+
+### Testing
+
+- **footnote**: Add footnote bounding regression test
+  ([`dfab6b3`](https://github.com/anaticulae/ibidem/commit/dfab6b3f5e3210e5cdc9764804089874a7d70476))
+
+- **rename**: Shorten test file
+  ([`4a8e5e6`](https://github.com/anaticulae/ibidem/commit/4a8e5e601778b3f8f3c8bc0621805432d15dda36))
+
+- **style**: Adjust test names
+  ([`47fd3e2`](https://github.com/anaticulae/ibidem/commit/47fd3e24f7c04ecc37ff927d44cdf83c231d5b0b))
+
+
+## v0.2.1 (2022-07-29)
+
+### Bug Fixes
+
+- **cli**: Fix legacy path
+  ([`189171d`](https://github.com/anaticulae/ibidem/commit/189171d8cd62c373b0128d6b113fde1f1e05ca49))
+
+- **footnote**: Make valid footnote start more strict
+  ([`4d4c3e2`](https://github.com/anaticulae/ibidem/commit/4d4c3e29a28abdf0c69d58e9247d53a962ed0034))
+
+### Chores
+
+- **requirements**: Upgrade requirements.txt
+  ([`dc39d15`](https://github.com/anaticulae/ibidem/commit/dc39d15cc5d818bd5cfe763735024088d84e3669))
+
+- **resources**: Extend test data generator
+  ([`014e411`](https://github.com/anaticulae/ibidem/commit/014e411c9e6f6236a24c40f7f050ba63482ef876))
 
 ### Documentation
 
-* add hint how to select new documents (3fac58c97672)
+- **backlog**: Add hint how to select new documents
+  ([`3fac58c`](https://github.com/anaticulae/ibidem/commit/3fac58c9767252e649202e153ff8f38af5cefcf3))
 
-## v0.2.0
+### Testing
 
-### Feature
+- **quality**: Add module to determine candidates to improve
+  ([`38319d1`](https://github.com/anaticulae/ibidem/commit/38319d13e5d6c4e1eafea79157164c0dfb79e6ba))
 
-* use data from separate steps (3fbf47953cd4)
-* add separate step (6adc1bdcbcee)
-* move plain strategy to separate step (dc861eb195d1)
 
-## v0.1.0
+## v0.2.0 (2022-07-22)
 
-### Feature
+### Chores
 
-* add legacy step to use data like groupme (456128605a27)
-* ease data access (f0f76e378fe0)
-* determine footnote end area due last footnote bounding (4b8790abe0e7)
-* move code from groupme (04804ea77bdc)
+- **requirements**: Upgrade requirements.txt
+  ([`9b40f6b`](https://github.com/anaticulae/ibidem/commit/9b40f6b47c8e37cb0eedc7a68246f4b29ccf7ca0))
+
+- **resources**: Extend test data generator
+  ([`ea1d91d`](https://github.com/anaticulae/ibidem/commit/ea1d91d31375cb4f8b6088c9aec396118095734b))
+
+- **resources**: Shorten text data generator
+  ([`19a11fa`](https://github.com/anaticulae/ibidem/commit/19a11fa74e042a8a45dda4d39b8bd003dc3d1f0e))
+
+### Features
+
+- **highnote**: Add separate step
+  ([`6adc1bd`](https://github.com/anaticulae/ibidem/commit/6adc1bdcbcee26f007f68a7ce6e2bab1fe3e11b1))
+
+- **plain**: Move plain strategy to separate step
+  ([`dc861eb`](https://github.com/anaticulae/ibidem/commit/dc861eb195d137207d1f369eb3979cc77fb31cae))
+
+- **result**: Use data from separate steps
+  ([`3fbf479`](https://github.com/anaticulae/ibidem/commit/3fbf47953cd46dba0d61602b2414a9ad334683d5))
+
+### Refactoring
+
+- **layout**: Improve naming
+  ([`c576672`](https://github.com/anaticulae/ibidem/commit/c576672746d0c9adb028196fe2a9cdf772d4f93b))
+
+- **move**: Move highnote check
+  ([`82fb2b5`](https://github.com/anaticulae/ibidem/commit/82fb2b57d734f409ff5287e1d938867e4b33f378))
+
+- **moving**: Remove unused interface
+  ([`662c91f`](https://github.com/anaticulae/ibidem/commit/662c91ff773fb2b9ba0cd985c0cfaf525c342e5e))
+
+- **remove**: Size and border is already in ptn included
+  ([`da0a05d`](https://github.com/anaticulae/ibidem/commit/da0a05d0ba2a6fcd5153a67d0d5139891cef7ecd))
+
+- **rotate**: Move to better place
+  ([`e1ab686`](https://github.com/anaticulae/ibidem/commit/e1ab686c1ef32cc378a31e2f0467d4634f0892e1))
+
+### Testing
+
+- **rename**: Shorten naming
+  ([`7a60186`](https://github.com/anaticulae/ibidem/commit/7a601862239516b490f3d5f381d38a2842e1c3d9))
+
+
+## v0.1.0 (2022-07-21)
+
+### Chores
+
+- **requirements**: Move requirement from groupme
+  ([`0230961`](https://github.com/anaticulae/ibidem/commit/0230961fe92ea83992744e36f1d4f2fc74e4f3b8))
+
+- **resources**: Adjust test data generator
+  ([`f06a87e`](https://github.com/anaticulae/ibidem/commit/f06a87e9568e2237b8b889b52db0ec94089be676))
+
+### Code Style
+
+- **docs**: Format docs
+  ([`981b140`](https://github.com/anaticulae/ibidem/commit/981b1406b91eaa7ed8feffcc9d9c8707cc81e6b8))
 
 ### Documentation
 
-* adjust to new project structure (a9ba6c99a030)
+- **strategy**: Adjust to new project structure
+  ([`a9ba6c9`](https://github.com/anaticulae/ibidem/commit/a9ba6c99a030930e80ad541a876cc6286c3005ab))
 
-## v0.0.0 Initial release
+### Features
+
+- **legacy**: Add legacy step to use data like groupme
+  ([`4561286`](https://github.com/anaticulae/ibidem/commit/456128605a2772e04d63448bef11d0c2b0084596))
+
+- **move**: Move code from groupme
+  ([`04804ea`](https://github.com/anaticulae/ibidem/commit/04804ea77bdcd3e580d2f855b187902d8f3ba3c2))
+
+- **moving**: Determine footnote end area due last footnote bounding
+  ([`4b8790a`](https://github.com/anaticulae/ibidem/commit/4b8790abe0e724ebafea0532ac2c0e6f65b284ef))
+
+- **strategy**: Ease data access
+  ([`f0f76e3`](https://github.com/anaticulae/ibidem/commit/f0f76e378fe012794b86b29efdc70c0504c6f68b))
+
+### Refactoring
+
+- **plain**: Remove default
+  ([`9da1cf4`](https://github.com/anaticulae/ibidem/commit/9da1cf401740169ba179b1f57ecdf39fbf22d864))
+
+- **rename**: Shorten naming
+  ([`a4e5c83`](https://github.com/anaticulae/ibidem/commit/a4e5c83a70a936c0463a44ae8de5a1403bb0f5e9))
+
+- **rename**: Shorten new method names
+  ([`0e3238b`](https://github.com/anaticulae/ibidem/commit/0e3238b7f845103f876288d826a9da250f1da83b))
+
+- **replace**: Remove unused page height
+  ([`cb401e0`](https://github.com/anaticulae/ibidem/commit/cb401e07988c4e86d1a07e460d7c299082f3384f))
+
+- **rotate**: Replace with texmex code
+  ([`da269a7`](https://github.com/anaticulae/ibidem/commit/da269a7149efcac53ceec776588869e5fc5029b1))
+
+- **strategy**: Improve naming
+  ([`2b5e4a0`](https://github.com/anaticulae/ibidem/commit/2b5e4a023363d6d08d0803af2e4c2a956ec47e97))
+
+- **strategy**: Move to a better place
+  ([`326941c`](https://github.com/anaticulae/ibidem/commit/326941c0fd88091bc803e28cb2582ac43897f491))
+
+- **strategy**: Simplify code
+  ([`f6c243f`](https://github.com/anaticulae/ibidem/commit/f6c243f40e882dbaf650a86b7b90d1947c64b888))
+
+### Testing
+
+- **baseline**: Adjust baseline
+  ([`0e0892a`](https://github.com/anaticulae/ibidem/commit/0e0892a753c3ca3078be2dc0835fd44810b95330))
+
+- **move**: Move tests from groupme
+  ([`19af7a0`](https://github.com/anaticulae/ibidem/commit/19af7a099372c924e6c5f7b17058f17affc7da72))
+
+- **refactor**: Reduce amount of code
+  ([`76f751e`](https://github.com/anaticulae/ibidem/commit/76f751e5f5bd275548e85dfb6795362515e6233a))
+
+
+## v0.0.0 (2022-07-19)
+
+- Initial Release

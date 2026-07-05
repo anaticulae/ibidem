@@ -45,6 +45,7 @@ dev = [
     "rawmaker==2.40.5",
     "pagenumber>=1.0.0,<2.0.0",
     "groupmes>=1.1.0,<2.0.0",
+    "resinf>=1.0.4,<2.0.0",
 ]
 
 [project.urls]

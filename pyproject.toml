@@ -108,5 +108,7 @@ packages = [
     "HOME",
     "MASTER",
     "ORDER",
+    "ORDER",
     "PAPER",
+    "TECH",
 ]

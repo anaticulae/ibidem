@@ -80,6 +80,9 @@ patch_tags = [
     "style",
     "test",
 ]
+minor_tags = [
+    "feat",
+]
 
 [tool.setuptools.packages.find]
 where = [

@@ -1,6 +1,5 @@
 ---
 version: 2
-
 updates:
   # Python dependencies
   - package-ecosystem: pip

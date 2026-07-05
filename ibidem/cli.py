@@ -9,7 +9,7 @@
 
 import utilo
 
-import footnote
+import ibidem
 
 DESCRIPTION = 'TODO'
 
@@ -65,14 +65,14 @@ def rename(path):
 def main():
     utilo.featurepack(
         workplan=WORKPLAN,
-        root=footnote.ROOT,
-        featurepackage='footnote.feature',
+        root=ibidem.ROOT,
+        featurepackage='ibidem.feature',
         config=utilo.FeaturePackConfig(
             description=DESCRIPTION,
             multiprocessed=True,
-            name=footnote.PROCESS,
+            name=ibidem.PROCESS,
             pages=True,
             rename=rename,
-            version=footnote.__version__,
+            version=ibidem.__version__,
         ),
     )

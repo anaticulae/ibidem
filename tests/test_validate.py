@@ -15,10 +15,10 @@ import serializeraw
 import utilo
 import utilotest
 
-import footnote
+import ibidem
 import tests
 
-ARCHIVE = utilo.join(footnote.ROOT, 'tests/expected', exist=True)
+ARCHIVE = utilo.join(ibidem.ROOT, 'tests/expected', exist=True)
 
 
 @pytest.mark.parametrize(

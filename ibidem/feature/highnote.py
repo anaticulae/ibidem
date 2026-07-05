@@ -9,9 +9,9 @@
 
 import serializeraw
 
-import footnote.config
-import footnote.strategy.highnote
-import footnote.utils
+import ibidem.config
+import ibidem.strategy.highnote
+import ibidem.utils
 
 
 def work(
@@ -24,16 +24,16 @@ def work(
     horizontals = serializeraw.load_horizontals(
         horizontals,
         pages=pages,
-        width_min=footnote.config.FOOTER_SEPARATOR_WIDTH_MIN,
+        width_min=ibidem.config.FOOTER_SEPARATOR_WIDTH_MIN,
     )
     ptns = serializeraw.ptn_fromfile(
         text,
         textpositions,
         pages=pages,
-        state=footnote.config.VISIBLE,
+        state=ibidem.config.VISIBLE,
     )
-    ptns = footnote.utils.rotate_ifrequired(ptns)
-    strategy = footnote.strategy.highnote.HighnoteStrategy(
+    ptns = ibidem.utils.rotate_ifrequired(ptns)
+    strategy = ibidem.strategy.highnote.HighnoteStrategy(
         horizontals=horizontals,
         ptns=ptns,
     )

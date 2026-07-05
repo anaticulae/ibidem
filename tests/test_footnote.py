@@ -11,7 +11,7 @@ import hoverpower
 import pytest
 import utilo
 
-import footnote.parser.textraw
+import ibidem.parser.textraw
 import tests.extractor
 import tests.fixtures.footnotes
 
@@ -22,13 +22,13 @@ import tests.fixtures.footnotes
 ])
 def test_footenote_parse_notes(example):
     raw, expected_footnotes = example[0], example[1]
-    parsed = footnote.parser.textraw.parse(raw)
+    parsed = ibidem.parser.textraw.parse(raw)
     assert len(parsed) == expected_footnotes
 
 
 def test_footenote_parse_notes_multiline():
     raw = tests.fixtures.footnotes.FOOTNOTES_SECOND[0]
-    parsed = footnote.parser.textraw.parse(raw)
+    parsed = ibidem.parser.textraw.parse(raw)
     assert len(parsed) == 23, len(parsed)
 
     assert parsed[0].number == 1

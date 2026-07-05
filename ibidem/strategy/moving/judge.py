@@ -13,8 +13,8 @@ import configos
 import iamraw
 import utilo
 
-import footnote.strategy
-import footnote.strategy.moving.utils
+import ibidem.strategy
+import ibidem.strategy.moving.utils
 
 # relation between detected and empty detected footer to reduce miss detection
 WRONG_STRATEGY_EMPTY_FOOTER_FACTOR = configos.HV_PERCENT_PLUS(default=20)
@@ -23,7 +23,7 @@ FOOTNOTE_NUMBER_ERROR_MAX = configos.HV_FLOAT_PLUS(default=0.4)
 
 
 @dataclasses.dataclass
-class MovingFooterResultReport(footnote.strategy.FootnoteExtractionReport):
+class MovingFooterResultReport(ibidem.strategy.FootnoteExtractionReport):
     footer: int = None
     header: int = None
     footer_empty: int = None
@@ -31,7 +31,7 @@ class MovingFooterResultReport(footnote.strategy.FootnoteExtractionReport):
 
 
 def last(result) -> list:
-    numbers = footnote.strategy.moving.utils.footnote_numbers_flat(result)
+    numbers = ibidem.strategy.moving.utils.footnote_numbers_flat(result)
     if footnote_number_error(numbers):
         utilo.debug('too many footnote number error, skip result')
         utilo.debug(numbers)
@@ -121,7 +121,7 @@ def footnote_number_error(numbers: list) -> bool:  # pylint:disable=R0911
         return False
     error_rate = utilo.rate_sum(error, fit)
     if error_rate > FOOTNOTE_NUMBER_ERROR_MAX:
-        if footnote.strategy.moving.utils.isendnote(numbers):
+        if ibidem.strategy.moving.utils.isendnote(numbers):
             return False
         return True
     return False

@@ -9,7 +9,7 @@
 
 import pytest
 
-import footnote.feature.result
+import ibidem.feature.result
 
 
 def test_judge_strategy_empty():
@@ -18,7 +18,7 @@ def test_judge_strategy_empty():
         [],
         [],
     ]
-    result = footnote.feature.result.judge_strategy(empty)
+    result = ibidem.feature.result.judge_strategy(empty)
     assert result == []  # pylint:disable=use-implicit-booleaness-not-comparison
     with pytest.raises(AssertionError):
-        footnote.feature.result.judge_strategy(None)
+        ibidem.feature.result.judge_strategy(None)

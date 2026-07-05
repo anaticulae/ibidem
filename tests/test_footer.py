@@ -14,15 +14,15 @@ import serializeraw
 import utilo
 import utilotest
 
-import footnote.feature.result
-import footnote.strategy.moving.run
+import ibidem.feature.result
+import ibidem.strategy.moving.run
 import tests
 import tests.extractor
 
 
 # TODO: CHECK 25
 @pytest.mark.parametrize('strategy, expected_results', [
-    (footnote.strategy.moving.run.MovingStrategy, 0),
+    (ibidem.strategy.moving.run.MovingStrategy, 0),
 ])
 @utilotest.requires(hoverpower.DOCU027_PDF)
 def test_footerheader_detectionstategy(

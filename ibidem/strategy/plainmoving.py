@@ -14,13 +14,13 @@ import iamraw
 import texmex
 import utilo
 
-import footnote.parser.plain
-import footnote.strategy
-import footnote.strategy.moving.judge
-import footnote.strategy.moving.run
+import ibidem.parser.plain
+import ibidem.strategy
+import ibidem.strategy.moving.judge
+import ibidem.strategy.moving.run
 
 
-class PlainMovingStrategy(footnote.strategy.moving.run.MovingStrategy):
+class PlainMovingStrategy(ibidem.strategy.moving.run.MovingStrategy):
 
     def __init__(
         self,
@@ -30,7 +30,7 @@ class PlainMovingStrategy(footnote.strategy.moving.run.MovingStrategy):
         super().__init__(
             horizontals,
             ptns,
-            footnote_strategy=footnote.parser.plain.parse,
+            footnote_strategy=ibidem.parser.plain.parse,
             invalid_footer=invalid_footer,
         )
 
@@ -40,10 +40,10 @@ class PlainMovingStrategy(footnote.strategy.moving.run.MovingStrategy):
             detected = []
         return detected
 
-    def report(self) -> footnote.strategy.FootnoteExtractionReport:
+    def report(self) -> ibidem.strategy.FootnoteExtractionReport:
         # TODO: Avoid multiple computation, require  concept.
         detected = self.result()
-        report = footnote.strategy.moving.judge.analyze(detected)
+        report = ibidem.strategy.moving.judge.analyze(detected)
         return report
 
 

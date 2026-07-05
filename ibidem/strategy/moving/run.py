@@ -25,14 +25,14 @@ import iamraw
 import texmex
 import utilo
 
-import footnote.parser.highnote
-import footnote.strategy
-import footnote.strategy.moving.finish
-import footnote.strategy.moving.judge
-import footnote.strategy.moving.separator
+import ibidem.parser.highnote
+import ibidem.strategy
+import ibidem.strategy.moving.finish
+import ibidem.strategy.moving.judge
+import ibidem.strategy.moving.separator
 
 
-class MovingStrategy(footnote.strategy.FootnoteDetectionStrategy):
+class MovingStrategy(ibidem.strategy.FootnoteDetectionStrategy):
 
     def __init__(
         self,
@@ -49,7 +49,7 @@ class MovingStrategy(footnote.strategy.FootnoteDetectionStrategy):
         self.invalid_footer = invalid_footer
 
     def run(self):
-        horizontals = footnote.strategy.moving.separator.footer_separator(
+        horizontals = ibidem.strategy.moving.separator.footer_separator(
             self.horizontals,
             self.pagesize,
         )
@@ -73,20 +73,20 @@ class MovingStrategy(footnote.strategy.FootnoteDetectionStrategy):
         utilo.verbose('footer before merge:')
         utilo.verbose(detected)
         utilo.verbose()
-        result = footnote.strategy.moving.finish.merge_footer_pages(detected)
+        result = ibidem.strategy.moving.finish.merge_footer_pages(detected)
         utilo.verbose('footer after merge:')
         utilo.verbose(result)
         utilo.verbose()
-        result = footnote.strategy.moving.judge.last(result)
+        result = ibidem.strategy.moving.judge.last(result)
         utilo.verbose('footer after last:')
         utilo.verbose(result)
         utilo.verbose()
         return result
 
-    def report(self) -> footnote.strategy.FootnoteExtractionReport:
+    def report(self) -> ibidem.strategy.FootnoteExtractionReport:
         # TODO: Avoid multiple computation, require  concept.
         detected = self.result()
-        result = footnote.strategy.moving.judge.report(detected)
+        result = ibidem.strategy.moving.judge.report(detected)
         return result
 
 
@@ -99,7 +99,7 @@ def process_page(
     # determine start of footer
     footer = None
     # check PAGENUMBR RAW? OR INHERIT FROM PTN?
-    bottomed = footnote.strategy.moving.separator.select_footer_line(
+    bottomed = ibidem.strategy.moving.separator.select_footer_line(
         horizontals,
         pagewidth=ptn.width,
         pageheight=ptn.height,
@@ -125,12 +125,12 @@ def extract_footer(
     invalid_footer: callable = None,
 ) -> iamraw.MovingFooterInformation:
     if footnote_strategy is None:
-        footnote_strategy = footnote.parser.highnote.parse
+        footnote_strategy = ibidem.parser.highnote.parse
     begin = utilo.roundme(footerstart / ptn.height)
     content = ptn.after(
         begin,
         selector=texmex.SelectBounding.BOTTOM,
-        state=footnote.config.VISIBLE,
+        state=ibidem.config.VISIBLE,
     )
     if invalid_footer and invalid_footer(begin, content):
         utilo.debug(f'invalid footer on page {ptn.page}: {content}')

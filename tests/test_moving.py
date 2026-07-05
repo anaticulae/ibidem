@@ -14,9 +14,9 @@ import serializeraw
 import utilo
 import utilotest
 
-import footnote.feature.result
-import footnote.strategy.moving.run
-import footnote.strategy.plainmoving
+import ibidem.feature.result
+import ibidem.strategy.moving.run
+import ibidem.strategy.plainmoving
 
 
 def validate_master72(result):
@@ -40,7 +40,7 @@ def validate_homework18(result):
         utilo.rtuple(20),
         [(3, 6), (6, 3), (7, 2), (8, 4), (9, 1), (10, 4), (11, 3), (12, 2),
          (13, 6), (14, 7), (15, 8), (16, 10), (17, 8), (18, 7), (19, 8)],
-        footnote.strategy.moving.run.MovingStrategy,
+        ibidem.strategy.moving.run.MovingStrategy,
         validate_master72,
         id='master72pages',
     ),
@@ -49,7 +49,7 @@ def validate_homework18(result):
         utilo.rtuple(20),
         [(9, 2), (10, 3), (11, 2), (12, 1), (13, 1), (15, 2), (16, 1), (17, 8),
          (18, 3), (19, 1)],
-        footnote.strategy.moving.run.MovingStrategy,
+        ibidem.strategy.moving.run.MovingStrategy,
         None,
         id='bachelor111pages',
     ),
@@ -57,7 +57,7 @@ def validate_homework18(result):
         hoverpower.DOCU027_PDF,
         utilo.rtuple(20),
         [],
-        footnote.strategy.moving.run.MovingStrategy,
+        ibidem.strategy.moving.run.MovingStrategy,
         None,
         id='docu027',
     ),
@@ -65,7 +65,7 @@ def validate_homework18(result):
         hoverpower.MASTER110_PDF,
         None,
         [],
-        footnote.strategy.moving.run.MovingStrategy,
+        ibidem.strategy.moving.run.MovingStrategy,
         None,
         id='master110',
     ),
@@ -73,7 +73,7 @@ def validate_homework18(result):
         hoverpower.DISS178_PDF,
         (22,),
         [(22, 5)],
-        footnote.strategy.moving.run.MovingStrategy,
+        ibidem.strategy.moving.run.MovingStrategy,
         None,
         id='diss178page22',
     ),
@@ -81,7 +81,7 @@ def validate_homework18(result):
         hoverpower.HOME018_PDF,
         utilo.rtuple(6),
         [(3, 3), (4, 4), (5, 7)],
-        footnote.strategy.plainmoving.PlainMovingStrategy,
+        ibidem.strategy.plainmoving.PlainMovingStrategy,
         validate_homework18,
         id='home18',
     ),
@@ -89,7 +89,7 @@ def validate_homework18(result):
         hoverpower.BACHELOR090_PDF,
         utilo.rtuple(18, 25),
         [(18, 2), (19, 1), (21, 1), (22, 3), (23, 4)],
-        footnote.strategy.moving.run.MovingStrategy,
+        ibidem.strategy.moving.run.MovingStrategy,
         validate_bachelor90,
         id='bachelor90',
         marks=pytest.mark.xfail(reason='pdf is not printed correctly'),
@@ -110,7 +110,7 @@ def test_moving(
     """
     utilotest.fixture_requires(source)
     source = hoverpower.link(source)
-    strategy = footnote.strategy.create_strategy(
+    strategy = ibidem.strategy.create_strategy(
         path=source,
         strategy=strategy,
         pages=pages,

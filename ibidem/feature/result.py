@@ -67,7 +67,7 @@ def judge_strategy(
         - PlainMoving:
 
     Args:
-        results: lists of `footnote.FootnoteDetectionStrategy`.result
+        results: lists of `ibidem.FootnoteDetectionStrategy`.result
     Returns:
         list of zipped result
     """

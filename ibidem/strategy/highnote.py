@@ -10,11 +10,11 @@
 import iamraw
 import texmex
 
-import footnote.parser.highnote
-import footnote.strategy.moving.run
+import ibidem.parser.highnote
+import ibidem.strategy.moving.run
 
 
-class HighnoteStrategy(footnote.strategy.moving.run.MovingStrategy):
+class HighnoteStrategy(ibidem.strategy.moving.run.MovingStrategy):
 
     def __init__(
         self,
@@ -24,6 +24,6 @@ class HighnoteStrategy(footnote.strategy.moving.run.MovingStrategy):
         super().__init__(
             horizontals,
             ptns,
-            footnote_strategy=footnote.parser.highnote.parse,
+            footnote_strategy=ibidem.parser.highnote.parse,
             invalid_footer=None,
         )

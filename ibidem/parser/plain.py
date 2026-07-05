@@ -11,8 +11,8 @@ import configos
 import iamraw
 import utilo
 
-import footnote.layout
-import footnote.utils
+import ibidem.layout
+import ibidem.utils
 
 
 def parse(content: list, width: float = 594.0, pagenumber: int = None) -> list:
@@ -33,12 +33,12 @@ def parse_group(
     pagenumber: int,
 ) -> iamraw.FootNoteRaw:
     x0 = multiline[0].bounding[0]  # first line x0
-    if x0 >= footnote.layout.FOOTNOTE_X0_MAX(width):
+    if x0 >= ibidem.layout.FOOTNOTE_X0_MAX(width):
         # potential highnote is located too right
         return None
     raw = utilo.NEWLINE.join([item.text.strip() for item in multiline])
-    raw = footnote.utils.hyperlink_improve(raw)
-    number, content = footnote.utils.search_footnote(raw)
+    raw = ibidem.utils.hyperlink_improve(raw)
+    number, content = ibidem.utils.search_footnote(raw)
     text = utilo.normalize_text(
         content,
         normalize_spaces=True,
@@ -60,7 +60,7 @@ def parse_group(
 
 
 def prepare(content: list, pdfpage: int) -> list:
-    neighbors = footnote.layout.connect_neighbors(content)
+    neighbors = ibidem.layout.connect_neighbors(content)
     collected = [merges(neighbor, pdfpage) for neighbor in neighbors]
     result = utilo.flat(collected)
     return result
@@ -102,7 +102,7 @@ def new_footnote(
     merge_line_min: int = MERGE_LINE_MIN,
 ) -> bool:
     text = text.strip()
-    matched = footnote.utils.NUMBER_TEXT.match(text)
+    matched = ibidem.utils.NUMBER_TEXT.match(text)
     if not matched:
         return False
     if len(text) < merge_line_min:

@@ -11,7 +11,7 @@ import configos
 import iamraw
 import utilo
 
-import footnote.layout
+import ibidem.layout
 
 FOOTER_SEPARATOR_COUNT_MIN = configos.HV_INT_PLUS(default=10)
 
@@ -78,8 +78,8 @@ def valid_footer_separators(
     # skip horizontals which are located too top
     filtered = [item for item in horizontals if item.box.y0 >= footer_start]
     # potential footer is located too right
-    x0_max = footnote.layout.FOOTNOTE_X0_MAX(pagewidth)
-    x1_max = footnote.layout.FOOTNOTE_X1_MAX(pagewidth)
+    x0_max = ibidem.layout.FOOTNOTE_X0_MAX(pagewidth)
+    x1_max = ibidem.layout.FOOTNOTE_X1_MAX(pagewidth)
     good_x0 = [item for item in filtered if item.box.x0 <= x0_max]
     good_x0x1 = [
         item for item in filtered

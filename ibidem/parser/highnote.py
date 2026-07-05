@@ -11,8 +11,8 @@ import configos
 import iamraw
 import utilo
 
-import footnote.layout
-import footnote.utils
+import ibidem.layout
+import ibidem.utils
 
 FOOTNOTE_TEXT_LENGTH_MIN = configos.HV_INT_PLUS(default=len('ebd.'))
 
@@ -32,7 +32,7 @@ def parse(
     """
     # append newline to improve merge result
     content = append_newline(content)
-    grouped = footnote.layout.group_footnote_area(content)
+    grouped = ibidem.layout.group_footnote_area(content)
     result = []
     for group in grouped:
         parsed = parse_group(group, width=width, pagenumber=pagenumber)
@@ -48,7 +48,7 @@ def parse_group(group, width: int, pagenumber: int) -> iamraw.FootNoteRaw:
     if has_highnote:
         x0 = number.bounding[0]
         # TODO: REPLACE WITH DUE PAGE SIZE FORMATS
-        if x0 >= footnote.layout.FOOTNOTE_X0_MAX(width):
+        if x0 >= ibidem.layout.FOOTNOTE_X0_MAX(width):
             # potential highnote is located too right
             return None
     if len(note.text) < FOOTNOTE_TEXT_LENGTH_MIN:
@@ -56,13 +56,13 @@ def parse_group(group, width: int, pagenumber: int) -> iamraw.FootNoteRaw:
         return None
     notenumber = None
     if has_highnote:
-        notenumber = footnote.utils.parse_footnote_number(number.text)
+        notenumber = ibidem.utils.parse_footnote_number(number.text)
     if not note.text.strip():
         utilo.error(f'could not parse footnote: {number}, no text content')
         return None
     bounding = tuple(note.bounding) if note.bounding else None
     bounding_number = tuple(number.bounding) if has_highnote else None
-    text = footnote.utils.hyperlink_improve(note.text)
+    text = ibidem.utils.hyperlink_improve(note.text)
     text = utilo.normalize_text(text, strips=True)
     # TODO: GO MORE BACK TO ORIGIN
     raw = number.text + note.text if has_highnote else note.text

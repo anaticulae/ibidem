@@ -33,7 +33,7 @@ import serializeraw
 import texmex
 import utilo
 
-import footnote.config
+import ibidem.config
 
 
 @dataclasses.dataclass  # pylint:disable=R0903
@@ -103,12 +103,12 @@ def create_strategy(
     horizontals = serializeraw.load_horizontals(
         path,
         pages=pages,
-        width_min=footnote.config.FOOTER_SEPARATOR_WIDTH_MIN,
+        width_min=ibidem.config.FOOTER_SEPARATOR_WIDTH_MIN,
     )
     ptn = serializeraw.ptn_frompath(
         path,
         pages=pages,
-        state=footnote.config.VISIBLE,
+        state=ibidem.config.VISIBLE,
     )
     result = strategy(
         horizontals=horizontals,

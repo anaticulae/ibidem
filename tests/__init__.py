@@ -10,8 +10,8 @@
 import hoverpower
 import utilotest
 
-import footnote
+import ibidem
 
-hoverpower.setup(footnote.ROOT)
+hoverpower.setup(ibidem.ROOT)
 
-run, fail = utilotest.create_cli_runner(footnote)
+run, fail = utilotest.create_cli_runner(ibidem)

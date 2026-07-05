@@ -14,7 +14,7 @@ import utilotest
 from utilotest import mp  # pylint:disable=W0611
 from utilotest import td  # pylint:disable=W0611
 
-import footnote
+import ibidem
 # pylint:disable=W0611
 from tests.fixtures import bachelor111page10
 from tests.fixtures import master72page14
@@ -23,7 +23,7 @@ from tests.fixtures import master89page19
 
 pytest_plugins = ['pytester', 'xdist']  # pylint: disable=invalid-name
 
-PACKAGE = footnote.PROCESS
+PACKAGE = ibidem.PROCESS
 
 RESOURCES = [
     (hoverpower.BACHELOR051_PDF, '0:25'),

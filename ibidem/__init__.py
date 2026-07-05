@@ -10,7 +10,7 @@
 import importlib.metadata
 import os
 
-__version__ = importlib.metadata.version('footnote')
+__version__ = importlib.metadata.version('ibidem')
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 PROCESS = 'footnote'

@@ -15,7 +15,7 @@ import iamraw
 import texmex
 import utilo
 
-import footnote.utils
+import ibidem.utils
 
 HIGHNOTE_VERTICAL_LINE_DIFF_MAX = configos.HV_FLOAT_PLUS(default=15.0)
 
@@ -302,6 +302,6 @@ def ishighnote(style, text: str) -> bool:
     if not highnote_occurs:
         return False
     text = text[style.start:style.end].strip()
-    if footnote.utils.NUMBER.match(text):
+    if ibidem.utils.NUMBER.match(text):
         return True
     return False

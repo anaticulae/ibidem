@@ -9,14 +9,14 @@
 
 import utilotest
 
-import footnote.layout
-import footnote.parser.highnote
+import ibidem.layout
+import ibidem.parser.highnote
 
 
 @utilotest.longrun
 def test_footnote_highnotes_split(master72page14):
     footer = master72page14
-    splitted = list(footnote.layout.split_textinfo(footer))
+    splitted = list(ibidem.layout.split_textinfo(footer))
     assert splitted, splitted
     assert len(splitted) == 7, splitted
 
@@ -28,10 +28,10 @@ def test_footnote_highnotes_split_mixed_in_text(master89page7):
     In this example, there is a highnote inside the text flow.
     """
     footer = master89page7
-    splitted = list(footnote.layout.split_textinfo(footer))
+    splitted = list(ibidem.layout.split_textinfo(footer))
     assert splitted, splitted
     assert len(splitted) == 2, splitted
-    merged = footnote.layout.merge_online(splitted)
+    merged = ibidem.layout.merge_online(splitted)
     assert len(merged) == 1, merged
 
 
@@ -43,11 +43,11 @@ def test_footnote_highnotes_split_mixed_in_text_tripple(master89page19):
     this there are two more footnotes.
     """
     footer = master89page19
-    footer = footnote.parser.highnote.append_newline(footer)
-    splitted = list(footnote.layout.split_textinfo(footer))
+    footer = ibidem.parser.highnote.append_newline(footer)
+    splitted = list(ibidem.layout.split_textinfo(footer))
     assert splitted, splitted
     assert len(splitted) == 4, splitted
-    merged = footnote.layout.merge_online(splitted)
+    merged = ibidem.layout.merge_online(splitted)
     assert len(merged) == 3, merged
 
     thirdnote_text = merged[2][1].text

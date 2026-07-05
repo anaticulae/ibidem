@@ -6,7 +6,7 @@ requires = [
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "footnote"
+name = "ibidem"
 version = "0.2.6"
 description = ""
 requires-python = ">=3.12"
@@ -49,11 +49,11 @@ dev = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/anaticulae/footnote"
-Repository = "https://github.com/anaticulae/footnote"
+Homepage = "https://github.com/anaticulae/ibidem"
+Repository = "https://github.com/anaticulae/ibidem"
 
 [project.scripts]
-footnote = "footnote.cli:main"
+footnote = "ibidem.cli:main"
 
 [tool.semantic_release]
 version_toml = [
@@ -86,11 +86,11 @@ where = [
     ".",
 ]
 include = [
-    "footnote",
-    "footnote.feature",
-    "footnote.parser",
-    "footnote.strategy",
-    "footnote.strategy.moving",
+    "ibidem",
+    "ibidem.feature",
+    "ibidem.parser",
+    "ibidem.strategy",
+    "ibidem.strategy.moving",
 ]
 exclude = [
     "tests*",

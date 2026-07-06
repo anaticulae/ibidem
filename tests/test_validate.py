@@ -17,6 +17,7 @@ import utilotest
 
 import ibidem
 import tests
+import tests.conftest
 
 ARCHIVE = utilo.join(ibidem.ROOT, 'tests/expected', exist=True)
 

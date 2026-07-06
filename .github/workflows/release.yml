@@ -1,16 +1,12 @@
 ---
 name: Release
-
 on:
   push:
     branches: [main]
-
 env:
   GH_TOKEN: ${{ secrets.REPO }}
-
 permissions:
   contents: write
-
 jobs:
   release:
     runs-on: ubuntu-24.04

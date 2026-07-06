@@ -1,6 +1,14 @@
 # CHANGELOG
 
 
+## v1.0.2 (2026-07-06)
+
+### Chores
+
+- **pyproject**: Remove duplicated download
+  ([`0ae3aa5`](https://github.com/anaticulae/ibidem/commit/0ae3aa58814bf01dc836d4f3d132c290972901bc))
+
+
 ## v1.0.1 (2026-07-06)
 
 ### Chores

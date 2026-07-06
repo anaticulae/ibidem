@@ -1,6 +1,25 @@
 # CHANGELOG
 
 
+## v1.0.1 (2026-07-06)
+
+### Chores
+
+- **pyproject**: Add cleanup
+  ([`58fdca6`](https://github.com/anaticulae/ibidem/commit/58fdca61490b0dc1c91555fee17391f6caa6b477))
+
+- **test**: Add decryption step
+  ([`28b33a0`](https://github.com/anaticulae/ibidem/commit/28b33a0fcedaed81ffa8343566fe1a4539327542))
+
+### Code Style
+
+- **conftest**: Add missing import
+  ([`e514980`](https://github.com/anaticulae/ibidem/commit/e514980fe69a3df9640e48b264b6590262cd61e2))
+
+- **github**: Format code
+  ([`58e53c2`](https://github.com/anaticulae/ibidem/commit/58e53c2f26ea5cca7b7061afffe077ef74d4dec5))
+
+
 ## v1.0.0 (2026-07-05)
 
 ### Chores
